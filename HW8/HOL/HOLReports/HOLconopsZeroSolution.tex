@@ -1,0 +1,115 @@
+\newcommand{\HOLconopsZeroSolutionDate}{19 March 2019}
+\newcommand{\HOLconopsZeroSolutionTime}{18:05}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionDatatypescommands}
+\HOLFreeVar{commands} = \HOLConst{go} \HOLTokenBar{} \HOLConst{nogo} \HOLTokenBar{} \HOLConst{launch} \HOLTokenBar{} \HOLConst{abort} \HOLTokenBar{} \HOLConst{activate} \HOLTokenBar{} \HOLConst{stand_down}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionDatatypescommands}{\UseVerbatim{HOLconopsZeroSolutionDatatypescommands}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionDatatypeskeyPrinc}
+\HOLFreeVar{keyPrinc} = \HOLConst{Staff} \HOLTyOp{people} \HOLTokenBar{} \HOLConst{Role} \HOLTyOp{roles} \HOLTokenBar{} \HOLConst{Ap} \HOLTyOp{num}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionDatatypeskeyPrinc}{\UseVerbatim{HOLconopsZeroSolutionDatatypeskeyPrinc}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionDatatypespeople}
+\HOLFreeVar{people} = \HOLConst{Alice} \HOLTokenBar{} \HOLConst{Bob}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionDatatypespeople}{\UseVerbatim{HOLconopsZeroSolutionDatatypespeople}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionDatatypesprincipals}
+\HOLFreeVar{principals} = \HOLConst{PR} \HOLTyOp{keyPrinc} \HOLTokenBar{} \HOLConst{Key} \HOLTyOp{keyPrinc}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionDatatypesprincipals}{\UseVerbatim{HOLconopsZeroSolutionDatatypesprincipals}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionDatatypesroles}
+\HOLFreeVar{roles} = \HOLConst{Commander} \HOLTokenBar{} \HOLConst{Operator} \HOLTokenBar{} \HOLConst{CA}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionDatatypesroles}{\UseVerbatim{HOLconopsZeroSolutionDatatypesroles}}
+\newcommand{\HOLconopsZeroSolutionDatatypes}{
+\HOLconopsZeroSolutionDatatypescommands\HOLconopsZeroSolutionDatatypeskeyPrinc\HOLconopsZeroSolutionDatatypespeople\HOLconopsZeroSolutionDatatypesprincipals\HOLconopsZeroSolutionDatatypesroles}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionTheoremsApRuleActivateXXthm}
+\HOLTokenTurnstile{} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{controls} \HOLConst{prop} \HOLConst{launch} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{reps} (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob}))) (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})))
+     (\HOLConst{prop} \HOLConst{launch}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{says}
+   \HOLConst{prop} \HOLConst{launch} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{launch} \HOLConst{impf} \HOLConst{prop} \HOLConst{activate} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{says}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{controls}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{activate}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionTheoremsApRuleActivateXXthm}{\UseVerbatim{HOLconopsZeroSolutionTheoremsApRuleActivateXXthm}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionTheoremsApRuleStandDownXXthm}
+\HOLTokenTurnstile{} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{controls} \HOLConst{prop} \HOLConst{abort} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{reps} (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob}))) (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})))
+     (\HOLConst{prop} \HOLConst{abort}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{says}
+   \HOLConst{prop} \HOLConst{abort} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{abort} \HOLConst{impf} \HOLConst{prop} \HOLConst{stand_down} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{says}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{controls}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Bob})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{stand_down}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionTheoremsApRuleStandDownXXthm}{\UseVerbatim{HOLconopsZeroSolutionTheoremsApRuleStandDownXXthm}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionTheoremsOpRuleAbortXXthm}
+\HOLTokenTurnstile{} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})) \HOLConst{controls} \HOLConst{prop} \HOLConst{nogo} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{reps} (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice}))) (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})))
+     (\HOLConst{prop} \HOLConst{nogo}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{quoting}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})) \HOLConst{says} \HOLConst{prop} \HOLConst{nogo} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{nogo} \HOLConst{impf} \HOLConst{prop} \HOLConst{abort} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{says}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{controls}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{says}
+   \HOLConst{prop} \HOLConst{abort}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionTheoremsOpRuleAbortXXthm}{\UseVerbatim{HOLconopsZeroSolutionTheoremsOpRuleAbortXXthm}}
+\begin{SaveVerbatim}{HOLconopsZeroSolutionTheoremsOpRuleLaunchXXthm}
+\HOLTokenTurnstile{} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})) \HOLConst{controls} \HOLConst{prop} \HOLConst{go} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{reps} (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice}))) (\HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})))
+     (\HOLConst{prop} \HOLConst{go}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{quoting}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Commander})) \HOLConst{says} \HOLConst{prop} \HOLConst{go} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{go} \HOLConst{impf} \HOLConst{prop} \HOLConst{launch} \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{says}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{CA})) \HOLConst{controls}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Alice})) \HOLConst{speaks_for} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Staff} \HOLConst{Alice})) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat}
+   \HOLConst{Name} (\HOLConst{Key} (\HOLConst{Staff} \HOLConst{Bob})) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{PR} (\HOLConst{Role} \HOLConst{Operator})) \HOLConst{says}
+   \HOLConst{prop} \HOLConst{launch}
+\end{SaveVerbatim}
+\newcommand{\HOLconopsZeroSolutionTheoremsOpRuleLaunchXXthm}{\UseVerbatim{HOLconopsZeroSolutionTheoremsOpRuleLaunchXXthm}}
+\newcommand{\HOLconopsZeroSolutionTheorems}{
+\HOLThmTag{conops0Solution}{ApRuleActivate_thm}\HOLconopsZeroSolutionTheoremsApRuleActivateXXthm
+\HOLThmTag{conops0Solution}{ApRuleStandDown_thm}\HOLconopsZeroSolutionTheoremsApRuleStandDownXXthm
+\HOLThmTag{conops0Solution}{OpRuleAbort_thm}\HOLconopsZeroSolutionTheoremsOpRuleAbortXXthm
+\HOLThmTag{conops0Solution}{OpRuleLaunch_thm}\HOLconopsZeroSolutionTheoremsOpRuleLaunchXXthm
+}

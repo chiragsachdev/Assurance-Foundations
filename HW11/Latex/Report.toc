@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}Executive Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Excercise 17.3.1}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Problem statement}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Proof 17.3.1 A}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Relevant Code}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Session Transcript}{8}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Proof 17.3.1 B}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Relevant Code}{9}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Session Transcript}{10}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Proof 17.3.1 C}{10}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Relevant Code}{10}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Session Transcript}{11}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Proof 17.3.1 D}{11}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Relevant Code}{11}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Session Transcript}{12}{subsection.2.5.2}
+\contentsline {chapter}{\numberline {3}Excercise 17.3.3}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem statement}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Proof 17.3.3 A}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Relevant Code}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Session Transcript}{17}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Proof 17.3.3 B}{18}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Relevant Code}{18}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Session Transcript}{22}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Proof 17.3.3 C}{23}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Relevant Code}{23}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Session Transcript}{27}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {A}Source code: ssm1Script}{28}{appendix.A}
+\contentsline {chapter}{\numberline {B}Source code: SM0Script}{35}{appendix.B}
+\contentsline {chapter}{\numberline {C}Source code: SMOSolutionsScript}{41}{appendix.C}

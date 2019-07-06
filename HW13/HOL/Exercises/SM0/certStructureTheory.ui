@@ -1,0 +1,6 @@
+$(HOLDIR)/sigobj/Overlay
+$(HOLDIR)/sigobj/Thm
+$(HOLDIR)/sigobj/term_grammar
+$(HOLDIR)/sigobj/type_grammar
+/home/csbd/Documents/COURSES/csbd/HW13/HOL/Exercises/SM0/certStructureTheory
+/home/csbd/Documents/COURSES/csbd/HW13/HOL/Exercises/SM0/certStructureTheory.sig

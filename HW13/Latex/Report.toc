@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}Executive Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Problem statement}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}SM0r2 Solutions}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Proof of SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma}{11}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Relevant Code}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Session Transcript}{14}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Proof of SM0r2_Commander_Alice_trap_privcmd_justified_thm}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Relevant Code}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Session Transcript}{16}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Proof of SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm}{16}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Relevant Code}{16}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Session Transcript}{17}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}SM0r3 Solutions}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Proof of certificatesr3a_certsr2a_map_thm}{18}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Relevant Code}{18}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Session Transcript}{18}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Proof of SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma}{18}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Relevant Code}{18}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Session Transcript}{19}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Proof of SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm}{20}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Relevant Code}{20}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Session Transcript}{22}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Proof of SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm}{23}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Relevant Code}{23}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Session Transcript}{24}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Proof of SM0r3_Alice_TR2_iff_TR_trap_privcmd}{24}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Relevant Code}{24}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Session Transcript}{28}{subsection.4.5.2}
+\contentsline {chapter}{\numberline {A}Source Code for SM0r3Solutions.sml}{29}{appendix.A}

@@ -1,0 +1,421 @@
+\documentclass{report}
+\title{Homework 6}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 6}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW6 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically,
+\begin{description}
+\item[Report Contents] \ \\
+  Our report has the following content:
+  \begin{enumerate}[{}]
+  \item Chapter~\ref{cha:executive-summary}: Executive Summary
+  \item Chapter~\ref{cha:9.5.1}: Exercise 9.5.1
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-9-5-1}: Problem Statement
+    \item Section~\ref{rel-code-9-5-1}: Relevant Code 
+    \item Section~\ref{trans-9-5-1}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:9.5.2}: Exercise 9.5.2
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-9-5-2}: Problem Statement
+    \item Section~\ref{rel-code-9-5-2}: Relevant Code
+    \item Section~\ref{trans-9-5-2}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:9.5.3}: Exercise 9.5.3
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-9-5-3}: Problem Statement
+    \item Section~\ref{rel-code-9-5-3}: Relevant Code
+    \item Section~\ref{trans-9-5-3}: Session Transcripts
+    \end{enumerate}
+%
+ \item Chapter~\ref{cha:10.4.1}: Exercise 10.4.1
+  \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-10-4-1}: Problem Statement
+    \item Section~\ref{rel-code-10-4-1}: Relevant Code 
+    \item Section~\ref{trans-10-4-1}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:10.4.2}: Exercise 10.4.2
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-10-4-2}: Problem Statement
+    \item Section~\ref{rel-code-10-4-2}: Relevant Code
+    \item Section~\ref{trans-10-4-2}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:10.4.3}: Exercise 10.4.3
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-10-4-3}: Problem Statement
+    \item Section~\ref{rel-code-10-4-3}: Relevant Code
+    \item Section~\ref{trans-10-4-3}: Session Transcripts
+    \end{enumerate}
+ \item Appendix~\ref{cha:source-code-ex9}: Source Code Ex 9
+ \item Appendix~\ref{cha:source-code-ex10}: Source Code Ex 10
+  \end{enumerate}
+\item[Reproducibility in ML and \LaTeX{}] \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+\end{description}
+
+
+
+%Ex 9.5.1
+\chapter{Excercise 9.5.1}
+\label{cha:9.5.1}
+
+\section{Problem statement}
+\label{problem-statement-9-5-1}
+Do a tactic-based proof of the absorption rule, and do \textbf{not} use \emph{PROVE TAC}:
+\emph{[absorptionRule]}
+ $\forall$ p q. (p ==> q) ==> p ==> p $\land$ q
+
+\section{Relevant Code}
+\label{rel-code-9-5-1}
+\begin{lstlisting}[frame=TBlr]
+val absorptionRule =
+TAC_PROOF
+(
+ ([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+ (REPEAT STRIP_TAC THENL
+ [(ACCEPT_TAC (ASSUME ``p: bool``)),
+ RES_TAC])
+);
+
+val _ = save_thm("absorptionRule",absorptionRule);
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-9-5-1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+> val absorptionRule =
+TAC_PROOF
+(
+ ([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+ (REPEAT STRIP_TAC THENL
+ [(ACCEPT_TAC (ASSUME ``p: bool``)),
+ RES_TAC])
+);
+# # # # # # # val absorptionRule =
+   |- !(p :bool) (q :bool). (p ==> q) ==> p ==> p /\ q:
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 9.5.2
+\chapter{Excercise 9.5.2}
+\label{cha:9.5.2}
+
+\section{Problem statement}
+\label{problem-statement-9-5-2}
+Do a tactic-based proof of the constructive dilemma rule, and do not use \textbf{PROVE TAC}:
+\emph{[constructiveDilemmaRule]}
+ $\forall$ p q r s. (p ==> q) $\land$ (r ==> s) ==> p $\lor$ r ==> q $\lor$ s
+ 
+\section{Relevant Code}
+\label{rel-code-9-5-2}
+\begin{lstlisting}[frame=TBlr]
+> val constructiveDilemmaRule =
+TAC_PROOF(
+ ([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+ (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+ (REPEAT STRIP_TAC THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[] THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[])
+);
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-9-5-2}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+> val constructiveDilemmaRule =
+TAC_PROOF(
+ ([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+ (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+ (REPEAT STRIP_TAC THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[] THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[])
+);
+# # # # # # # # # val constructiveDilemmaRule =
+   |- !(p :bool) (q :bool) (r :bool) (s :bool).
+     (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s:
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 9.5.3
+\chapter{Excercise 9.5.3}
+\label{cha:9.5.3}
+
+
+\section{Problem statement}
+\label{problem-statement-9-5-3}
+Repeat the previous exercises using \emph{PROVE_TAC}.
+\section{Relevant Code}
+\label{rel-code-9-5-3}
+\begin{lstlisting}[frame=TBlr]
+> val absorptionRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+(PROVE_TAC[])
+);
+
+> val constructiveDilemmaRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+(p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+(PROVE_TAC[])
+);
+\end{lstlisting}
+
+\section{Test Case}
+\label{trans-9-5-3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+> val absorptionRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+(PROVE_TAC[])
+);
+# # # # # Meson search level: ........
+val absorptionRule2 =
+   |- !(p :bool) (q :bool). (p ==> q) ==> p ==> p /\ q:
+   thm
+
+> val constructiveDilemmaRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+(p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+(PROVE_TAC[])
+);
+
+# # # # # # Meson search level: ................
+val constructiveDilemmaRule2 =
+   |- !(p :bool) (q :bool) (r :bool) (s :bool).
+     (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s:
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 10.4.1
+\chapter{Excercise 10.4.1}
+\label{cha:10.4.1}
+
+\section{Problem statement}
+\label{problem-statement-10-4-1}
+Prove the following goal without using \emph{PROVE TAC}. Your final solution must be exe-cutable in a single step using \emph{TAC PROOF}.
+set_goal
+([‘‘!x:’a.P(x) ==> M(x)‘‘,‘‘(P:’a->bool)(s:’a)‘‘],
+‘‘(M:’a->bool)(s:’a)‘‘);
+
+\section{Relevant Code}
+\label{rel-code-10-4-1}
+\begin{lstlisting}[frame=TBlr]
+> val problem1_thm =
+TAC_PROOF(
+([``!x:'a.P(x) ==> M(x)``,``(P:'a -> bool)(s:'a)``],``(M:'a->bool)(s:'a)``),
+(PAT_ASSUM ``!x.t`` (fn th => (ASSUME_TAC (SPEC ``s`` th))) THEN
+RES_TAC)
+);
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-10-4-1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val problem1_thm =
+TAC_PROOF(
+([``!x:'a.P(x) ==> M(x)``,``(P:'a->bool)(s:'a)``],``(M:'a->bool)(s:'a)``),
+(PAT_ASSUM ``!x.t`` (fn th => (ASSUME_TAC (SPEC ``s`` th))) THEN
+RES_TAC)
+);
+# # # # # <<HOL message: inventing new type variable names: 'a>>
+val problem1_thm =
+    [..] |- (M :'a -> bool) (s :'a):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 10.4.2
+\chapter{Excercise 10.4.2}
+\label{cha:10.4.2}
+
+\section{Problem statement}
+\label{problem-statement-10-4-2}
+Prove the following goal without using PROVE TAC. Your final solution must be exe-cutable in a single step using TAC PROOF.
+set_goal([‘‘p $\land$ q ==> r‘‘,‘‘r ==> s‘‘,‘‘ ̃s‘‘],‘‘p ==>  ̃q‘‘); 
+
+\emph{[problem2_thm]}
+ p ==> $\lnot$q
+\section{Relevant Code}
+\label{rel-code-10-4-2}
+\begin{lstlisting}[frame=TBlr]
+> val problem2_thm =
+TAC_PROOF(
+([``p /\ q ==> r``, ``r ==> s``, ``~s``],``p ==> ~q``),
+(REPEAT STRIP_TAC THEN
+REPEAT RES_TAC)
+);
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-10-4-2}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val problem2_thm =
+TAC_PROOF(
+([``p /\ q ==> r``, ``r ==> s``, ``~s``],``p ==> ~q``),
+(REPEAT STRIP_TAC THEN
+REPEAT RES_TAC)
+);
+# # # # # val problem2_thm =
+    [...] |- (p :bool) ==> ~(q :bool):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 10.4.3
+\chapter{Excercise 10.4.3}
+\label{cha:10.4.3}
+
+
+\section{Problem statement}
+\label{problem-statement-10-4-3}
+Prove the following goal without using \emph{PROVE TAC}. Your final solution must be exe-cutable in a single step using \emph{TAC PROOF}.
+set_goal([‘‘ ̃(p $\land$ q)‘‘, ‘‘ ̃p ==> r‘‘,‘‘ ̃q ==> s‘‘],‘‘r $\lor$ s ‘‘);
+\emph{[problem3_thm]}
+r $\lor$ s
+
+\section{Relevant Code}
+\label{rel-code-10-4-3}
+\begin{lstlisting}[frame=TBlr]
+> val problem3_thm =
+TAC_PROOF(
+([``~(p /\ q)``, ``~p ==> r``, ``~q ==> s``],``r \/ s``),
+(PAT_ASSUM ``A ==> B`` (fn th => ASSUME_TAC(REWRITE_RULE[]
+(DISJ_IMP(ONCE_REWRITE_RULE [DISJ_SYM](IMP_ELIM th))))) THEN
+PAT_ASSUM ``~(A /\ B)`` (fn th => (ASSUME_TAC(REWRITE_RULE[]
+(DISJ_IMP(REWRITE_RULE [DE_MORGAN_THM] th))))) THEN
+ASSUME_TAC(IMP_TRANS (ASSUME ``p ==> ~q``) (ASSUME ``~q ==> s``)) THEN
+ASSUME_TAC(IMP_TRANS (ASSUME ``~r ==> p``) (ASSUME ``p ==> s``)) THEN
+PAT_ASSUM ``A ==> B`` 
+(fn th=> (ASSUME_TAC (REWRITE_RULE[] (IMP_ELIM th)))) THEN
+ASM_REWRITE_TAC[])
+);
+\end{lstlisting}
+
+\section{Test Case}
+\label{trans-10-4-3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val problem3_thm =
+TAC_PROOF(
+([``~(p /\ q)``, ``~p ==> r``, ``~q ==> s``],``r \/ s``),
+(PAT_ASSUM ``A ==> B`` (fn th => ASSUME_TAC(REWRITE_RULE[]
+(DISJ_IMP(ONCE_REWRITE_RULE [DISJ_SYM](IMP_ELIM th))))) THEN
+PAT_ASSUM ``~(A /\ B)`` (fn th => (ASSUME_TAC(REWRITE_RULE[]
+(DISJ_IMP(REWRITE_RULE [DE_MORGAN_THM] th))))) THEN
+ASSUME_TAC(IMP_TRANS (ASSUME ``p ==> ~q``) (ASSUME ``~q ==> s``)) THEN
+ASSUME_TAC(IMP_TRANS (ASSUME ``~r ==> p``) (ASSUME ``p ==> s``)) THEN
+PAT_ASSUM ``A ==> B`` (fn th=> (ASSUME_TAC (REWRITE_RULE[] (IMP_ELIM th))))
+THEN ASM_REWRITE_TAC[])
+);
+# # # # # # # # # # # val problem3_thm =
+    [...] |- (r :bool) \/ (s :bool):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\appendix{}
+
+\chapter{Source code: Ex 9}
+\label{cha:source-code-ex9}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW6/HOL/exercise9Script.sml}
+
+\chapter{Source code: Ex 10}
+\label{cha:source-code-ex10}
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW6/HOL/exercise10Script.sml}
+\end{document}

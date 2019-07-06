@@ -1,0 +1,21 @@
+Definition has been stored under "APP_def"
+val APP_def =
+   |- (!(l :'a list). APP ([] :'a list) l = l) /\
+   !(h :'a) (l1 :'a list) (l2 :'a list). APP (h::l1) l2 = h::APP l1 l2:
+   thm
+Meson search level: ................
+Meson search level: ........
+val APP_ASSOC =
+   |- !(l1 :'a list) (l2 :'a list) (l3 :'a list).
+     APP (APP l1 l2) l3 = APP l1 (APP l2 l3):
+   thm
+val LENGTH_APP =
+   |- !(l1 :'a list) (l2 :'a list).
+     LENGTH (APP l1 l2) = LENGTH l1 + LENGTH l2:
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+> 
+Process HOL finished

@@ -1,0 +1,9 @@
+
+#########################################################################
+# Note: INCLUDES gives paths, separated by spaces, for HOL to include
+# when searching for built theories.
+# For the cyber engineering students using the cyber linux machine: the 
+# path to the access-control logic in HOL is 
+# /home/cyber/Documents/RESEARCH/HOL/ACL
+#########################################################################
+INCLUDES=${HOME}/Documents/RESEARCH/HOL/ACL/

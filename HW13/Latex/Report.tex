@@ -1,0 +1,1462 @@
+\documentclass{report}
+\title{Homework 13}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 13}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\input{../HOL/Exercises/SM0/HOLReports/HOLSMZerorThreeSolutions}
+\begin{document}
+\lstset{language=ML, breaklines=true, basicstyle=\small}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW12 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically we prove the following theorems:
+\begin{quote}
+\HOLThmTag{SM0r3Solutions}{SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXmapSMZerorOneXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r2_Commander_Alice_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXCommanderXXmapSMZerorOneinputXXtrapXXprivcmdXXjustifedXXthm
+\HOLThmTag{SM0r3Solutions}{certificatesr3a_certsr2a_map_thm}\HOLSMZerorThreeSolutionsTheoremscertificatesrThreeaXXcertsrTwoaXXmapXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXmkinMsgXXSMZerorTwoXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXCommanderXXAliceXXprivcmdXXtrapXXprivcmdXXjustifiedXXwithXXrefinementsXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXCommanderXXAliceXXprivcmdXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_Alice_TR2_iff_TR_trap_privcmd}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXAliceXXTRTwoXXiffXXTRXXtrapXXprivcmd
+
+\end{quote}
+
+\textbf{[Reproducibility in ML and \LaTeX{}]} \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+
+
+
+
+\chapter{Problem statement}
+\label{problem-statement}
+Prove the following theorems in SM0r2:
+\begin{quote}
+\HOLThmTag{SM0r3Solutions}{SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXmapSMZerorOneXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r2_Commander_Alice_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorTwoXXCommanderXXmapSMZerorOneinputXXtrapXXprivcmdXXjustifedXXthm
+\end{quote}
+
+Prove the following theorems in SM0r3:
+\begin{quote}
+\HOLThmTag{SM0r3Solutions}{certificatesr3a_certsr2a_map_thm}\HOLSMZerorThreeSolutionsTheoremscertificatesrThreeaXXcertsrTwoaXXmapXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXmkinMsgXXSMZerorTwoXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXCommanderXXAliceXXprivcmdXXtrapXXprivcmdXXjustifiedXXwithXXrefinementsXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXCommanderXXAliceXXprivcmdXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r3_Alice_TR2_iff_TR_trap_privcmd}\HOLSMZerorThreeSolutionsTheoremsSMZerorThreeXXAliceXXTRTwoXXiffXXTRXXtrapXXprivcmd
+\end{quote}
+
+\chapter{SM0r2 Solutions}
+\label{sm0r2-solutions}
+
+\section{Proof of SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma}
+\label{proof-1}
+
+\subsection{Relevant Code}
+\label{rel-code-1}
+\begin{lstlisting}[frame=TBlr]
+val th1 =
+TAC_PROOF(([],
+``((M,Oi,Os) satList (certsr2a npriv privcmd (PR privcmd))) ==>
+  (((M:(command inst,'b, principal,'d,'e)Kripke),Oi,Os)
+  sat Name (KeyS (pubK Alice)) speaks_for Name (Staff Alice))``),
+REWRITE_TAC[certsr2a_def,certsr2root_def,certsr2signed_def,
+	    certsr1a_def,certs_def,satList_CONS,
+            (GSYM satList_conj),satList_nil] THEN
+PROVE_TAC[Derived_Speaks_For,Controls])
+
+val th2 =
+TAC_PROOF(
+([],``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+	sat (Name (Role Commander)) speaks_for (Name (Role Commander)))``),
+PROVE_TAC[Idemp_Speaks_For])		
+
+val th3 =
+TAC_PROOF(
+([],``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+       satList (certsr2a npriv privcmd (PR privcmd))) ==>
+      ((M,Oi,Os) sat (((Name (KeyS (pubK Alice))) quoting
+                       (Name (Role Commander)))
+                      speaks_for
+		     ((Name (Staff Alice))
+		     quoting (Name (Role Commander)))))``),
+PROVE_TAC[Mono_speaks_for,th1,Derived_Speaks_For,th2])
+
+val th4 =
+TAC_PROOF(
+([],``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+       satList (certsr2a npriv privcmd(PR privcmd))) ==>
+((M,Oi,Os) sat ((((Name (KeyS (pubK Alice)))
+quoting (Name (Role Commander))) says
+       (prop (SOME (PR privcmd)))):
+       (command inst,principal,'d,'e)Form)) ==>
+      ((M,Oi,Os) sat ((((Name (Staff Alice))
+      quoting (Name (Role Commander))) says
+       (prop (SOME (PR privcmd)))):
+       (command inst,principal,'d,'e)Form))``),
+PROVE_TAC[th3,Derived_Speaks_For])
+
+
+
+val th5 =
+TAC_PROOF(
+([],``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+       satList (certsr2a npriv privcmd (PR privcmd))) ==>
+((M,Oi,Os) sat (Name (Role Commander) says prop
+(SOME (PR privcmd))) impf (prop NONE)) /\
+      ((M,Oi,Os) sat (reps (Name (Staff Alice)) (Name (Role Commander))
+       (prop (SOME (PR privcmd)))))``),
+REWRITE_TAC[certsr2a_def,certsr2root_def,certsr2signed_def,certsr1a_def,
+            certs_def,satList_CONS,satList_nil,(GSYM satList_conj)] THEN
+PROVE_TAC[])	    
+
+
+val th6 =
+TAC_PROOF(([],
+``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os) satList
+   (certsr2a npriv privcmd (PR privcmd))) ==>
+    ((M,Oi,Os) sat ((((Name (KeyS (pubK Alice)))
+    quoting (Name (Role Commander))) says
+       (prop (SOME (PR privcmd)))):(command inst,principal,'d,'e)Form))
+  ==> ((M,Oi,Os) sat (prop NONE))``),
+PROVE_TAC[Rep_Says,th4,th5,Modus_Ponens])
+
+val SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma =
+TAC_PROOF(([],
+``CFGInterpret ((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+  (CFG inputOKr2 SM0StateInterp (certsr2a npriv privcmd (PR privcmd))
+   (mapSM0r1input
+    (mapSM0inputOperatorBob
+     ((Name (Role Commander)) says (prop (SOME (PR (privcmd:privcmd))))))::ins)
+   s (outs:output list)) ==>
+  ((M,Oi,Os) sat (prop NONE))``),
+REWRITE_TAC[CFGInterpret_def,mapSM0inputOperatorBob_def,mapSM0r1input_def] THEN
+PROVE_TAC[th6])
+
+val _ = save_thm("SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma",
+SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> Meson search level: ......
+Meson search level: ..
+Meson search level: .....
+Meson search level: .....
+Meson search level: ....
+Meson search level: ..........
+Meson search level: ....
+val SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma =
+   |- CFGInterpret
+     ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+      (Os :'e po))
+     (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+        (SM0StateInterp :state ->
+                         (command inst, principal, 'd, 'e) Form)
+        (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+           (command inst, principal, 'd, 'e) Form list)
+        (mapSM0r1input
+           (mapSM0inputOperatorBob
+              (Name (Role Commander) says
+               (prop (SOME (PR privcmd) :command inst) :
+                  (command inst, principal, 'd, 'e) Form)))::
+             (ins :(command inst, principal, 'd, 'e) Form list))
+        (s :state) (outs :output list)) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val th1 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   ((Name (KeyS (pubK Alice)) speaks_for Name (Staff Alice))
+      :(command inst, principal, 'd, 'e) Form):
+   thm
+val th2 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) sat
+   ((Name (Role Commander) speaks_for Name (Role Commander))
+      :(command inst, principal, 'd, 'e) Form):
+   thm
+val th3 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   ((Name (KeyS (pubK Alice)) quoting Name (Role Commander) speaks_for
+     Name (Staff Alice) quoting Name (Role Commander))
+      :(command inst, principal, 'd, 'e) Form):
+   thm
+val th4 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Staff Alice) quoting Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form):
+   thm
+val th5 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form) impf
+   (prop (NONE :command inst) :
+      (command inst, principal, 'd, 'e) Form) /\
+   (M,Oi,Os) sat
+   reps (Name (Staff Alice)) (Name (Role Commander))
+     (prop (SOME (PR privcmd) :command inst) :
+        (command inst, principal, 'd, 'e) Form):
+   thm
+val th6 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r2_Commander_Alice_trap_privcmd_justified_thm}
+\label{proof-2}
+
+\subsection{Relevant Code}
+\label{rel-code-2}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0r2_Commander_Alice_trap_privcmd_justified_thm =
+let
+ val th1 =
+  ISPECL
+ [``inputOKr2:(command inst, principal,'d,'e)Form -> bool``,
+ ``SM0StateInterp:state->(command inst, principal,'d,'e)Form``,
+``(certsr2a npriv privcmd (PR privcmd)):
+  (command inst, principal,'d,'e)Form list``,
+``(Name (KeyS (pubK Alice))) quoting (Name (Role Commander))``,``PR privcmd``,
+	   ``ins:(command inst,principal,'d,'e)Form list``,
+	     ``s:state``,``outs:output list``]
+ TR_trap_cmd_rule
+ val th2 =
+ REWRITE_RULE[mapSM0inputOperatorBob_def,mapSM0r1input_def]
+ SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma
+in 
+   REWRITE_RULE[th2]th1
+end
+
+val _ = save_thm("SM0r2_Commander_Alice_trap_privcmd_justified_thm",
+         SM0r2_Commander_Alice_trap_privcmd_justified_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val SM0r2_Commander_Alice_trap_privcmd_justified_thm =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a (npriv :npriv) privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list))
+          (s :state) (outs :output list))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr2
+       (Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+        (prop (SOME (PR privcmd) :command inst) :
+           (command inst, principal, 'd, 'e) Form)) /\
+     CFGInterpret (M,Oi,Os)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::ins) s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm}
+\label{proof-3}
+
+\subsection{Relevant Code}
+\label{rel-code-3}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm =
+let
+ val th1 =
+  TAC_PROOF(([],
+   ``((Name (KeyS (pubK Alice))) quoting (Name (Role Commander))
+      says (prop (SOME (PR (privcmd:privcmd))))
+           :(command inst, principal,'d,'e)Form)
+      =
+      mapSM0r1input
+         (mapSM0inputOperatorBob
+	 ((Name (Role Commander)) says (prop (SOME (PR (privcmd:privcmd)))))
+	           :(command inst, principal,'d,'e)Form)``),
+  PROVE_TAC[mapSM0r1input_def,mapSM0inputOperatorBob_def])
+in
+ REWRITE_RULE[th1]SM0r2_Commander_Alice_trap_privcmd_justified_thm
+end
+
+val _ = save_thm("SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm",
+        SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm)
+
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> Meson search level: .......
+val SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a (npriv :npriv) privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR privcmd) :command inst) :
+                    (command inst, principal, 'd, 'e) Form)))::
+               (ins :(command inst, principal, 'd, 'e) Form list))
+          (s :state) (outs :output list))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr2
+       (mapSM0r1input
+          (mapSM0inputOperatorBob
+             (Name (Role Commander) says
+              (prop (SOME (PR privcmd) :command inst) :
+                 (command inst, principal, 'd, 'e) Form)))) /\
+     CFGInterpret (M,Oi,Os)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR privcmd) :command inst) :
+                    (command inst, principal, 'd, 'e) Form)))::ins) s
+          outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+> 
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\chapter{SM0r3 Solutions}
+\label{sm0r3-solutions}
+
+\section{Proof of certificatesr3a_certsr2a_map_thm}
+\label{proof-4}
+
+\subsection{Relevant Code}
+\label{rel-code-4}
+\begin{lstlisting}[frame=TBlr]
+
+val certificatesr3a_certsr2a_map_thm =
+TAC_PROOF(([],
+``!(npriv :npriv) (privcmd :privcmd).
+    MAP
+      (certificateInterpret :('a, 'b) certificate ->
+                             (command inst, principal, 'a, 'b) Form)
+      (certificatesr3a npriv privcmd (PR privcmd) :
+         ('a, 'b) certificate list) =
+    (certsr2a npriv privcmd (PR privcmd) :
+       (command inst, principal, 'a, 'b) Form list)``),
+REWRITE_TAC[certificatesr3a_def,MAP_APPEND] THEN
+REWRITE_TAC[MAP_certificateInterpret_mkSCert_thm,
+ MAP_certificateInterpret_mkRCert_thm,certsr2a_def])
+
+val _ = save_thm ("certificatesr3a_certsr2a_map_thm", certificatesr3a_certsr2a_map_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans4}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val certificatesr3a_certsr2a_map_thm =
+   |- !(npriv :npriv) (privcmd :privcmd).
+     MAP
+       (certificateInterpret :('a, 'b) certificate ->
+                              (command inst, principal, 'a, 'b) Form)
+       (certificatesr3a npriv privcmd (PR privcmd) :
+          ('a, 'b) certificate list) =
+     (certsr2a npriv privcmd (PR privcmd) :
+        (command inst, principal, 'a, 'b) Form list):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+> 
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma}
+\label{proof-5}
+
+\subsection{Relevant Code}
+\label{rel-code-5}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma =
+TAC_PROOF(([],
+``CFG2Interpret
+    ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+     (Os :'e po))
+    (CFG2
+       (MsgInterpret :inMsg -> (command inst, principal, 'd, 'e) Form)
+       (certificateInterpret :('d, 'e) certificate ->
+                              (command inst, principal, 'd, 'e) Form)
+       (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+       (certificatesr3a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+          ('d, 'e) certificate list)
+       (SM0StateInterp :state -> (command inst, principal, 'd, 'e) Form)
+       (mkinMsg
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR privcmd) :command inst) :
+                    (command inst, principal, 'd, 'e) Form))))::
+            (ins :inMsg list)) (s :state) (outs :output list)) ==>
+  (M,Oi,Os) sat
+  (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form)``),
+  REWRITE_TAC
+ [CFG2Interpret_def,mapSM0inputOperatorBob_def,mapSM0r1input_def,
+  MsgInterpret_inverts_mkinMsg_thm,
+  certificatesr3a_certsr2a_map_thm] THEN
+PROVE_TAC[th6])
+
+
+val _ = save_thm("SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma",
+        SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans5}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> Meson search level: ....
+val SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma =
+   |- CFG2Interpret
+     ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+      (Os :'e po))
+     (CFG2
+        (MsgInterpret :inMsg -> (command inst, principal, 'd, 'e) Form)
+        (certificateInterpret :('d, 'e) certificate ->
+                               (command inst, principal, 'd, 'e) Form)
+        (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+        (certificatesr3a (npriv :npriv) (privcmd :privcmd)
+           (PR privcmd) :('d, 'e) certificate list)
+        (SM0StateInterp :state ->
+                         (command inst, principal, 'd, 'e) Form)
+        (mkinMsg
+           (mapSM0r1input
+              (mapSM0inputOperatorBob
+                 (Name (Role Commander) says
+                  (prop (SOME (PR privcmd) :command inst) :
+                     (command inst, principal, 'd, 'e) Form))))::
+             (ins :inMsg list)) (s :state) (outs :output list)) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%%
+\section{Proof of SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm}
+\label{proof-6}
+
+\subsection{Relevant Code}
+\label{rel-code-6}
+\begin{lstlisting}[frame=TBlr]
+
+val th1 =
+ISPECL
+[``MsgInterpret:inMsg -> (command inst, principal, 'd,'e)Form``,
+ ``certificateInterpret
+   :('d,'e) certificate -> (command inst,principal,'d,'e)Form``,
+ ``inputOKr2:(command inst,principal,'d,'e)Form -> bool``,
+``(certificatesr3a npriv privcmd (PR privcmd)):('d,'e)certificate list``,
+``SM0StateInterp:state -> (command inst,principal,'d,'e)Form``,
+``mkinMsg(mapSM0r1input
+    (mapSM0inputOperatorBob
+     ((Name (Role Commander)) says
+      (prop (SOME (PR (privcmd:privcmd)))
+      :(command inst,principal,'d,'e)Form))))``,
+  ``PR privcmd``,``ins:inMsg list``,``s:state``,``outs:output list``]
+TR2_trap_cmd_rule
+val SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm =
+REWRITE_RULE
+[SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma]th1
+
+val _ = save_thm(
+   "SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm",
+   SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans6}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm
+   =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::
+               (ins :inMsg list)) (s :state) (outs :output list))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr2
+       (MsgInterpret
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))) :
+          (command inst, principal, 'd, 'e) Form) /\
+     CFG2Interpret (M,Oi,Os)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::ins)
+          s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val th1 =
+   |- (!(M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+       (Os :'e po).
+      CFG2Interpret (M,Oi,Os)
+        (CFG2
+           (MsgInterpret :inMsg ->
+                          (command inst, principal, 'd, 'e) Form)
+           (certificateInterpret :('d, 'e) certificate ->
+                                  (command inst, principal, 'd, 'e)
+                                  Form)
+           (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+           (certificatesr3a (npriv :npriv) (privcmd :privcmd)
+              (PR privcmd) :('d, 'e) certificate list)
+           (SM0StateInterp :state ->
+                            (command inst, principal, 'd, 'e) Form)
+           (mkinMsg
+              (mapSM0r1input
+                 (mapSM0inputOperatorBob
+                    (Name (Role Commander) says
+                     (prop (SOME (PR privcmd) :command inst) :
+                        (command inst, principal, 'd, 'e) Form))))::
+                (ins :inMsg list)) (s :state) (outs :output list)) ==>
+      (M,Oi,Os) sat
+      (prop (NONE :command inst) :
+         (command inst, principal, 'd, 'e) Form)) ==>
+   !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR privcmd))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::ins)
+          s outs)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr2
+       (MsgInterpret
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))) :
+          (command inst, principal, 'd, 'e) Form) /\
+     CFG2Interpret (M,Oi,Os)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::ins)
+          s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+> 
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm}
+\label{proof-7}
+
+\subsection{Relevant Code}
+\label{rel-code-7}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm =
+REWRITE_RULE
+[SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma,
+ mapSM0r1input_def,mapSM0inputOperatorBob_def,
+ mkinMsg_def]
+ SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm
+
+val _ = save_thm("SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm", SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans7}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> # # # # # # # # val SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (MSG Alice (Order Commander (PR privcmd) :order)
+             (sign (privK Alice)
+                (hash
+                   (SOME (Order Commander (PR privcmd) :order) :
+                      order option)))::(ins :inMsg list)) (s :state)
+          (outs :output list))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr2
+       (MsgInterpret
+          (MSG Alice (Order Commander (PR privcmd) :order)
+             (sign (privK Alice)
+                (hash
+                   (SOME (Order Commander (PR privcmd) :order) :
+                      order option)))) :
+          (command inst, principal, 'd, 'e) Form) /\
+     CFG2Interpret (M,Oi,Os)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (MSG Alice (Order Commander (PR privcmd) :order)
+             (sign (privK Alice)
+                (hash
+                   (SOME (Order Commander (PR privcmd) :order) :
+                      order option)))::ins) s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+> 
+*** Emacs/HOL command completed ***
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r3_Alice_TR2_iff_TR_trap_privcmd}
+\label{proof-8}
+
+\subsection{Relevant Code}
+\label{rel-code-8}
+\begin{lstlisting}[frame=TBlr]
+
+val th1 =
+ISPECL
+[``MsgInterpret:inMsg -> (command inst, principal, 'd,'e)Form``,
+ ``certificateInterpret
+   :('d,'e) certificate -> (command inst,principal,'d,'e)Form``,
+ ``inputOKr2:(command inst,principal,'d,'e)Form -> bool``,
+ ``(certsr2a npriv privcmd (PR privcmd)):
+    (command inst,principal,'d,'e)Form list``,
+ ``(certificatesr3a npriv privcmd(PR privcmd)):('d,'e)certificate list``,
+ ``SM0StateInterp:state -> (command inst,principal,'d,'e)Form``,
+ ``mkinMsg(mapSM0r1input
+    (mapSM0inputOperatorBob
+     ((Name (Role Commander)) says
+      (prop (SOME (PR (privcmd:privcmd)))
+      :(command inst,principal,'d,'e)Form))))``,
+  ``(Name (KeyS (pubK Alice))) quoting (Name (Role Commander))``,
+  ``PR privcmd``,``ins:(command inst, principal,'d,'e)Form list``,
+  ``ins2:inMsg list``,``s:state``,``outs:output list``]
+TR2_iff_TR_trap_thm
+
+val th2 =
+ REWRITE_RULE[SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma] th1
+
+val th3 =
+TAC_PROOF(([],
+``(((mapSM0r1input
+    (mapSM0inputOperatorBob
+     (Name (Role Commander) says prop (SOME (PR privcmd)))))
+   :(command inst,principal,'d,'e)Form)::ins) =   
+ ((MsgInterpret
+  (mkinMsg
+   ((mapSM0r1input
+    (mapSM0inputOperatorBob
+     ((Name (Role Commander) says ((prop (SOME (PR privcmd))):
+       (command inst,principal,'d,'e)Form))))))))::
+         (ins:(command inst,principal,'d,'e)Form list))``),
+REWRITE_TAC[mapSM0inputOperatorBob_def,mapSM0r1input_def,
+	    MsgInterpret_inverts_mkinMsg_thm])
+
+val th4 =
+REWRITE_RULE[th3]SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma
+
+val th5 =
+REWRITE_RULE[th4]th2
+
+val th6 =
+TAC_PROOF(([],
+``((MsgInterpret:inMsg -> (command inst,principal,'d,'e)Form)
+    (mkinMsg
+      (mapSM0r1input
+        (mapSM0inputOperatorBob
+	  (Name (Role Commander) says
+	   (prop (SOME (PR privcmd))):(command inst,principal,'d,'e)Form))))) =
+   ((Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+    prop (SOME (PR privcmd))):(command inst,principal,'d,'e)Form)``),
+REWRITE_TAC[mapSM0inputOperatorBob_def,mapSM0r1input_def,
+	    MsgInterpret_inverts_mkinMsg_thm])
+
+val th7 =
+REWRITE_RULE[th6]th5
+
+val SM0r3_Alice_TR2_iff_TR_trap_privcmd =
+REWRITE_RULE[certificatesr3a_certsr2a_map_thm]th7
+
+val _ = save_thm("SM0r3_Alice_TR2_iff_TR_trap_privcmd",
+        SM0r3_Alice_TR2_iff_TR_trap_privcmd)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans8}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val SM0r3_Alice_TR2_iff_TR_trap_privcmd =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::
+               (ins2 :inMsg list)) (s :state) (outs :output list))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins2
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     TR (M,Oi,Os) (trap (PR privcmd))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list)) s
+          outs)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd))) (Out s (trap (PR privcmd))::outs)):
+   thm
+val th1 =
+   |- ((MsgInterpret
+       (mkinMsg
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR (privcmd :privcmd)) :command inst) :
+                    (command inst, principal, 'd, 'e) Form))))) :
+       (command inst, principal, 'd, 'e) Form) =
+    Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+    (prop (SOME (PR privcmd) :command inst) :
+       (command inst, principal, 'd, 'e) Form)) ==>
+   (MAP
+      (certificateInterpret :('d, 'e) certificate ->
+                             (command inst, principal, 'd, 'e) Form)
+      (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+         ('d, 'e) certificate list) =
+    (certsr2a npriv privcmd (PR privcmd) :
+       (command inst, principal, 'd, 'e) Form list)) ==>
+   (!(M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+       (Os :'e po).
+      CFGInterpret (M,Oi,Os)
+        (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+           (SM0StateInterp :state ->
+                            (command inst, principal, 'd, 'e) Form)
+           (certsr2a npriv privcmd (PR privcmd) :
+              (command inst, principal, 'd, 'e) Form list)
+           ((MsgInterpret
+               (mkinMsg
+                  (mapSM0r1input
+                     (mapSM0inputOperatorBob
+                        (Name (Role Commander) says
+                         (prop (SOME (PR privcmd) :command inst) :
+                            (command inst, principal, 'd, 'e)
+                            Form))))) :
+               (command inst, principal, 'd, 'e) Form)::
+                (ins :(command inst, principal, 'd, 'e) Form list))
+           (s :state) (outs :output list)) ==>
+      (M,Oi,Os) sat
+      (prop (NONE :command inst) :
+         (command inst, principal, 'd, 'e) Form)) ==>
+   (!(M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+       (Os :'e po).
+      CFG2Interpret (M,Oi,Os)
+        (CFG2
+           (MsgInterpret :inMsg ->
+                          (command inst, principal, 'd, 'e) Form)
+           (certificateInterpret :('d, 'e) certificate ->
+                                  (command inst, principal, 'd, 'e)
+                                  Form)
+           (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+           (certificatesr3a npriv privcmd (PR privcmd) :
+              ('d, 'e) certificate list)
+           (SM0StateInterp :state ->
+                            (command inst, principal, 'd, 'e) Form)
+           (mkinMsg
+              (mapSM0r1input
+                 (mapSM0inputOperatorBob
+                    (Name (Role Commander) says
+                     (prop (SOME (PR privcmd) :command inst) :
+                        (command inst, principal, 'd, 'e) Form))))::
+                (ins2 :inMsg list)) s outs) ==>
+      (M,Oi,Os) sat
+      (prop (NONE :command inst) :
+         (command inst, principal, 'd, 'e) Form)) ==>
+   !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR privcmd))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::ins2)
+          s outs)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins2
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     TR (M,Oi,Os) (trap (PR privcmd))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          ((MsgInterpret
+              (mkinMsg
+                 (mapSM0r1input
+                    (mapSM0inputOperatorBob
+                       (Name (Role Commander) says
+                        (prop (SOME (PR privcmd) :command inst) :
+                           (command inst, principal, 'd, 'e) Form))))) :
+              (command inst, principal, 'd, 'e) Form)::ins) s outs)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd))) (Out s (trap (PR privcmd))::outs)):
+   thm
+val th2 =
+   |- ((MsgInterpret
+       (mkinMsg
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR (privcmd :privcmd)) :command inst) :
+                    (command inst, principal, 'd, 'e) Form))))) :
+       (command inst, principal, 'd, 'e) Form) =
+    Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+    (prop (SOME (PR privcmd) :command inst) :
+       (command inst, principal, 'd, 'e) Form)) ==>
+   (MAP
+      (certificateInterpret :('d, 'e) certificate ->
+                             (command inst, principal, 'd, 'e) Form)
+      (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+         ('d, 'e) certificate list) =
+    (certsr2a npriv privcmd (PR privcmd) :
+       (command inst, principal, 'd, 'e) Form list)) ==>
+   (!(M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+       (Os :'e po).
+      CFGInterpret (M,Oi,Os)
+        (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+           (SM0StateInterp :state ->
+                            (command inst, principal, 'd, 'e) Form)
+           (certsr2a npriv privcmd (PR privcmd) :
+              (command inst, principal, 'd, 'e) Form list)
+           ((MsgInterpret
+               (mkinMsg
+                  (mapSM0r1input
+                     (mapSM0inputOperatorBob
+                        (Name (Role Commander) says
+                         (prop (SOME (PR privcmd) :command inst) :
+                            (command inst, principal, 'd, 'e)
+                            Form))))) :
+               (command inst, principal, 'd, 'e) Form)::
+                (ins :(command inst, principal, 'd, 'e) Form list))
+           (s :state) (outs :output list)) ==>
+      (M,Oi,Os) sat
+      (prop (NONE :command inst) :
+         (command inst, principal, 'd, 'e) Form)) ==>
+   !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR privcmd))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::
+               (ins2 :inMsg list)) s outs)
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins2
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     TR (M,Oi,Os) (trap (PR privcmd))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          ((MsgInterpret
+              (mkinMsg
+                 (mapSM0r1input
+                    (mapSM0inputOperatorBob
+                       (Name (Role Commander) says
+                        (prop (SOME (PR privcmd) :command inst) :
+                           (command inst, principal, 'd, 'e) Form))))) :
+              (command inst, principal, 'd, 'e) Form)::ins) s outs)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd))) (Out s (trap (PR privcmd))::outs)):
+   thm
+val th3 =
+   |- mapSM0r1input
+     (mapSM0inputOperatorBob
+        (Name (Role Commander) says
+         (prop (SOME (PR (privcmd :privcmd)) :command inst) :
+            (command inst, principal, 'd, 'e) Form)))::
+       (ins :(command inst, principal, 'd, 'e) Form list) =
+   (MsgInterpret
+      (mkinMsg
+         (mapSM0r1input
+            (mapSM0inputOperatorBob
+               (Name (Role Commander) says
+                (prop (SOME (PR privcmd) :command inst) :
+                   (command inst, principal, 'd, 'e) Form))))) :
+      (command inst, principal, 'd, 'e) Form)::ins:
+   thm
+val th4 =
+   |- CFGInterpret
+     ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+      (Os :'e po))
+     (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+        (SM0StateInterp :state ->
+                         (command inst, principal, 'd, 'e) Form)
+        (certsr2a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+           (command inst, principal, 'd, 'e) Form list)
+        ((MsgInterpret
+            (mkinMsg
+               (mapSM0r1input
+                  (mapSM0inputOperatorBob
+                     (Name (Role Commander) says
+                      (prop (SOME (PR privcmd) :command inst) :
+                         (command inst, principal, 'd, 'e) Form))))) :
+            (command inst, principal, 'd, 'e) Form)::
+             (ins :(command inst, principal, 'd, 'e) Form list))
+        (s :state) (outs :output list)) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val th5 =
+   |- ((MsgInterpret
+       (mkinMsg
+          (mapSM0r1input
+             (mapSM0inputOperatorBob
+                (Name (Role Commander) says
+                 (prop (SOME (PR (privcmd :privcmd)) :command inst) :
+                    (command inst, principal, 'd, 'e) Form))))) :
+       (command inst, principal, 'd, 'e) Form) =
+    Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+    (prop (SOME (PR privcmd) :command inst) :
+       (command inst, principal, 'd, 'e) Form)) ==>
+   (MAP
+      (certificateInterpret :('d, 'e) certificate ->
+                             (command inst, principal, 'd, 'e) Form)
+      (certificatesr3a (npriv :npriv) privcmd (PR privcmd) :
+         ('d, 'e) certificate list) =
+    (certsr2a npriv privcmd (PR privcmd) :
+       (command inst, principal, 'd, 'e) Form list)) ==>
+   !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR privcmd))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::
+               (ins2 :inMsg list)) (s :state) (outs :output list))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins2
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     TR (M,Oi,Os) (trap (PR privcmd))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          ((MsgInterpret
+              (mkinMsg
+                 (mapSM0r1input
+                    (mapSM0inputOperatorBob
+                       (Name (Role Commander) says
+                        (prop (SOME (PR privcmd) :command inst) :
+                           (command inst, principal, 'd, 'e) Form))))) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list)) s
+          outs)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd))) (Out s (trap (PR privcmd))::outs)):
+   thm
+val th6 =
+   |- (MsgInterpret
+      (mkinMsg
+         (mapSM0r1input
+            (mapSM0inputOperatorBob
+               (Name (Role Commander) says
+                (prop (SOME (PR (privcmd :privcmd)) :command inst) :
+                   (command inst, principal, 'd, 'e) Form))))) :
+      (command inst, principal, 'd, 'e) Form) =
+   Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form):
+   thm
+val th7 =
+   |- (MAP
+      (certificateInterpret :('d, 'e) certificate ->
+                             (command inst, principal, 'd, 'e) Form)
+      (certificatesr3a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+         ('d, 'e) certificate list) =
+    (certsr2a npriv privcmd (PR privcmd) :
+       (command inst, principal, 'd, 'e) Form list)) ==>
+   !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR2 (M,Oi,Os) (trap (PR privcmd))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (mkinMsg
+             (mapSM0r1input
+                (mapSM0inputOperatorBob
+                   (Name (Role Commander) says
+                    (prop (SOME (PR privcmd) :command inst) :
+                       (command inst, principal, 'd, 'e) Form))))::
+               (ins2 :inMsg list)) (s :state) (outs :output list))
+       (CFG2
+          (MsgInterpret :inMsg ->
+                         (command inst, principal, 'd, 'e) Form)
+          (certificateInterpret :('d, 'e) certificate ->
+                                 (command inst, principal, 'd, 'e) Form)
+          (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (certificatesr3a npriv privcmd (PR privcmd) :
+             ('d, 'e) certificate list)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form) ins2
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     TR (M,Oi,Os) (trap (PR privcmd))
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (KeyS (pubK Alice)) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list)) s
+          outs)
+       (CFG (inputOKr2 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr2a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd))) (Out s (trap (PR privcmd))::outs)):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+\appendix{}
+\chapter{Source Code for SM0r3Solutions.sml}
+\label{cha:source-code}
+\lstinputlisting{../HOL/Exercises/SM0/SM0r3SolutionsScript.sml}
+\end{document}

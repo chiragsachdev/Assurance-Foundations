@@ -1,0 +1,2227 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+[extending loadPath with Holmakefile INCLUDES variable]
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> > > > > Loading acl_infRules
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:88: warning: Pattern is not exhaustive.
+Found near val [prop_type, name_type, integ_type, ...] = snd f_type_parts
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:125: warning: Pattern is not exhaustive.
+Found near val [prop_type, name_type, integ_type, ...] = snd f_type_parts
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:162: warning: Pattern is not exhaustive.
+Found near val [prop_type, name_type, integ_type, ...] = snd f_type_parts
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:250: warning: Pattern is not exhaustive.
+Found near val [prop_type, name_type, integ_type, ...] = snd f1_type_parts
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1245: warning: Matches are not exhaustive. Found near fn [th1, th2] => ACL_CONJ th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1276: warning: Matches are not exhaustive. Found near fn [th] => ACL_DISJ1 disj2 th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1304: warning: Matches are not exhaustive. Found near fn [th] => ACL_DISJ2 disj1 th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1336: warning: Pattern is not exhaustive.
+Found near val (_, [kripketype, ...]) = dest_type tupleType
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1337: warning: Pattern is not exhaustive.
+Found near val (_, [_, ...]) = dest_type kripketype
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1340: warning: Matches are not exhaustive. Found near fn [th] => ACL_MP th2 th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1374: warning: Matches are not exhaustive. Found near fn [th] => AND_SAYS_RL th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1408: warning: Matches are not exhaustive. Found near fn [th] => AND_SAYS_LR th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1440: warning: Matches are not exhaustive. Found near fn [th1, th2] => CONTROLS th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1473: warning: Matches are not exhaustive. Found near fn [th1, th2] => DC th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1506: warning: Matches are not exhaustive. Found near fn [th1, th2] => DOMI_TRANS th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1541: warning: Matches are not exhaustive. Found near fn [th1, th2] => DOMS_TRANS th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1575: warning: Matches are not exhaustive. Found near fn [th1, th2] => HS th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1601: warning: Pattern is not exhaustive.
+Found near val (_, [kripketype, ...]) = dest_type tupleType
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1602: warning: Pattern is not exhaustive.
+Found near val (_, [_, ...]) = dest_type kripketype
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1604: warning: Pattern is not exhaustive.
+Found near val (_, [proptype, ...]) = dest_type formType
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1643: warning: Matches are not exhaustive.
+Found near fn [th1, th2, th3] => IL_DOMI th2 th1 th3
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1679: warning: Matches are not exhaustive.
+Found near fn [th1, th2] => MONO_SPEAKS_FOR th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1709: warning: Pattern is not exhaustive.
+Found near val (_, [kripketype, ...]) = dest_type tupleType
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1710: warning: Pattern is not exhaustive.
+Found near val (_, [_, ...]) = dest_type kripketype
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1745: warning: Matches are not exhaustive. Found near fn [th] => QUOTING_LR th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1776: warning: Matches are not exhaustive. Found near fn [th] => QUOTING_RL th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1810: warning: Matches are not exhaustive. Found near fn [th1, th2, th3] => REPS th1 th2 th3
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1842: warning: Matches are not exhaustive. Found near fn [th1, th2] => REP_SAYS th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1869: warning: Matches are not exhaustive. Found near fn [th] => SAYS princ th
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1901: warning: Matches are not exhaustive. Found near fn [th1, th2] => SPEAKS_FOR th1 th2
+/home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.sml:1934: warning: Matches are not exhaustive.
+Found near fn [th1, th2] => TRANS_SPEAKS_FOR th1 th2
+> > > Loading example1Theory
+> <<HOL message: Created theory "solutions1">>
+Meson search level: .....
+Meson search level: ..
+Meson search level: ..
+Meson search level: .......
+<<HOL message: inventing new type variable names: 'a, 'b, 'c>>
+<<HOL message: inventing new type variable names: 'a, 'b, 'c, 'd>>
+Meson search level: ..
+Exporting theory "solutions1" ... done.
+Theory "solutions1" took 0.02256s to build
+Theory: solutions1
+
+Parents:
+    example1
+
+Theorems:
+    aclExercise1
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+    aclExercise1A
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+    aclExercise1B
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+    aclExercise2
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+    aclExercise2A
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+    aclExercise2B
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+structure solutions1Script:
+  sig
+    val ##: ('a -> 'b) * ('c -> 'd) -> 'a * 'c -> 'b * 'd
+    val &&: simpset * thm list -> simpset
+    val ++: simpset * ssfrag -> simpset
+    val --: term frag list -> 'a -> term
+    val -->: hol_type * hol_type -> hol_type
+    val ==: hol_type frag list -> 'a -> hol_type
+    val >-: Tactical.tactic * Tactical.tactic -> Tactical.tactic
+    val >>: ('a, 'b) gentactic * Tactical.tactic -> ('a, 'b) gentactic
+    val >>>: ('a, 'b) gentactic * list_tactic -> ('a, 'b) gentactic
+    val >|: ('a, 'b) gentactic * Tactical.tactic list -> ('a, 'b) gentactic
+    val ?>: ('a, 'b) verdict * ('a -> ('c, 'b) verdict) -> ('c, 'b) verdict
+    val ABS: term -> thm -> thm
+    val ABS_CONV: Conv.conv -> Conv.conv
+    val ABS_REP_THM: thm
+    val ABS_SIMP: thm
+    val ABS_TAC: Tactic.tactic
+    val AC: thm -> thm -> thm
+    val ACCEPT_TAC: Tactic.thm_tactic
+    val ACL_AND_SAYS_LR_TAC:
+       'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_AND_SAYS_RL_TAC:
+       'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_ASSUM: term -> thm
+    val ACL_ASSUM2: term -> term -> term -> thm
+    val ACL_CONJ: thm -> thm -> thm
+    val ACL_CONJ_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_CONTROLS_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_DC_TAC: term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_DISJ1: term -> thm -> thm
+    val ACL_DISJ1_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_DISJ2: term -> thm -> thm
+    val ACL_DISJ2_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_DN: thm -> thm
+    val ACL_DOMI_TRANS_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_DOMS_TRANS_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_HS_TAC: term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_IDEMP_SPEAKS_FOR_TAC: 'a * term -> 'b list * ('c -> thm)
+    val ACL_IL_DOMI_TAC:
+       term -> term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_MONO_SPEAKS_FOR_TAC:
+       'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_MP: thm -> thm -> thm
+    val ACL_MP_SAYS_TAC: 'a * term -> 'b list * ('c -> thm)
+    val ACL_MP_TAC: thm -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_MT: thm -> thm -> thm
+    val ACL_QUOTING_LR_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_QUOTING_RL_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_REPS_TAC:
+       term -> term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_REP_SAYS_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_SAYS_TAC: 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_SIMP1: thm -> thm
+    val ACL_SIMP2: thm -> thm
+    val ACL_SPEAKS_FOR_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val ACL_TAUT: term -> thm
+    val ACL_TAUT_TAC: tactic
+    val ACL_TRANS_SPEAKS_FOR_TAC:
+       term -> 'a * term -> ('a * term) list * (thm list -> thm)
+    val AC_CONV: thm * thm -> Conv.conv
+    val ADD_ASSUM: term -> thm -> thm
+    val ADD_SGS_TAC: term list -> Tactical.tactic -> Tactical.tactic
+    val ALLGOALS: Tactical.tactic -> list_tactic
+    val ALL_CONV: Conv.conv
+    val ALL_LT: list_tactic
+    val ALL_TAC: Tactical.tactic
+    val ALL_THEN: thm_tactical
+    val ALPHA: term -> term -> thm
+    val ALPHA_CONV: term -> term -> thm
+    val AND1_THM: thm
+    val AND2_THM: thm
+    val AND_CLAUSES: thm
+    val AND_CONG: thm
+    val AND_DEF: thm
+    val AND_EXISTS_CONV: Conv.conv
+    val AND_FORALL_CONV: Conv.conv
+    val AND_IMP_INTRO: thm
+    val AND_IMP_INTRO_CONV: Conv.conv
+    val AND_INTRO_THM: thm
+    val AND_SAYS_LR: thm -> thm
+    val AND_SAYS_RL: thm -> thm
+    val ANTE_CONJ_CONV: Conv.conv
+    val ANTE_RES_THEN: thm_tactical
+    val AP_TERM: term -> thm -> thm
+    val AP_TERM_TAC: Tactic.tactic
+    val AP_THM: thm -> term -> thm
+    val AP_THM_TAC: Tactic.tactic
+    val ARITH_ss: ssfrag
+    val ASM_CASES_TAC: term -> Tactic.tactic
+    val ASM_QI_TAC: bossLib.tactic
+    val ASM_REWRITE_RULE: thm list -> thm -> thm
+    val ASM_REWRITE_TAC: thm list -> Rewrite.tactic
+    val ASM_SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val ASSUME: term -> thm
+    val ASSUME_CONJS: term -> thm
+    val ASSUME_TAC: Tactic.thm_tactic
+    val ASSUM_LIST: (thm list -> Tactical.tactic) -> Tactical.tactic
+    val Abbr: term quotation -> thm
+    val Absyn: term frag list -> Absyn_dtype.absyn
+    val Always: ParenStyle
+    val And_Says: thm
+    val And_Says_Eq: thm
+    val AroundEachPhrase: PhraseBlockStyle
+    val AroundSameName: PhraseBlockStyle
+    val AroundSamePrec: PhraseBlockStyle
+    val BETA_CONV: term -> thm
+    val BETA_RULE: thm -> thm
+    val BETA_TAC: Tactic.tactic
+    val BETA_THM: thm
+    val BETA_VAR: term -> term -> term -> thm
+    val BINDER_CONV: Conv.conv -> Conv.conv
+    val BINOP_CONV: Conv.conv -> Conv.conv
+    val BINOP_TAC: Tactic.tactic
+    val BODY_CONJUNCTS: thm -> thm list
+    val BOOL_CASES_AX: thm
+    val BOOL_CASES_TAC: term -> Tactic.tactic
+    val BOOL_EQ_DISTINCT: thm
+    val BOOL_FUN_CASES_THM: thm
+    val BOOL_FUN_INDUCT: thm
+    val BOTH_EXISTS_AND_THM: thm
+    val BOTH_EXISTS_IMP_CONV: Conv.conv
+    val BOTH_EXISTS_IMP_THM: thm
+    val BOTH_FORALL_IMP_THM: thm
+    val BOTH_FORALL_OR_THM: thm
+    val BOUNDED_DEF: thm
+    val BOUNDED_THM: thm
+    val BeginFinalBlock: block_info -> pp_element
+    val Beta: thm -> thm
+    val BreakSpace: int * int -> pp_element
+    val C: ('a -> 'b -> 'c) -> 'b -> 'a -> 'c
+    val CASES_THENL: Thm_cont.thm_tactic list -> Thm_cont.thm_tactic
+    val CASE_TAC: bossLib.tactic
+    val CCONTR: term -> thm -> thm
+    val CCONTR_TAC: Tactic.tactic
+    val CHANGED_CONV: Conv.conv -> Conv.conv
+    val CHANGED_TAC: Tactical.tactic -> Tactical.tactic
+    val CHECK_ASSUME_TAC: Tactic.thm_tactic
+    val CHOOSE: term * thm -> thm -> thm
+    val CHOOSE_TAC: Tactic.thm_tactic
+    val CHOOSE_THEN: thm_tactical
+    val COMB2_CONV: Conv.conv * Conv.conv -> Conv.conv
+    val COMB_CONV: Conv.conv -> Conv.conv
+    val COND_ABS: thm
+    val COND_BOOL_CLAUSES: thm
+    val COND_CASES_TAC: Tactic.tactic
+    val COND_CLAUSES: thm
+    val COND_CONG: thm
+    val COND_CONV: Conv.conv
+    val COND_DEF: thm
+    val COND_EXPAND: thm
+    val COND_EXPAND_IMP: thm
+    val COND_EXPAND_OR: thm
+    val COND_ID: thm
+    val COND_RAND: thm
+    val COND_RATOR: thm
+    val CONJ: thm -> thm -> thm
+    val CONJUNCT1: thm -> thm
+    val CONJUNCT2: thm -> thm
+    val CONJUNCTS: thm -> thm list
+    val CONJUNCTS_AC: term * term -> thm
+    val CONJUNCTS_THEN: thm_tactical
+    val CONJUNCTS_THEN2: Thm_cont.thm_tactic -> thm_tactical
+    val CONJ_ASM1_TAC: Tactic.tactic
+    val CONJ_ASM2_TAC: Tactic.tactic
+    val CONJ_ASSOC: thm
+    val CONJ_COMM: thm
+    val CONJ_DISCH: term -> thm -> thm
+    val CONJ_DISCHL: term list -> thm -> thm
+    val CONJ_LIST: int -> thm -> thm list
+    val CONJ_PAIR: thm -> thm * thm
+    val CONJ_SYM: thm
+    val CONJ_TAC: Tactic.tactic
+    val CONTR: term -> thm -> thm
+    val CONTRAPOS: thm -> thm
+    val CONTRAPOS_CONV: Conv.conv
+    val CONTROLS: thm -> thm -> thm
+    val CONTR_TAC: Tactic.thm_tactic
+    val CONV_RULE: Conv.conv -> thm -> thm
+    val CONV_TAC: Tactic.conv -> Tactic.tactic
+    val CT:
+       unit ->
+         (string,
+         (string, DB.data list) Redblackmap.dict *
+         (string, DB.data list) Redblackmap.dict) Redblackmap.dict
+    val Cases: bossLib.tactic
+    val Cases_on: term quotation -> bossLib.tactic
+    val Cong: thm -> thm
+    val Conjunction: thm
+    val Controls: thm
+    val Controls_Eq: thm
+    val DATATYPE_BOOL: thm
+    val DATATYPE_TAG_DEF: thm
+    val DATATYPE_TAG_THM: thm
+    val DC: thm -> thm -> thm
+    val DECIDE: term -> thm
+    val DECIDE_TAC: bossLib.tactic
+    val DEEP_INTRO_TAC: thm -> Tactic.tactic
+    val DEEP_INTROk_TAC: thm -> Tactic.tactic -> Tactic.tactic
+    val DEPTH_CONV: Conv.conv -> Conv.conv
+    val DEST_BOUNDED: thm -> thm * int
+    val DE_MORGAN_THM: thm
+    val DIFF_UNIV_SUBSET: thm
+    val DISCARD_TAC: thm -> Tactic.tactic
+    val DISCH: term -> thm -> thm
+    val DISCH_ALL: thm -> thm
+    val DISCH_TAC: Tactic.tactic
+    val DISCH_THEN: Thm_cont.thm_tactic -> Thm_cont.tactic
+    val DISJ1: thm -> term -> thm
+    val DISJ1_TAC: Tactic.tactic
+    val DISJ2: term -> thm -> thm
+    val DISJ2_TAC: Tactic.tactic
+    val DISJUNCTS_AC: term * term -> thm
+    val DISJ_ASSOC: thm
+    val DISJ_CASES: thm -> thm -> thm -> thm
+    val DISJ_CASESL: thm -> thm list -> thm
+    val DISJ_CASES_TAC: Tactic.thm_tactic
+    val DISJ_CASES_THEN: thm_tactical
+    val DISJ_CASES_THEN2: Thm_cont.thm_tactic -> thm_tactical
+    val DISJ_CASES_THENL: Thm_cont.thm_tactic list -> Thm_cont.thm_tactic
+    val DISJ_CASES_UNION: thm -> thm -> thm -> thm
+    val DISJ_COMM: thm
+    val DISJ_IMP: thm -> thm
+    val DISJ_IMP_THM: thm
+    val DISJ_SYM: thm
+    val DOMI_TRANS: thm -> thm -> thm
+    val DOMS_TRANS: thm -> thm -> thm
+    val Datatype: hol_type quotation -> unit
+    val Define: term quotation -> thm
+    structure Definition:
+      sig
+        val gen_new_specification: string * thm -> thm
+        val new_definition: string * term -> thm
+        val new_definition_hook:
+           ((term -> term list * term) * (term list * thm -> thm)) ref
+        val new_specification: string * string list * thm -> thm
+        val new_type_definition: string * thm -> thm
+      end
+    val Derived_Controls: thm
+    val Derived_Speaks_For: thm
+    val Disjunction1: thm
+    val Disjunction2: thm
+    val Disjunctive_Syllogism: thm
+    val Double_Negation: thm
+    val EQF_ANDF1: thm -> thm -> thm
+    val EQF_ANDF2: thm -> thm -> thm
+    val EQF_CONTROLS: thm -> thm -> thm
+    val EQF_ELIM: thm -> thm
+    val EQF_EQF1: thm -> thm -> thm
+    val EQF_EQF2: thm -> thm -> thm
+    val EQF_IMPF1: thm -> thm -> thm
+    val EQF_IMPF2: thm -> thm -> thm
+    val EQF_INTRO: thm -> thm
+    val EQF_NOTF: thm -> thm -> thm
+    val EQF_ORF1: thm -> thm -> thm
+    val EQF_ORF2: thm -> thm -> thm
+    val EQF_REPS: thm -> thm -> thm
+    val EQF_SAYS: thm -> thm -> thm
+    val EQN_EQN: thm -> thm -> thm -> thm
+    val EQN_LT: thm -> thm -> thm -> thm
+    val EQN_LTE: thm -> thm -> thm -> thm
+    val EQT_ELIM: thm -> thm
+    val EQT_INTRO: thm -> thm
+    val EQ_CLAUSES: thm
+    val EQ_EXPAND: thm
+    val EQ_EXT: thm
+    val EQ_IMP_RULE: thm -> thm * thm
+    val EQ_IMP_THM: thm
+    val EQ_MP: thm -> thm -> thm
+    val EQ_REFL: thm
+    val EQ_SYM: thm
+    val EQ_SYM_EQ: thm
+    val EQ_TAC: Tactic.tactic
+    val EQ_TRANS: thm
+    val ERR: string -> string -> exn
+    val ERR_outstream: (string -> unit) ref
+    val ERR_to_string: (error_record -> string) ref
+    val ETA_AX: thm
+    val ETA_CONV: term -> thm
+    val ETA_THM: thm
+    val EVAL: term -> thm
+    val EVAL_RULE: thm -> thm
+    val EVAL_TAC: bossLib.tactic
+    val EVERY: Tactical.tactic list -> Tactical.tactic
+    val EVERY_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val EVERY_CONJ_CONV: Conv.conv -> Conv.conv
+    val EVERY_CONV: Conv.conv list -> Conv.conv
+    val EVERY_DISJ_CONV: Conv.conv -> Conv.conv
+    val EVERY_LT: list_tactic list -> list_tactic
+    val EVERY_TCL: thm_tactical list -> thm_tactical
+    val EXCLUDED_MIDDLE: thm
+    val EXISTENCE: thm -> thm
+    val EXISTS: term * term -> thm -> thm
+    val EXISTS_AND_CONV: Conv.conv
+    val EXISTS_AND_REORDER_CONV: Conv.conv
+    val EXISTS_DEF: thm
+    val EXISTS_EQ: term -> thm -> thm
+    val EXISTS_EQUATION: term -> thm -> thm
+    val EXISTS_IMP: term -> thm -> thm
+    val EXISTS_IMP_CONV: Conv.conv
+    val EXISTS_LEFT: term list -> thm -> thm
+    val EXISTS_LEFT1: term -> thm -> thm
+    val EXISTS_NOT_CONV: Conv.conv
+    val EXISTS_OR_CONV: Conv.conv
+    val EXISTS_OR_THM: thm
+    val EXISTS_REFL: thm
+    val EXISTS_SIMP: thm
+    val EXISTS_SIMP_CONV: Conv.conv
+    val EXISTS_TAC: term -> Tactic.tactic
+    val EXISTS_THM: thm
+    val EXISTS_UNIQUE_ALT: thm
+    val EXISTS_UNIQUE_CONV: Conv.conv
+    val EXISTS_UNIQUE_DEF: thm
+    val EXISTS_UNIQUE_REFL: thm
+    val EXISTS_UNIQUE_THM: thm
+    val EXT: thm -> thm
+    val EndInitialBlock: block_info -> pp_element
+    val F: term
+    val FAIL_LT: string -> list_tactic
+    val FAIL_TAC: string -> Tactical.tactic
+    val FALSITY: thm
+    val FILTER_ASM_REWRITE_RULE: pred -> thm list -> thm -> thm
+    val FILTER_ASM_REWRITE_TAC: pred -> thm list -> Rewrite.tactic
+    val FILTER_DISCH_TAC: term -> Tactic.tactic
+    val FILTER_DISCH_THEN: Tactic.thm_tactic -> term -> Tactic.tactic
+    val FILTER_GEN_TAC: term -> Tactic.tactic
+    val FILTER_ONCE_ASM_REWRITE_RULE: pred -> thm list -> thm -> thm
+    val FILTER_ONCE_ASM_REWRITE_TAC: pred -> thm list -> Rewrite.tactic
+    val FILTER_PURE_ASM_REWRITE_RULE: pred -> thm list -> thm -> thm
+    val FILTER_PURE_ASM_REWRITE_TAC: pred -> thm list -> Rewrite.tactic
+    val FILTER_PURE_ONCE_ASM_REWRITE_RULE: pred -> thm list -> thm -> thm
+    val FILTER_PURE_ONCE_ASM_REWRITE_TAC: pred -> thm list -> Rewrite.tactic
+    val FILTER_STRIP_TAC: term -> Tactic.tactic
+    val FILTER_STRIP_THEN: Tactic.thm_tactic -> term -> Tactic.tactic
+    val FIRST: Tactical.tactic list -> Tactical.tactic
+    val FIRST_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val FIRST_CONV: Conv.conv list -> Conv.conv
+    val FIRST_PROVE: Tactical.tactic list -> Tactical.tactic
+    val FIRST_TCL: thm_tactical list -> thm_tactical
+    val FIRST_X_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val FORALL_AND_CONV: Conv.conv
+    val FORALL_AND_THM: thm
+    val FORALL_BOOL: thm
+    val FORALL_DEF: thm
+    val FORALL_EQ: term -> thm -> thm
+    val FORALL_IMP_CONV: Conv.conv
+    val FORALL_NOT_CONV: Conv.conv
+    val FORALL_OR_CONV: Conv.conv
+    val FORALL_SIMP: thm
+    val FORALL_SIMP_CONV: Conv.conv
+    val FORALL_THM: thm
+    val FORK_CONV: Conv.conv * Conv.conv -> Conv.conv
+    val FREEZE_THEN: thm_tactical
+    val FULL_SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val FULL_STRUCT_CASES_TAC: Tactic.thm_tactic
+    val FUN_EQ_CONV: Conv.conv
+    val FUN_EQ_THM: thm
+    val FVL: term list -> term set -> term set
+    val F_DEF: thm
+    val F_IMP: thm
+    val GEN: term -> thm -> thm
+    val GENL: term list -> thm -> thm
+    val GEN_ABS: term option -> term list -> thm -> thm
+    val GEN_ALL: thm -> thm
+    val GEN_ALPHA_CONV: term -> term -> thm
+    val GEN_COND_CASES_TAC: (term -> bool) -> Tactic.tactic
+    val GEN_EXISTS_TAC: string -> term frag list -> bossLib.tactic
+    val GEN_REWRITE_CONV:
+       (Rewrite.conv -> Rewrite.conv) -> rewrites -> thm list -> Rewrite.conv
+    val GEN_REWRITE_RULE:
+       (Rewrite.conv -> Rewrite.conv) -> rewrites -> thm list -> thm -> thm
+    val GEN_REWRITE_TAC:
+       (Rewrite.conv -> Rewrite.conv) ->
+         rewrites -> thm list -> Rewrite.tactic
+    val GEN_TAC: Tactic.tactic
+    val GEN_VALIDATE: bool -> Tactical.tactic -> Tactical.tactic
+    val GEN_VALIDATE_LT: bool -> list_tactic -> list_tactic
+    val GSPEC: thm -> thm
+    val GSUBS: ((term, term) subst -> term -> term) -> thm list -> thm -> thm
+    val GSUBST_TAC:
+       ((term, term) Lib.subst -> term -> term) -> thm list -> Tactic.tactic
+    val GSYM: thm -> thm
+    val HEADGOAL: Tactical.tactic -> list_tactic
+    val HINT_EXISTS_TAC: Tactic.tactic
+    val HOLDIR: string
+    exception HOL_ERR of error_record
+    val HOL_MESG: string -> unit
+    val HOL_PROGRESS_MESG: string * string -> ('a -> 'b) -> 'a -> 'b
+    val HOL_WARNING: string -> string -> string -> unit
+    val HOL_WARNINGloc: string -> string -> locn.locn -> string -> unit
+    val HO_BACKCHAIN_TAC: thm -> Tactic.tactic
+    val HO_MATCH_ACCEPT_TAC: thm -> Tactic.tactic
+    val HO_MATCH_MP: thm -> thm -> thm
+    val HO_MATCH_MP_TAC: thm -> Tactic.tactic
+    val HO_PART_MATCH: (term -> term) -> thm -> term -> thm
+    val HO_REWR_CONV: thm -> Conv.conv
+    val HS: thm -> thm -> thm
+    val HYP_CONV_RULE: (term -> bool) -> Conv.conv -> thm -> thm
+    val HardSpace: int -> pp_element
+    val Hol_coreln: term quotation -> thm * thm * thm
+    val Hol_datatype: hol_type quotation -> unit
+    val Hol_defn: string -> term quotation -> defn
+    val Hol_reln: term quotation -> thm * thm * thm
+    val Hypothetical_Syllogism: thm
+    val I: 'a -> 'a
+    val IDEMP_SPEAKS_FOR: term -> thm
+    val ID_EX_TAC: Tactic.tactic
+    val ID_SPEC_TAC: term -> Tactic.tactic
+    val IFC: Conv.conv -> Conv.conv -> Conv.conv -> Conv.conv
+    val IF_CASES_TAC: Tactic.tactic
+    val IF_THEN_T_IMP: thm
+    val IL_DOMI: thm -> thm -> thm -> thm
+    val IMP_ANTISYM_AX: thm
+    val IMP_ANTISYM_RULE: thm -> thm -> thm
+    val IMP_CANON: thm -> thm list
+    val IMP_CLAUSES: thm
+    val IMP_CONG: thm
+    val IMP_CONJ: thm -> thm -> thm
+    val IMP_CONJ_THM: thm
+    val IMP_DISJ_THM: thm
+    val IMP_ELIM: thm -> thm
+    val IMP_F: thm
+    val IMP_F_EQ_F: thm
+    val IMP_RES_TAC: thm -> Tactic.tactic
+    val IMP_RES_THEN: Thm_cont.thm_tactic -> thm -> Thm_cont.tactic
+    val IMP_TRANS: thm -> thm -> thm
+    val INDUCT_THEN: thm -> (thm -> Prim_rec.tactic) -> Prim_rec.tactic
+    val INFINITY_AX: thm
+    val INST: (term, term) Lib.subst -> thm -> thm
+    val INST_TT_HYPS:
+       (term, term) subst * (hol_type, hol_type) subst ->
+         thm -> thm * term list
+    val INST_TYPE: (hol_type, hol_type) Lib.subst -> thm -> thm
+    val INST_TY_TERM:
+       (term, term) subst * (hol_type, hol_type) subst -> thm -> thm
+    val INTER_EQ_UNIV: thm
+    val IN_DEF: thm
+    val IN_tm: term
+    val IRULE_CANON: thm -> thm
+    val IRULE_TAC: thm -> Tactic.tactic
+    val ISPEC: term -> thm -> thm
+    val ISPECL: term list -> thm -> thm
+    val ITSELF_UNIQUE: thm
+    val Idemp_Speaks_For: thm
+    val Image_SUBSET: thm
+    val Image_UNION: thm
+    val Image_cmp: thm
+    val Induct: bossLib.tactic
+    val Induct_on: term quotation -> bossLib.tactic
+    val Infixl: int -> fixity
+    val Infixr: int -> fixity
+    val JRH_INDUCT_UTIL: thm
+    val K: 'a -> 'b -> 'a
+    val KNOW_TAC: term -> Tactic.tactic
+    val LAND_CONV: Conv.conv -> Conv.conv
+    val LASTGOAL: Tactical.tactic -> list_tactic
+    val LAST_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val LAST_EXISTS_CONV: Conv.conv -> Conv.conv
+    val LAST_FORALL_CONV: Conv.conv -> Conv.conv
+    val LAST_X_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val LCOMM_THM: thm
+    val LEFT: associativity
+    val LEFT_AND_CONG: thm
+    val LEFT_AND_EXISTS_CONV: Conv.conv
+    val LEFT_AND_FORALL_CONV: Conv.conv
+    val LEFT_AND_FORALL_THM: thm
+    val LEFT_AND_OVER_OR: thm
+    val LEFT_EXISTS_AND_THM: thm
+    val LEFT_EXISTS_IMP_THM: thm
+    val LEFT_FORALL_IMP_THM: thm
+    val LEFT_FORALL_OR_THM: thm
+    val LEFT_IMP_EXISTS_CONV: Conv.conv
+    val LEFT_IMP_FORALL_CONV: Conv.conv
+    val LEFT_OR_CONG: thm
+    val LEFT_OR_EXISTS_CONV: Conv.conv
+    val LEFT_OR_EXISTS_THM: thm
+    val LEFT_OR_FORALL_CONV: Conv.conv
+    val LEFT_OR_OVER_AND: thm
+    val LET_CONG: thm
+    val LET_DEF: thm
+    val LET_RAND: thm
+    val LET_RATOR: thm
+    val LET_THM: thm
+    val LHS_CONV: Conv.conv -> Conv.conv
+    val LIST_BETA_CONV: term -> thm
+    val LIST_CONJ: thm list -> thm
+    val LIST_EXISTS_AND_CONV: Conv.conv
+    val LIST_EXISTS_IMP_CONV: bool -> Conv.conv
+    val LIST_EXISTS_NOT_CONV: Conv.conv
+    val LIST_EXISTS_OR_CONV: Conv.conv
+    val LIST_EXISTS_SIMP_CONV: Conv.conv
+    val LIST_FORALL_AND_CONV: Conv.conv
+    val LIST_FORALL_IMP_CONV: bool -> Conv.conv
+    val LIST_FORALL_NOT_CONV: Conv.conv
+    val LIST_FORALL_OR_CONV: Conv.conv
+    val LIST_FORALL_SIMP_CONV: Conv.conv
+    val LIST_MK_EXISTS: term list -> thm -> thm
+    val LIST_MP: thm list -> thm -> thm
+    val ListForm:
+       {block_info: block_info,
+         cons: string, nilstr: string, separator: pp_element list} ->
+         pp_element
+    structure LoadableThyData:
+      sig
+        val new:
+           {merge: 'a * 'a -> 'a,
+             read: (string -> term) -> string -> 'a option,
+             terms: 'a -> term list,
+             thydataty: string, write: (term -> string) -> 'a -> string} ->
+             ('a -> t) * (t -> 'a option)
+        val segment_data: {thy: string, thydataty: string} -> t option
+        val set_theory_data: {data: t, thydataty: string} -> unit
+        type t
+        val temp_encoded_update:
+           {data: string,
+             read: string -> term, thy: string, thydataty: string} -> unit
+        val write_data_update: {data: t, thydataty: string} -> unit
+      end
+    val MAP_EVERY: ('a -> Tactical.tactic) -> 'a list -> Tactical.tactic
+    val MAP_FIRST: ('a -> Tactical.tactic) -> 'a list -> Tactical.tactic
+    val MAP_THM: Conv.conv -> thm -> thm
+    val MATCH_ACCEPT_TAC: thm -> Tactic.tactic
+    val MATCH_MP: thm -> thm -> thm
+    val MATCH_MP_TAC: thm -> Tactic.tactic
+    val MESG_outstream: (string -> unit) ref
+    val MESG_to_string: (string -> string) ref
+    val METIS_PROVE: thm list -> term -> thm
+    val METIS_TAC: thm list -> bossLib.tactic
+    val MINISCOPE_EXISTS_CONV: bool -> Conv.conv
+    val MINISCOPE_FORALL_CONV: bool -> Conv.conv
+    val MK_ABS: thm -> thm
+    val MK_AC_LCOMM: thm * thm -> thm * thm * thm
+    val MK_BOUNDED: thm -> int -> thm
+    val MK_COMB: thm * thm -> thm
+    val MK_COMB_TAC: Tactic.tactic
+    val MK_EXISTS: thm -> thm
+    val MODIFY_CONS: (thm -> thm) -> thm -> thm
+    val MONO_ALL: thm
+    val MONO_AND: thm
+    val MONO_COND: thm
+    val MONO_EXISTS: thm
+    val MONO_IMP: thm
+    val MONO_NOT: thm
+    val MONO_NOT_EQ: thm
+    val MONO_OR: thm
+    val MONO_SPEAKS_FOR: thm -> thm -> thm
+    val MP: thm -> thm -> thm
+    val MP_CANON: thm -> thm
+    val MP_GENEQ_CANON: bool list -> thm -> thm
+    val MP_LEQ_CANON: thm -> thm
+    val MP_REQ_CANON: thm -> thm
+    val MP_SAYS: term -> term -> term -> thm
+    val MP_Says: thm
+    val MP_TAC: Tactic.thm_tactic
+    val Mk_abs: thm -> term * thm * (thm -> thm)
+    val Mk_comb: thm -> thm * thm * (thm -> thm -> thm)
+    val Modus_Ponens: thm
+    val Modus_Tollens: thm
+    val Mono_Reps_Theorem: thm
+    val Mono_speaks_for: thm
+    val NEG_DISCH: term -> thm -> thm
+    val NONASSOC: associativity
+    val NOT_AND: thm
+    val NOT_CLAUSES: thm
+    val NOT_DEF: thm
+    val NOT_ELIM: thm -> thm
+    val NOT_EQ_SYM: thm -> thm
+    val NOT_EXISTS_CONV: Conv.conv
+    val NOT_EXISTS_THM: thm
+    val NOT_F: thm
+    val NOT_FORALL_CONV: Conv.conv
+    val NOT_FORALL_THM: thm
+    val NOT_IMP: thm
+    val NOT_INTRO: thm -> thm
+    val NO_CONV: Conv.conv
+    val NO_LT: list_tactic
+    val NO_STRIP_FULL_SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val NO_STRIP_REV_FULL_SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val NO_TAC: Tactical.tactic
+    val NO_THEN: thm_tactical
+    val NTAC: int -> Tactic.tactic -> Tactic.tactic
+    val NTH_GOAL: Tactical.tactic -> int -> list_tactic
+    val NULL_OK_LT: list_tactic -> list_tactic
+    val NoPhrasing: PhraseBlockStyle
+    val NotEvenIfRand: ParenStyle
+    val Ntimes: thm -> int -> thm
+    val ONCE_ASM_REWRITE_RULE: thm list -> thm -> thm
+    val ONCE_ASM_REWRITE_TAC: thm list -> Rewrite.tactic
+    val ONCE_DEPTH_CONV: Conv.conv -> Conv.conv
+    val ONCE_REWRITE_CONV: thm list -> Rewrite.conv
+    val ONCE_REWRITE_RULE: thm list -> thm -> thm
+    val ONCE_REWRITE_TAC: thm list -> Rewrite.tactic
+    val ONE_ONE_DEF: thm
+    val ONE_ONE_THM: thm
+    val ONTO_DEF: thm
+    val ONTO_THM: thm
+    val ORELSE: Tactical.tactic * Tactical.tactic -> Tactical.tactic
+    val ORELSEC: Conv.conv * Conv.conv -> Conv.conv
+    val ORELSE_LT: list_tactic * list_tactic -> list_tactic
+    val ORELSE_TCL: thm_tactical * thm_tactical -> thm_tactical
+    val OR_CLAUSES: thm
+    val OR_CONG: thm
+    val OR_DEF: thm
+    val OR_ELIM_THM: thm
+    val OR_EXISTS_CONV: Conv.conv
+    val OR_FORALL_CONV: Conv.conv
+    val OR_IMP_THM: thm
+    val OR_INTRO_THM1: thm
+    val OR_INTRO_THM2: thm
+    val Once: thm -> thm
+    val OnlyIfNecessary: ParenStyle
+    val PART_MATCH: (term -> term) -> thm -> term -> thm
+    val PART_MATCH_A: (term -> term) -> thm -> term -> thm
+    val PATH_CONV: string -> Conv.conv -> Conv.conv
+    val PAT_ASSUM: term -> Tactical.thm_tactic -> Tactical.tactic
+    val PAT_CONV: term -> Conv.conv -> Conv.conv
+    val PAT_X_ASSUM: term -> Tactical.thm_tactic -> Tactical.tactic
+    val PEIRCE: thm
+    val POP_ASSUM: Tactical.thm_tactic -> Tactical.tactic
+    val POP_ASSUM_LIST: (thm list -> Tactical.tactic) -> Tactical.tactic
+    val PPBlock: pp_element list * block_info -> pp_element
+    val PRED_ASSUM: (term -> bool) -> Tactical.thm_tactic -> Tactical.tactic
+    val PRINT_CONV: Conv.conv
+    val PROVE: thm list -> term -> thm
+    val PROVE_HYP: thm -> thm -> thm
+    val PROVE_TAC: thm list -> bossLib.tactic
+    val PULL_EXISTS: thm
+    val PULL_FORALL: thm
+    val PURE_ASM_REWRITE_RULE: thm list -> thm -> thm
+    val PURE_ASM_REWRITE_TAC: thm list -> Rewrite.tactic
+    val PURE_ONCE_ASM_REWRITE_RULE: thm list -> thm -> thm
+    val PURE_ONCE_ASM_REWRITE_TAC: thm list -> Rewrite.tactic
+    val PURE_ONCE_REWRITE_CONV: thm list -> Rewrite.conv
+    val PURE_ONCE_REWRITE_RULE: thm list -> thm -> thm
+    val PURE_ONCE_REWRITE_TAC: thm list -> Rewrite.tactic
+    val PURE_REWRITE_CONV: thm list -> Rewrite.conv
+    val PURE_REWRITE_RULE: thm list -> thm -> thm
+    val PURE_REWRITE_TAC: thm list -> Rewrite.tactic
+    val PairCases_on: term quotation -> bossLib.tactic
+    eqtype ParenStyle
+    val ParoundName: ParenStyle
+    val ParoundPrec: ParenStyle
+    eqtype PhraseBlockStyle
+    val Preterm: term frag list -> Preterm_dtype.preterm
+    val QCHANGED_CONV: Conv.conv -> Conv.conv
+    val QCONV: Conv.conv -> Conv.conv
+    val QI_TAC: bossLib.tactic
+    val QI_ss: ssfrag
+    val QTY_TAC:
+       hol_type ->
+         (term -> Tactical.tactic) -> term frag list -> Tactical.tactic
+    val QUANT_CONV: Conv.conv -> Conv.conv
+    val QUOTING_LR: thm -> thm
+    val QUOTING_RL: thm -> thm
+    val Q_TAC: (term -> Tactical.tactic) -> term frag list -> Tactical.tactic
+    val Q_TAC0:
+       {traces: (string * int) list} ->
+         hol_type option ->
+           (term -> Tactical.tactic) -> term frag list -> Tactical.tactic
+    val Quoting: thm
+    val Quoting_Eq: thm
+    val RAND_CONV: Conv.conv -> Conv.conv
+    val RATOR_CONV: Conv.conv -> Conv.conv
+    val REABBREV_TAC: bossLib.tactic
+    val REDEPTH_CONV: Conv.conv -> Conv.conv
+    val REFL: term -> thm
+    val REFL_CLAUSE: thm
+    val REFL_TAC: Tactic.tactic
+    val RENAME_VARS_CONV: string list -> Conv.conv
+    val REORDER_ANTS: (term list -> term list) -> thm -> thm
+    val REORDER_ANTS_MOD:
+       (term list -> term list) -> (thm -> thm) -> thm -> thm
+    val REPEAT: Tactical.tactic -> Tactical.tactic
+    val REPEATC: Conv.conv -> Conv.conv
+    val REPEAT_GTCL:
+       thm_tactical -> (thm -> Thm_cont.tactic) -> Thm_cont.thm_tactic
+    val REPEAT_LT: list_tactic -> list_tactic
+    val REPEAT_TCL: thm_tactical -> thm_tactical
+    val REPS: thm -> thm -> thm -> thm
+    val REP_SAYS: thm -> thm -> thm
+    val RESORT_EXISTS_CONV: (term list -> term list) -> Conv.conv
+    val RESORT_FORALL_CONV: (term list -> term list) -> Conv.conv
+    val RES_ABSTRACT_DEF: thm
+    val RES_CANON: thm -> thm list
+    val RES_EXISTS_CONG: thm
+    val RES_EXISTS_DEF: thm
+    val RES_EXISTS_FALSE: thm
+    val RES_EXISTS_THM: thm
+    val RES_EXISTS_UNIQUE_DEF: thm
+    val RES_EXISTS_UNIQUE_THM: thm
+    val RES_FORALL_CONG: thm
+    val RES_FORALL_DEF: thm
+    val RES_FORALL_THM: thm
+    val RES_FORALL_TRUE: thm
+    val RES_SELECT_DEF: thm
+    val RES_SELECT_THM: thm
+    val RES_TAC: Tactic.tactic
+    val RES_THEN: Thm_cont.thm_tactic -> Thm_cont.tactic
+    val REVERSE: Tactical.tactic -> Tactical.tactic
+    val REVERSE_LT: list_tactic
+    val REV_FULL_SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val REWRITES_CONV: rewrites -> Rewrite.conv
+    val REWRITE_CONV: thm list -> Rewrite.conv
+    val REWRITE_RULE: thm list -> thm -> thm
+    val REWRITE_TAC: thm list -> Rewrite.tactic
+    val REWR_CONV: thm -> Conv.conv
+    val REWR_CONV_A: thm -> Conv.conv
+    val RHS_CONV: Conv.conv -> Conv.conv
+    val RIGHT: associativity
+    val RIGHT_AND_EXISTS_CONV: Conv.conv
+    val RIGHT_AND_FORALL_CONV: Conv.conv
+    val RIGHT_AND_FORALL_THM: thm
+    val RIGHT_AND_OVER_OR: thm
+    val RIGHT_BETA: thm -> thm
+    val RIGHT_CONV_RULE: Conv.conv -> thm -> thm
+    val RIGHT_ETA: thm -> thm
+    val RIGHT_EXISTS_AND_THM: thm
+    val RIGHT_EXISTS_IMP_THM: thm
+    val RIGHT_FORALL_IMP_THM: thm
+    val RIGHT_FORALL_OR_THM: thm
+    val RIGHT_IMP_EXISTS_CONV: Conv.conv
+    val RIGHT_IMP_FORALL_CONV: Conv.conv
+    val RIGHT_LIST_BETA: thm -> thm
+    val RIGHT_OR_EXISTS_CONV: Conv.conv
+    val RIGHT_OR_EXISTS_THM: thm
+    val RIGHT_OR_FORALL_CONV: Conv.conv
+    val RIGHT_OR_OVER_AND: thm
+    val ROTATE_LT: int -> list_tactic
+    val RULE_ASSUM_TAC: (thm -> thm) -> Tactic.tactic
+    val RULE_L_ASSUM_TAC: (thm -> thm list) -> Tactic.tactic
+    val RW_TAC: simpset -> thm list -> bossLib.tactic
+    val Raise: exn -> 'a
+    val Rep_Controls_Eq: thm
+    val Rep_Says: thm
+    val Reps: thm
+    val Reps_Eq: thm
+    val S: ('a -> 'b -> 'c) -> ('a -> 'b) -> 'a -> 'c
+    val SAYS: term -> thm -> thm
+    val SAYS_SIMP1: thm -> thm
+    val SAYS_SIMP2: thm -> thm
+    val SELECT_AX: thm
+    val SELECT_CONV: Conv.conv
+    val SELECT_ELIM: thm -> term * thm -> thm
+    val SELECT_ELIM_TAC: Tactic.tactic
+    val SELECT_ELIM_THM: thm
+    val SELECT_EQ: term -> thm -> thm
+    val SELECT_INTRO: thm -> thm
+    val SELECT_REFL: thm
+    val SELECT_REFL_2: thm
+    val SELECT_RULE: thm -> thm
+    val SELECT_THM: thm
+    val SELECT_UNIQUE: thm
+    val SIMPLE_CHOOSE: term -> thm -> thm
+    val SIMPLE_EXISTS: term -> thm -> thm
+    val SIMP_CONV: simpset -> thm list -> bossLib.conv
+    val SIMP_RULE: simpset -> thm list -> thm -> thm
+    val SIMP_TAC: simpset -> thm list -> bossLib.tactic
+    val SKOLEM_CONV: Conv.conv
+    val SKOLEM_THM: thm
+    val SL_DOMS: thm -> thm -> thm -> thm
+    val SPEAKS_FOR: thm -> thm -> thm
+    val SPEC: term -> thm -> thm
+    val SPECL: term list -> thm -> thm
+    val SPEC_ALL: thm -> thm
+    val SPEC_TAC: term * term -> Tactic.tactic
+    val SPEC_UNDISCH_EXL: thm -> thm
+    val SPEC_VAR: thm -> term * thm
+    val SPLIT_LT: int -> list_tactic * list_tactic -> list_tactic
+    val SPOSE_NOT_THEN: (thm -> bossLib.tactic) -> bossLib.tactic
+    val SQI_ss: ssfrag
+    val SRW_TAC: ssfrag list -> thm list -> bossLib.tactic
+    val STRIP_ASSUME_TAC: Tactic.thm_tactic
+    val STRIP_BINDER_CONV: term option -> Conv.conv -> Conv.conv
+    val STRIP_GOAL_THEN: Tactic.thm_tactic -> Tactic.tactic
+    val STRIP_QUANT_CONV: Conv.conv -> Conv.conv
+    val STRIP_TAC: Tactic.tactic
+    val STRIP_THM_THEN: thm_tactical
+    val STRUCT_CASES_TAC: Tactic.thm_tactic
+    val SUBGOAL_THEN: term -> Tactical.thm_tactic -> Tactical.tactic
+    val SUBS: thm list -> thm -> thm
+    val SUBSET_Image_SUBSET: thm
+    val SUBST: (term, thm) Lib.subst -> term -> thm -> thm
+    val SUBST1_TAC: thm -> Tactic.tactic
+    val SUBST_ALL_TAC: thm -> Tactic.tactic
+    val SUBST_CONV: (term, thm) subst -> term -> term -> thm
+    val SUBST_MATCH: thm -> thm -> thm
+    val SUBST_OCCS_TAC: (int list * thm) list -> Tactic.tactic
+    val SUBST_TAC: thm list -> Tactic.tactic
+    val SUBS_OCCS: (int list * thm) list -> thm -> thm
+    val SUB_CONV: Conv.conv -> Conv.conv
+    val SUFF_TAC: term -> Tactic.tactic
+    val SWAP_EXISTS_CONV: Conv.conv
+    val SWAP_EXISTS_THM: thm
+    val SWAP_FORALL_CONV: Conv.conv
+    val SWAP_FORALL_THM: thm
+    val SWAP_VARS_CONV: Conv.conv
+    val SYM: thm -> thm
+    val SYM_CONV: Conv.conv
+    val Says: thm
+    val Says_Simplification1: thm
+    val Says_Simplification2: thm
+    val SimpL: term -> thm
+    val SimpLHS: thm
+    val SimpR: term -> thm
+    val SimpRHS: thm
+    val Simplification1: thm
+    val Simplification2: thm
+    val Speaks_For: thm
+    val Specialize: term -> thm -> thm
+    val T: term
+    val TACS_TO_LT: Tactical.tactic list -> list_tactic
+    val TAC_PROOF: goal * Tactical.tactic -> thm
+    val THEN: ('a, 'b) gentactic * Tactical.tactic -> ('a, 'b) gentactic
+    val THEN1: Tactical.tactic * Tactical.tactic -> Tactical.tactic
+    val THENC: Conv.conv * Conv.conv -> Conv.conv
+    val THENL:
+       ('a, 'b) gentactic * Tactical.tactic list -> ('a, 'b) gentactic
+    val THEN_LT: ('a, 'b) gentactic * list_tactic -> ('a, 'b) gentactic
+    val THEN_TCL: thm_tactical * thm_tactical -> thm_tactical
+    val TM: pp_element
+    val TOK: string -> pp_element
+    val TOP_DEPTH_CONV: Conv.conv -> Conv.conv
+    val TOP_SWEEP_CONV: Conv.conv -> Conv.conv
+    val TRANS: thm -> thm -> thm
+    val TRANS_SPEAKS_FOR: thm -> thm -> thm
+    val TRUTH: thm
+    val TRY: Tactical.tactic -> Tactical.tactic
+    val TRYALL: Tactical.tactic -> list_tactic
+    val TRY_CONV: Conv.conv -> Conv.conv
+    val TRY_LT: list_tactic -> list_tactic
+    val TYPE_DEFINITION: thm
+    val TYPE_DEFINITION_THM: thm
+    val T_DEF: thm
+    val TeX_notation: {TeX: string * int, hol: string} -> unit
+    val Term: term frag list -> term
+    val Trans_Speaks_For: thm
+    val Type: hol_type frag list -> hol_type
+    val U: ''a list list -> ''a list
+    val UEXISTS_OR_THM: thm
+    val UEXISTS_SIMP: thm
+    val UNABBREV_ALL_TAC: bossLib.tactic
+    val UNBETA_CONV: term -> Conv.conv
+    exception UNCHANGED
+    val UNDISCH: thm -> thm
+    val UNDISCH_ALL: thm -> thm
+    val UNDISCH_SPLIT: thm -> thm
+    val UNDISCH_TAC: term -> Tactic.tactic
+    val UNDISCH_THEN: term -> Thm_cont.thm_tactic -> Thm_cont.tactic
+    val UNDISCH_TM: thm -> term * thm
+    val UNIQUE_SKOLEM_ALT: thm
+    val UNIQUE_SKOLEM_THM: thm
+    val UNIV_DIFF_SUBSET: thm
+    val UNWIND_FORALL_THM1: thm
+    val UNWIND_FORALL_THM2: thm
+    val UNWIND_THM1: thm
+    val UNWIND_THM2: thm
+    val USE_SG_THEN: Tactical.thm_tactic -> int -> int -> list_tactic
+    structure Unicode:
+      sig
+        structure UChar: UnicodeChars
+        val temp_unicode_version: {tmnm: string, u: string} -> unit
+        val unicode_version: {tmnm: string, u: string} -> unit
+      end
+    val VALID: Tactical.tactic -> Tactical.tactic
+    val VALIDATE: Tactical.tactic -> Tactical.tactic
+    val VALIDATE_LT: list_tactic -> list_tactic
+    val VALID_LT: list_tactic -> list_tactic
+    val W: ('a -> 'a -> 'b) -> 'a -> 'b
+    val WARNING_outstream: (string -> unit) ref
+    val WARNING_to_string: (string -> string -> string -> string) ref
+    val WARNINGs_as_ERRs: bool ref
+    val WEAKEN_TAC: (term -> bool) -> Tactic.tactic
+    val WF_REL_TAC: term quotation -> bossLib.tactic
+    val WITHOUT_ABBREVS: bossLib.tactic -> bossLib.tactic
+    val X_CASES_THEN: term list list -> thm_tactical
+    val X_CASES_THENL:
+       (('a list -> 'b list -> ('a * 'b) list) ->
+         Thm_cont.thm_tactic list -> (term list * Thm_cont.thm_tactic) list)
+         -> Thm_cont.thm_tactic list -> Thm_cont.thm_tactic
+    val X_CHOOSE_TAC: term -> Tactic.thm_tactic
+    val X_CHOOSE_THEN: term -> thm_tactical
+    val X_FUN_EQ_CONV: term -> Conv.conv
+    val X_GEN_TAC: term -> Tactic.tactic
+    val X_SKOLEM_CONV: term -> Conv.conv
+    val ZAP_TAC: simpset -> thm list -> bossLib.tactic
+    val \\: ('a, 'b) gentactic * Tactical.tactic -> ('a, 'b) gentactic
+    val absyn_to_preterm:
+       Absyn_dtype.absyn -> Preterm_dtype.preterm Pretype.in_env
+    val absyn_to_term: term_grammar.grammar -> Absyn_dtype.absyn -> term
+    val aclDrules_grammars: type_grammar.grammar * term_grammar.grammar
+    val aclExercise1: thm
+    val aclExercise1A: thm
+    val aclExercise1B: thm
+    val aclExercise2: thm
+    val aclExercise2A: thm
+    val aclExercise2B: thm
+    val aclrules_grammars: type_grammar.grammar * term_grammar.grammar
+    val aconv: term -> term -> bool
+    val add_ML_dependency: string -> unit
+    val add_absyn_postprocessor: string -> unit
+    val add_bare_numeral_form: char * string option -> unit
+    val add_const: string -> unit
+    val add_implicit_rewrites: thm list -> unit
+    val add_infix: string * int * associativity -> unit
+    val add_infix_type:
+       {Assoc: associativity,
+         Name: string, ParseName: string option, Prec: int} -> unit
+    val add_listform:
+       {block_info: block_info,
+         cons: string,
+         leftdelim: pp_element list,
+         nilstr: string,
+         rightdelim: pp_element list, separator: pp_element list} -> unit
+    val add_numeral_form: char * string option -> unit
+    val add_qtype: {Name: string, Thy: string} -> unit
+    val add_record_field: string * term -> unit
+    val add_record_fupdate: string * term -> unit
+    val add_rewrites: rewrites -> thm list -> rewrites
+    val add_rule:
+       {block_style: PhraseBlockStyle * block_info,
+         fixity: fixity,
+         paren_style: ParenStyle,
+         pp_elements: pp_element list, term_name: string} -> unit
+    val add_style_to_string: term_pp_types.pp_style list -> string -> string
+    val add_tag: tag * thm -> thm
+    val add_type: string -> unit
+    val add_user_printer: string * term -> unit
+    val adjoin_to_theory: thy_addon -> unit
+    val all: ('a -> bool) -> 'a list -> bool
+    val all2: ('a -> 'b -> bool) -> 'a list -> 'b list -> bool
+    val all_atoms: term -> term set
+    val all_atomsl: term list -> term set -> term set
+    val all_consts: unit -> term list
+    val all_data: string -> (string * (string * thm) list) list
+    val all_set_types: unit -> string list
+    val all_tac: Tactical.tactic
+    val all_vars: term -> term list
+    val all_varsl: term list -> term list
+    val allow_schema_definition: bool ref
+    val alpha: hol_type
+    val ancestry: string -> string list
+    val and_says_lemma: thm
+    val apfst: ('a -> 'b) -> 'a * 'c -> 'b * 'c
+    val apnth: ('a -> 'a) -> int -> 'a list -> 'a list
+    val append: 'a list -> 'a list -> 'a list
+    val appi: (int -> 'a -> unit) -> 'a list -> unit
+    val apropos: term -> DB.data list
+    val apropos_in: term -> DB.data list -> DB.data list
+    val apsnd: ('a -> 'b) -> 'c * 'a -> 'c * 'b
+    val arb: term
+    val arith_ss: simpset
+    val asm_rewrite_tac: thm list -> Rewrite.tactic
+    val asm_simp_tac: simpset -> thm list -> bossLib.tactic
+    val assert: ('a -> bool) -> 'a -> 'a
+    val assert_exn: ('a -> bool) -> 'a -> exn -> 'a
+    val assoc: ''a -> (''a * 'b) list -> 'b
+    val assoc1: ''a -> (''a * 'b) list -> (''a * 'b) option
+    val assoc2: ''a -> ('b * ''a) list -> ('b * ''a) option
+    val assoc_tm: term
+    val associate_restriction: string * string -> unit
+    eqtype associativity
+    val assume_tac: Tactic.thm_tactic
+    val augment_srw_ss: ssfrag list -> unit
+    val axiom: string -> thm
+    val axioms: string -> (string * thm) list
+    val beta: hol_type
+    val beta_conv: term -> term
+    val bindl: string -> (string * thm * class) list -> unit
+    type block_info = term_grammar.block_info
+    val body: term -> term
+    val bool: hol_type
+    val boolAxiom: thm
+    val bool_EQ_CONV: Conv.conv
+    val bool_INDUCT: thm
+    val bool_case: term
+    val bool_case_CONG: thm
+    val bool_case_ID: thm
+    val bool_case_thm: thm
+    val bool_compare: bool cmp
+    val bool_grammars: type_grammar.grammar * term_grammar.grammar
+    val bool_rewrites: rewrites
+    val bool_ss: simpset
+    val bounded_tm: term
+    val bring_to_front_overload:
+       string -> {Name: string, Thy: string} -> unit
+    val butlast: 'a list -> 'a list
+    val bvar: term -> term
+    val bvk_find_term:
+       (term list * term -> bool) -> (term -> 'a) -> term -> 'a option
+    val by: term quotation * bossLib.tactic -> bossLib.tactic
+    val can: ('a -> 'b) -> 'a -> bool
+    val case_cong_thm: thm -> thm -> thm
+    val case_constant_defn_name: {type_name: string} -> string
+    val case_constant_name: {type_name: string} -> string
+    val cheat: bossLib.tactic
+    val checking_const_names: bool ref
+    val checking_type_names: bool ref
+    datatype class = Axm | Def | Thm
+    val clear_overloads_on: string -> unit
+    type 'a cmp = 'a * 'a -> order
+    val combine: 'a list * 'b list -> ('a * 'b) list
+    val comm_tm: term
+    val commafy: string list -> string list
+    val commands2num_11: thm
+    val commands2num_ONTO: thm
+    val commands2num_num2commands: thm
+    val commands2num_thm: thm
+    val commands_Axiom: thm
+    val commands_BIJ: thm
+    val commands_CASE: thm
+    val commands_EQ_commands: thm
+    val commands_TY_DEF: thm
+    val commands_case_cong: thm
+    val commands_case_def: thm
+    val commands_distinct: thm
+    val commands_induction: thm
+    val commands_nchotomy: thm
+    val commands_size_def: thm
+    val compare: term * term -> order
+    val completeInduct_on: term quotation -> bossLib.tactic
+    val concl: thm -> term
+    val conditional: term
+    val condprinter: term_grammar.userprinter
+    val conj_asm1_tac: Tactic.tactic
+    val conj_asm2_tac: Tactic.tactic
+    val conj_tac: Tactic.tactic
+    val conjunction: term
+    val cons: 'a -> 'a list -> 'a list
+    val constants: string -> term list
+    datatype control = BOUNDED of int ref | UNBOUNDED
+    type controlled_thm = thm * control
+    type conv = Abbrev.conv
+    val csimp: thm list -> bossLib.tactic
+    val current_ML_deps: unit -> string list
+    val current_axioms: unit -> (string * thm) list
+    val current_backend: PPBackEnd.t ref
+    val current_data: string -> (string * thm) list
+    val current_definitions: unit -> (string * thm) list
+    val current_grammars: unit -> type_grammar.grammar * term_grammar.grammar
+    val current_theorems: unit -> (string * thm) list
+    val current_theory: unit -> string
+    val current_trace: string -> int
+    val curry: ('a * 'b -> 'c) -> 'a -> 'b -> 'c
+    type data
+    val data_exportfn:
+       string -> (string -> (string * thm) list -> unit) option
+    val data_list_to_string: DB.data list -> string
+    val data_storefn: string -> (string -> unit) option
+    val datatype_commands: thm
+    val datatype_staff: thm
+    val decide_tac: bossLib.tactic
+    val decls: string -> term list
+    val def_suffix: string ref
+    val default_prover: term * Tactical.tactic -> thm
+    val define_case_constant: thm -> thm list
+    val define_new_type_bijections:
+       {ABS: string, REP: string, name: string, tyax: thm} -> thm
+    val definition: string -> thm
+    val definitions: string -> (string * thm) list
+    type defn
+    val deinitcomment: string -> string
+    val deinitcommentss: substring -> substring
+    val del_segment: string -> unit
+    val delete_binding: string -> unit
+    val delete_const: string -> unit
+    val delete_hook: string -> unit
+    val delete_type: string -> unit
+    val delta: hol_type
+    datatype 'a delta = DIFF of 'a | SAME
+    val delta_apply: ('a -> 'a delta) -> 'a -> 'a
+    val delta_map: ('a -> 'a delta) -> 'a list -> 'a list delta
+    val delta_pair:
+       ('a -> 'a delta) -> ('b -> 'b delta) -> 'a * 'b -> ('a * 'b) delta
+    type depdisk = (string * int) * (string * int list) list
+    val dest_IN: term -> term * term
+    val dest_abs: term -> term * term
+    val dest_arb: term -> hol_type
+    val dest_binder: term -> exn -> term -> term * term
+    val dest_binop: term -> exn -> term -> term * term
+    val dest_bool_case: term -> term * term * term
+    val dest_comb: term -> term * term
+    val dest_cond: term -> term * term * term
+    val dest_conj: term -> term * term
+    val dest_const: term -> string * hol_type
+    val dest_disj: term -> term * term
+    val dest_eq: term -> term * term
+    val dest_eq_ty: term -> term * term * hol_type
+    val dest_exists: term -> term * term
+    val dest_exists1: term -> term * term
+    val dest_forall: term -> term * term
+    val dest_imp: term -> term * term
+    val dest_imp_only: term -> term * term
+    val dest_itself: term -> hol_type
+    val dest_let: term -> term * term
+    val dest_literal_case: term -> term * term
+    val dest_monop: term -> exn -> term -> term
+    val dest_neg: term -> term
+    val dest_quadop: term -> exn -> term -> term * term * term * term
+    val dest_res_abstract: term -> term * term * term
+    val dest_res_exists: term -> term * term * term
+    val dest_res_exists_unique: term -> term * term * term
+    val dest_res_forall: term -> term * term * term
+    val dest_res_select: term -> term * term * term
+    val dest_rewrites: rewrites -> thm list
+    val dest_select: term -> term * term
+    val dest_strip_comb: term -> string * term list
+    val dest_tagged_rewrite: thm -> controlled_thm
+    val dest_temp_binding: string -> string
+    val dest_term: term -> lambda
+    val dest_theory: string -> theory
+    val dest_thm: thm -> term list * term
+    val dest_thy_const: term -> {Name: string, Thy: string, Ty: hol_type}
+    val dest_thy_type:
+       hol_type -> {Args: hol_type list, Thy: string, Tyop: string}
+    val dest_triop: term -> exn -> term -> term * term * term
+    val dest_type: hol_type -> string * hol_type list
+    val dest_var: term -> string * hol_type
+    val dest_vartype: hol_type -> string
+    val dict_topsort: ('a, 'a list) Redblackmap.dict -> 'a list
+    val diminish_srw_ss: string list -> ssfrag list
+    val disable_hook: string -> ('a -> 'b) -> 'a -> 'b
+    val disable_tyabbrev_printing: string -> unit
+    val disch: term * term list -> term list
+    val disch_then: Thm_cont.thm_tactic -> Thm_cont.tactic
+    val disj1_tac: Tactic.tactic
+    val disj2_tac: Tactic.tactic
+    val disjunction: term
+    val disk_thm: (depdisk * string list) * term list -> thm
+    val dom_rng: hol_type -> hol_type * hol_type
+    val domi_antisymmetric: thm
+    val domi_reflexive: thm
+    val domi_transitive: thm
+    val doms_antisymmetric: thm
+    val doms_of_tyaxiom: thm -> hol_type list
+    val doms_reflexive: thm
+    val doms_transitive: thm
+    val dsimp: thm list -> bossLib.tactic
+    val el: int -> 'a list -> 'a
+    val emitCAMLDir: string ref
+    val emitMLDir: string ref
+    val emit_ERR: bool ref
+    val emit_MESG: bool ref
+    val emit_WARNING: bool ref
+    val empty_rewrites: rewrites
+    val empty_tmset: term set
+    val empty_varset: term set
+    val enable_hook: string -> ('a -> 'b) -> 'a -> 'b
+    val end_itlist: ('a -> 'a -> 'a) -> 'a list -> 'a
+    val end_real_time: Timer.real_timer -> unit
+    val end_time: Timer.cpu_timer -> unit
+    val enumerate: int -> 'a list -> (int * 'a) list
+    val eq_tac: Tactic.tactic
+    val eqf_and_impf: thm
+    val eqf_andf1: thm
+    val eqf_andf2: thm
+    val eqf_controls: thm
+    val eqf_eq: thm
+    val eqf_eqf1: thm
+    val eqf_eqf2: thm
+    val eqf_impf1: thm
+    val eqf_impf2: thm
+    val eqf_notf: thm
+    val eqf_orf1: thm
+    val eqf_orf2: thm
+    val eqf_reps: thm
+    val eqf_sat: thm
+    val eqf_says: thm
+    val eqi_Eq: thm
+    val eqn_eqn: thm
+    val eqn_lt: thm
+    val eqn_lte: thm
+    val eqs_Eq: thm
+    val equal: ''a -> ''a -> bool
+    val equality: term
+    type error_record =
+       {message: string, origin_function: string, origin_structure: string}
+    val eta_conv: term -> term
+    val etyvar: hol_type
+    val example1Theorem: thm
+    val example1TheoremA: thm
+    val example1TheoremB: thm
+    val example1_grammars: type_grammar.grammar * term_grammar.grammar
+    val example2Theorem: thm
+    val example2TheoremA: thm
+    val example2TheoremB: thm
+    val example3Theorem: thm
+    val example3TheoremA: thm
+    val existential: term
+    val exists: ('a -> bool) -> 'a list -> bool
+    val exists1: term
+    val exists_tac: term -> Tactic.tactic
+    val exists_tyvar: (hol_type -> bool) -> hol_type -> bool
+    val exn_to_string: exn -> string
+    val export_mono: string -> unit
+    val export_rewrites: string list -> unit
+    val export_theorems_as_docfiles: string -> (string * thm) list -> unit
+    val export_theory: unit -> unit
+    val export_theory_as_docfiles: string -> unit
+    val fail: unit -> 'a
+    val failwith: string -> 'a
+    val fetch: string -> string -> thm
+    val filter: ('a -> bool) -> 'a list -> 'a list
+    val find: string -> DB.data list
+    val find_in: string -> DB.data list -> DB.data list
+    val find_maximal_terms: (term -> bool) -> term -> term set
+    val find_maximal_termsl: (term -> bool) -> term -> term list
+    val find_term: (term -> bool) -> term -> term
+    val find_terms: (term -> bool) -> term -> term list
+    val first: ('a -> bool) -> 'a list -> 'a
+    val first_assum: Tactical.thm_tactic -> Tactical.tactic
+    val first_opt: (int -> 'a -> 'b option) -> 'a list -> 'b option
+    val first_x_assum: Tactical.thm_tactic -> Tactical.tactic
+    val fixity: string -> fixity option
+    datatype fixity =
+        Binder
+      | Closefix
+      | Infix of associativity * int
+      | Prefix of int
+      | Suffix of int
+    val fixityToString: fixity -> string
+    val flatten: 'a list list -> 'a list
+    val flip_cmp: 'a cmp -> 'a cmp
+    val flip_order: order -> order
+    val foldl_map: ('a * 'b -> 'a * 'c) -> 'a * 'b list -> 'a * 'c list
+    val for: int -> int -> (int -> 'a) -> 'a list
+    val for_se: int -> int -> (int -> unit) -> unit
+    val format_ERR: error_record -> string
+    val format_MESG: string -> string
+    val format_WARNING: string -> string -> string -> string
+    eqtype 'a frag
+    val free_in: term -> term -> bool
+    val free_vars: term -> term list
+    val free_vars_lr: term -> term list
+    val free_varsl: term list -> term list
+    val front_last: 'a list -> 'a list * 'a
+    val fs: thm list -> bossLib.tactic
+    val fsrw_tac: ssfrag list -> thm list -> bossLib.tactic
+    val fst: 'a * 'b -> 'a
+    val ftyvar: hol_type
+    val full_simp_tac: simpset -> thm list -> bossLib.tactic
+    val funpow: int -> ('a -> 'a) -> 'a -> 'a
+    val gamma: hol_type
+    val gen_all: term -> term
+    val gen_find_term: (term list * term -> 'a option) -> term -> 'a option
+    val gen_find_terms: (term list * term -> 'a option) -> term -> 'a list
+    val gen_new_specification: string * thm -> thm
+    val gen_prim_specification: string -> thm -> string list * thm
+    val gen_remove_ovl_mapping: string -> term -> unit
+    val gen_tac: Tactic.tactic
+    val gen_tyvar: unit -> hol_type
+    val gen_variant: (string -> bool) -> string -> term list -> term -> term
+    type ('a, 'b) gentactic = 'a -> goal list * (thm list -> 'b)
+    val genvar: hol_type -> term
+    val genvars: hol_type -> int -> term list
+    val get_first: ('a -> 'b option) -> 'a list -> 'b option
+    val get_hooks: unit -> (string * (TheoryDelta.t -> unit)) list
+    val get_term_printer: unit -> ppstream -> term -> unit
+    val get_tracefn: string -> unit -> int
+    val give_num_priority: char -> unit
+    type goal = term list * term
+    val goal_assum: Tactical.thm_tactic -> Tactical.tactic
+    val goal_line: string ref
+    val grammarDB: string -> grammarDB_info option
+    val grammarDB_fold: (string * grammarDB_info * 'a -> 'a) -> 'a -> 'a
+    type grammarDB_info = type_grammar.grammar * term_grammar.grammar
+    val grammarDB_insert: string * grammarDB_info -> unit
+    val guessing_overloads: bool ref
+    val guessing_tyvars: bool ref
+    val hash: int -> string -> int * int -> int
+    val hdtm_assum: term -> Tactical.thm_tactic -> Tactical.tactic
+    val hdtm_x_assum: term -> Tactical.thm_tactic -> Tactical.tactic
+    val hidden: string -> bool
+    val hide:
+       string ->
+         {Name: string, Thy: string} list * {Name: string, Thy: string} list
+    val ho_match_mp_tac: thm -> Tactic.tactic
+    val ho_match_term:
+       hol_type list ->
+         term set ->
+           term ->
+             term ->
+               {redex: term, residue: term} list *
+               (hol_type, hol_type) Lib.subst
+    val ho_match_term0:
+       hol_type list ->
+         term set ->
+           term ->
+             term ->
+               {redex: term, residue: int} list *
+               {redex: term, residue: term} list *
+               ((hol_type, hol_type) Lib.subst * hol_type list)
+    val hol_clock: Timer.cpu_timer
+    eqtype hol_type
+    val html_theory: string -> unit
+    val hyp: thm -> term list
+    val hyp_frees: thm -> term set
+    val hyp_tyvars: thm -> hol_type set
+    val hypset: thm -> term set
+    val idem_tm: term
+    val il_domi: thm
+    val imp_res_tac: thm -> Tactic.tactic
+    val impl_keep_tac: Tactic.tactic
+    val impl_tac: Tactic.tactic
+    val implication: term
+    val implicit_rewrites: unit -> rewrites
+    val incorporate_consts:
+       string -> hol_type vector -> (string * int) list -> unit
+    val incorporate_types: string -> (string * int) list -> unit
+    val ind: hol_type
+    val index: ('a -> bool) -> 'a list -> int
+    val inferior_overload_on: string * term -> unit
+    val insert: ''a -> ''a list -> ''a list
+    val inst: (hol_type, hol_type) Term.subst -> term -> term
+    val int_sort: int list -> int list
+    val int_to_string: int -> string
+    val interactive: bool ref
+    val interactive_ppbackend: unit -> PPBackEnd.t
+    val intersect: ''a list -> ''a list -> ''a list
+    val inv_img_cmp: ('a -> 'b) -> 'b cmp -> 'a cmp
+    val irule: thm -> Tactic.tactic
+    val is_IN: term -> bool
+    val is_abs: term -> bool
+    val is_arb: term -> bool
+    val is_bool_case: term -> bool
+    val is_comb: term -> bool
+    val is_cond: term -> bool
+    val is_conj: term -> bool
+    val is_const: term -> bool
+    val is_constname: string -> bool
+    val is_disj: term -> bool
+    val is_eq: term -> bool
+    val is_exists: term -> bool
+    val is_exists1: term -> bool
+    val is_forall: term -> bool
+    val is_gen_tyvar: hol_type -> bool
+    val is_genvar: term -> bool
+    val is_imp: term -> bool
+    val is_imp_only: term -> bool
+    val is_let: term -> bool
+    val is_literal_case: term -> bool
+    val is_neg: term -> bool
+    val is_res_abstract: term -> bool
+    val is_res_exists: term -> bool
+    val is_res_exists_unique: term -> bool
+    val is_res_forall: term -> bool
+    val is_res_select: term -> bool
+    val is_select: term -> bool
+    val is_substring: string -> string -> bool
+    val is_temp_binding: string -> bool
+    val is_the_value: term -> bool
+    val is_type: hol_type -> bool
+    val is_var: term -> bool
+    val is_vartype: hol_type -> bool
+    type ('a, 'b) istream
+    val itlist: ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b
+    val itlist2: ('a -> 'b -> 'c -> 'c) -> 'a list -> 'b list -> 'c -> 'c
+    val itself_Axiom: thm
+    val itself_TY_DEF: thm
+    val itself_case_thm: thm
+    val itself_induction: thm
+    val kall_tac: 'a -> bossLib.tactic
+    val kernelid: string
+    val known_constants: unit -> string list
+    datatype lambda =
+        COMB of term * term
+      | CONST of {Name: string, Thy: string, Ty: hol_type}
+      | LAMB of term * term
+      | VAR of string * hol_type
+    val last: 'a list -> 'a
+    val last_assum: Tactical.thm_tactic -> Tactical.tactic
+    val last_x_assum: Tactical.thm_tactic -> Tactical.tactic
+    val ldistrib_tm: term
+    val let_tm: term
+    val lex_cmp: 'a cmp * 'b cmp -> ('c -> 'a) * ('c -> 'b) -> 'c cmp
+    val lfs: thm list -> bossLib.tactic
+    val lhand: term -> term
+    val lhs: term -> term
+    val lift_bool: hol_type -> bool -> term
+    val limit: int -> simpset -> simpset
+    val linewidth: int ref
+    val link_parents: string * num * num -> (string * num * num) list -> unit
+    val listDB: unit -> DB.data list
+    val list_compare: 'a cmp -> 'a list cmp
+    val list_mk_abs: term list * term -> term
+    val list_mk_binder: term option -> term list * term -> term
+    val list_mk_comb: term * term list -> term
+    val list_mk_conj: term list -> term
+    val list_mk_disj: term list -> term
+    val list_mk_exists: term list * term -> term
+    val list_mk_forall: term list * term -> term
+    val list_mk_fun: hol_type list * hol_type -> hol_type
+    val list_mk_icomb: term * term list -> term
+    val list_mk_imp: term list * term -> term
+    val list_mk_lbinop: ('a -> 'a -> 'a) -> 'a list -> 'a
+    val list_mk_rbinop: ('a -> 'a -> 'a) -> 'a list -> 'a
+    val list_mk_res_exists: (term * term) list * term -> term
+    val list_mk_res_forall: (term * term) list * term -> term
+    val list_of_pair: 'a * 'a -> 'a list
+    val list_of_quadruple: 'a * 'a * 'a * 'a -> 'a list
+    val list_of_singleton: 'a -> 'a list
+    val list_of_triple: 'a * 'a * 'a -> 'a list
+    val list_ss: simpset
+    type list_tactic = goal list -> goal list * list_validation
+    type list_validation = thm list -> thm list
+    val literal_case: term
+    val literal_case_CONG: thm
+    val literal_case_DEF: thm
+    val literal_case_RAND: thm
+    val literal_case_RATOR: thm
+    val literal_case_THM: thm
+    val literal_case_id: thm
+    val load_complete: string -> unit
+    val loose_equality: unit -> unit
+    val lrfs: thm list -> bossLib.tactic
+    val lrw: thm list -> bossLib.tactic
+    val lspine_binop: ('a -> ('a * 'a) option) -> 'a -> 'a list
+    val map2: ('a -> 'b -> 'c) -> 'a list -> 'b list -> 'c list
+    val map_every: ('a -> Tactical.tactic) -> 'a list -> Tactical.tactic
+    val mapfilter: ('a -> 'b) -> 'a list -> 'b list
+    val mapi: (int -> 'a -> 'b) -> 'a list -> 'b list
+    val mapshape: int list -> ('a list -> 'b) list -> 'a list -> 'b list
+    val match: string list -> term -> DB.data list
+    val match_mp_tac: thm -> Tactic.tactic
+    val match_term:
+       term ->
+         term -> (term, term) Term.subst * (hol_type, hol_type) Term.subst
+    val match_terml:
+       hol_type list ->
+         term set ->
+           term ->
+             term ->
+               (term, term) Term.subst * (hol_type, hol_type) Term.subst
+    val match_type: hol_type -> hol_type -> (hol_type, hol_type) Lib.subst
+    val match_type_in_context:
+       hol_type ->
+         hol_type ->
+           (hol_type, hol_type) Lib.subst -> (hol_type, hol_type) Lib.subst
+    val match_type_restr:
+       hol_type list ->
+         hol_type -> hol_type -> (hol_type, hol_type) Lib.subst
+    val matcher: (term -> term -> 'a) -> string list -> term -> DB.data list
+    val matches: term -> thm -> bool
+    val matchp: (thm -> bool) -> string list -> DB.data list
+    val max_print_depth: int ref
+    val measureInduct_on: term quotation -> bossLib.tactic
+    val measure_cmp: ('a -> int) -> 'a cmp
+    val mem: ''a -> ''a list -> bool
+    val memoize:
+       (term -> 'a option) ->
+         ('a, thm) Redblackmap.dict ->
+           (term -> bool) -> exn -> Conv.conv -> Conv.conv
+    val merge_grammars:
+       string list -> type_grammar.grammar * term_grammar.grammar
+    val metis_tac: thm list -> bossLib.tactic
+    val min_grammars: type_grammar.grammar * term_grammar.grammar
+    val minprint: term -> string
+    val mk_HOL_ERR: string -> string -> string -> exn
+    val mk_HOL_ERRloc: string -> string -> locn.locn -> string -> exn
+    val mk_IN: term * term -> term
+    val mk_abs: term * term -> term
+    val mk_arb: hol_type -> term
+    val mk_axiom_thm: string Nonce.t * term -> thm
+    val mk_binder: term -> string -> term * term -> term
+    val mk_binop: term -> term * term -> term
+    val mk_bool_case: term * term * term -> term
+    val mk_comb: term * term -> term
+    val mk_cond: term * term * term -> term
+    val mk_conj: term * term -> term
+    val mk_const: string * hol_type -> term
+    val mk_disj: term * term -> term
+    val mk_eq: term * term -> term
+    val mk_exists: term * term -> term
+    val mk_exists1: term * term -> term
+    val mk_forall: term * term -> term
+    val mk_icomb: term * term -> term
+    val mk_imp: term * term -> term
+    val mk_istream: ('a -> 'a) -> 'a -> ('a -> 'b) -> ('a, 'b) istream
+    val mk_itself: hol_type -> term
+    val mk_let: term * term -> term
+    val mk_literal_case: term * term -> term
+    val mk_monop: term -> term -> term
+    val mk_neg: term -> term
+    val mk_oracle_thm: string -> term list * term -> thm
+    val mk_primed_var: string * hol_type -> term
+    val mk_quadop: term -> term * term * term * term -> term
+    val mk_res_abstract: term * term * term -> term
+    val mk_res_exists: term * term * term -> term
+    val mk_res_exists_unique: term * term * term -> term
+    val mk_res_forall: term * term * term -> term
+    val mk_res_select: term * term * term -> term
+    val mk_rewrites: thm -> thm list
+    val mk_select: term * term -> term
+    val mk_set: ''a list -> ''a list
+    val mk_thm: term list * term -> thm
+    val mk_thy_const: {Name: string, Thy: string, Ty: hol_type} -> term
+    val mk_thy_type:
+       {Args: hol_type list, Thy: string, Tyop: string} -> hol_type
+    val mk_triop: term -> term * term * term -> term
+    val mk_type: string * hol_type list -> hol_type
+    val mk_var: string * hol_type -> term
+    val mk_vartype: string -> hol_type
+    val mlquote: string -> string
+    val monitoring: bool ref
+    val mp_tac: Tactic.thm_tactic
+    val negation: term
+    val net_of: rewrites -> Rewrite.conv Net.net
+    val new_axiom: string * term -> thm
+    val new_binder: string * hol_type -> unit
+    val new_binder_definition: string * term -> thm
+    val new_constant: string * hol_type -> unit
+    val new_definition: string * term -> thm
+    val new_definition_hook:
+       ((term -> term list * term) * (term list * thm -> thm)) ref
+    val new_exporter:
+       string ->
+         (string -> (string * thm) list -> unit) ->
+           {dest: data -> (string * thm) list option,
+             export: string -> unit,
+             mk: string list -> data * (string * thm) list}
+    val new_infix: string * hol_type * int -> unit
+    val new_infix_type:
+       {Arity: int,
+         Assoc: associativity,
+         Name: string, ParseName: string option, Prec: int} -> unit
+    val new_infixl_definition: string * term * int -> thm
+    val new_infixr_definition: string * term * int -> thm
+    val new_recursive_definition:
+       {def: term, name: string, rec_axiom: thm} -> thm
+    val new_specification: string * string list * thm -> thm
+    val new_storage_attribute: string -> unit
+    val new_theory: string -> unit
+    val new_type: string * int -> unit
+    val new_type_definition: string * thm -> thm
+    val next: ('a, 'b) istream -> ('a, 'b) istream
+    val norm_subst:
+       ((term, term) Term.subst * term set) *
+       ((hol_type, hol_type) Term.subst * hol_type list) ->
+         (term, term) Term.subst * (hol_type, hol_type) Term.subst
+    val notify_on_tyvar_guess: bool ref
+    val ntac: int -> Tactic.tactic -> Tactic.tactic
+    val null_intersection: ''a list -> ''a list -> bool
+    eqtype num
+    val num2commands_11: thm
+    val num2commands_ONTO: thm
+    val num2commands_commands2num: thm
+    val num2commands_thm: thm
+    val num2staff_11: thm
+    val num2staff_ONTO: thm
+    val num2staff_staff2num: thm
+    val num2staff_thm: thm
+    val old: string -> string
+    val old_ARITH_ss: ssfrag
+    val old_arith_ss: simpset
+    val once_asm_rewrite_tac: thm list -> Rewrite.tactic
+    val once_rewrite_tac: thm list -> Rewrite.tactic
+    val op_U: ('a -> 'a -> bool) -> 'a list list -> 'a list
+    val op_arity: {Thy: string, Tyop: string} -> int option
+    val op_insert: ('a -> 'a -> bool) -> 'a -> 'a list -> 'a list
+    val op_intersect: ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list
+    val op_mem: ('a -> 'a -> bool) -> 'a -> 'a list -> bool
+    val op_mk_set: ('a -> 'a -> bool) -> 'a list -> 'a list
+    val op_set_diff: ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list
+    val op_union: ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list
+    val overload_info_for: string -> unit
+    val overload_on: string * term -> unit
+    val overload_on_by_nametype:
+       string -> {Name: string, Thy: string} -> unit
+    val pair: 'a -> 'b -> 'a * 'b
+    val pair_compare: 'a cmp * 'b cmp -> ('a * 'b) cmp
+    val pair_of_list: 'a list -> 'a * 'a
+    val pairarg_tac: bossLib.tactic
+    val parents: string -> string list
+    val parse_from_grammars:
+       type_grammar.grammar * term_grammar.grammar ->
+         (hol_type frag list -> hol_type) * (term frag list -> term)
+    val parse_in_context: term list -> term frag list -> term
+    val part_match_exists_tac: (term -> term) -> term -> Tactic.tactic
+    val partial: exn -> ('a -> 'b option) -> 'a -> 'b
+    val partition: ('a -> bool) -> 'a list -> 'a list * 'a list
+    datatype pel = pAbs | pLeft | pRight
+    val pluck: ('a -> bool) -> 'a list -> 'a * 'a list
+    val polymorphic: hol_type -> bool
+    val pop_assum: Tactical.thm_tactic -> Tactical.tactic
+    val post_process_term: (term -> term) ref
+    eqtype pp_element
+    val pp_flags: {show_numeral_types: bool ref, show_types: bool ref}
+    val pp_rewrites: ppstream -> rewrites -> unit
+    val pp_term: ppstream -> term -> unit
+    val pp_term_without_overloads:
+       (string * term) list -> ppstream -> term -> unit
+    val pp_term_without_overloads_on: string list -> ppstream -> term -> unit
+    val pp_theory: ppstream -> theory -> unit
+    val pp_theory_as_html: ppstream -> string -> unit
+    val pp_thm: ppstream -> thm -> unit
+    val pp_type: ppstream -> hol_type -> unit
+    val pp_type_without_abbrevs: string list -> ppstream -> hol_type -> unit
+    val pp_with_bquotes: (ppstream -> 'a -> unit) -> ppstream -> 'a -> unit
+    type ppstream
+    val ppstring: (ppstream -> 'a -> unit) -> 'a -> string
+    type pred = term -> bool
+    val prefer_form_with_tok: {term_name: string, tok: string} -> unit
+    val prim_delete_const: KernelSig.kernelname -> unit
+    val prim_delete_type: {Thy: string, Tyop: string} -> unit
+    val prim_irule: thm -> Tactic.tactic
+    val prim_mk_const: {Name: string, Thy: string} -> term
+    val prim_new_const: KernelSig.kernelname -> hol_type -> term
+    val prim_new_type: {Thy: string, Tyop: string} -> int -> unit
+    val prim_specification: string -> string list -> thm -> thm
+    val prim_type_definition: {Thy: string, Tyop: string} * thm -> thm
+    val prim_variant: term list -> term -> term
+    val prime: string -> string
+    val priming: string option ref
+    val print_apropos: term -> unit
+    val print_find: string -> unit
+    val print_from_grammars:
+       type_grammar.grammar * term_grammar.grammar ->
+         (ppstream -> hol_type -> unit) * (ppstream -> term -> unit)
+    val print_match: string list -> term -> unit
+    val print_term: term -> unit
+    val print_term_by_grammar:
+       type_grammar.grammar * term_grammar.grammar -> term -> unit
+    val print_term_grammar: unit -> unit
+    val print_theory: string -> unit
+    val print_theory_as_html: string -> string -> unit
+    val print_theory_to_file: string -> string -> unit
+    val print_theory_to_outstream: string -> TextIO.outstream -> unit
+    val print_thm: thm -> unit
+    val print_thy_loads: bool ref
+    val print_type: hol_type -> unit
+    val print_with_style: term_pp_types.pp_style list -> string -> unit
+    val prove: term * Tactical.tactic -> thm
+    val prove_abs_fn_one_one: thm -> thm
+    val prove_abs_fn_onto: thm -> thm
+    val prove_case_elim_thm: {case_def: thm, nchotomy: thm} -> thm
+    val prove_case_eq_thm: {case_def: thm, nchotomy: thm} -> thm
+    val prove_case_rand_thm: {case_def: thm, nchotomy: thm} -> thm
+    val prove_cases_thm: thm -> thm list
+    val prove_constructors_distinct: thm -> thm option list
+    val prove_constructors_one_one: thm -> thm option list
+    val prove_induction_thm: thm -> thm
+    val prove_rec_fn_exists: thm -> term -> thm
+    val prove_rep_fn_one_one: thm -> thm
+    val prove_rep_fn_onto: thm -> thm
+    val prove_tac: thm list -> bossLib.tactic
+    val pure_ss: simpset
+    val qabbrev_tac: term quotation -> bossLib.tactic
+    val qexists_tac: term quotation -> bossLib.tactic
+    val qhdtm_assum: term quotation -> bossLib.thm_tactic -> bossLib.tactic
+    val qhdtm_x_assum: term quotation -> bossLib.thm_tactic -> bossLib.tactic
+    val qho_match_abbrev_tac: term quotation -> bossLib.tactic
+    val qid_spec_tac: term quotation -> bossLib.tactic
+    val qmatch_abbrev_tac: term quotation -> bossLib.tactic
+    val qmatch_asmsub_abbrev_tac: term quotation -> bossLib.tactic
+    val qmatch_asmsub_rename_tac: term quotation -> bossLib.tactic
+    val qmatch_assum_abbrev_tac: term quotation -> bossLib.tactic
+    val qmatch_assum_rename_tac: term quotation -> bossLib.tactic
+    val qmatch_goalsub_abbrev_tac: term quotation -> bossLib.tactic
+    val qmatch_goalsub_rename_tac: term quotation -> bossLib.tactic
+    val qmatch_rename_tac: term quotation -> bossLib.tactic
+    val qpat_abbrev_tac: term quotation -> bossLib.tactic
+    val qpat_assum: term quotation -> bossLib.thm_tactic -> bossLib.tactic
+    val qpat_x_assum: term quotation -> bossLib.thm_tactic -> bossLib.tactic
+    val qspec_tac: term quotation * term quotation -> bossLib.tactic
+    val qspec_then:
+       term quotation -> bossLib.thm_tactic -> thm -> bossLib.tactic
+    val qspecl_then:
+       term quotation list -> bossLib.thm_tactic -> thm -> bossLib.tactic
+    val qsuff_tac: term quotation -> bossLib.tactic
+    val quadruple: 'a -> 'b -> 'c -> 'd -> 'a * 'b * 'c * 'd
+    val quadruple_of_list: 'a list -> 'a * 'a * 'a * 'a
+    val quiet_messages: ('a -> 'b) -> 'a -> 'b
+    val quiet_warnings: ('a -> 'b) -> 'a -> 'b
+    val qunabbrev_tac: term quotation -> bossLib.tactic
+    type 'a quotation = 'a frag list
+    val quote: string -> string
+    val quote_adjoin_to_theory:
+       string ?.HolKernel.Theory.quotation ->
+         string ?.HolKernel.Theory.quotation -> unit
+    val qx_choose_then:
+       term quotation -> bossLib.thm_tactic -> bossLib.thm_tactic
+    val qx_choosel_then:
+       term quotation list -> bossLib.thm_tactic -> bossLib.thm_tactic
+    val qx_gen_tac: term quotation -> bossLib.tactic
+    val qx_genl_tac: term quotation list -> bossLib.tactic
+    val rand: term -> term
+    val rator: term -> term
+    val raw_match:
+       hol_type list ->
+         term set ->
+           term ->
+             term ->
+               (term, term) Term.subst * (hol_type, hol_type) Term.subst ->
+                 ((term, term) Term.subst * term set) *
+                 ((hol_type, hol_type) Term.subst * hol_type list)
+    val raw_match_type:
+       hol_type ->
+         hol_type ->
+           (hol_type, hol_type) Lib.subst * hol_type list ->
+             (hol_type, hol_type) Lib.subst * hol_type list
+    val rawterm_pp: ('a -> 'b) -> 'a -> 'b
+    val rdistrib_tm: term
+    val read_raw: term vector -> string -> term
+    val real_time: ('a -> 'b) -> 'a -> 'b
+    val recInduct: thm -> bossLib.tactic
+    val register_alias_trace: {alias: string, original: string} -> unit
+    val register_btrace: string * bool ref -> unit
+    val register_ftrace:
+       string * ((unit -> int) * (int -> unit)) * int -> unit
+    val register_hook: string * (TheoryDelta.t -> unit) -> unit
+    val register_trace: string * int ref * int -> unit
+    val release: string
+    val remove_numeral_form: char -> unit
+    val remove_ovl_mapping: string -> {Name: string, Thy: string} -> unit
+    val remove_rules_for_term: string -> unit
+    val remove_termtok: {term_name: string, tok: string} -> unit
+    val remove_type_abbrev: string -> unit
+    val remove_user_printer:
+       string -> (term * term_grammar.userprinter) option
+    val rename: term quotation list -> bossLib.tactic
+    val rename1: term quotation -> bossLib.tactic
+    val rename_bvar: string -> term -> term
+    val repeat: ('a -> 'a) -> 'a -> 'a
+    val reps_def_lemma: thm
+    val res_abstract_tm: term
+    val res_exists1_tm: term
+    val res_exists_tm: term
+    val res_forall_tm: term
+    val res_select_tm: term
+    val res_tac: Tactic.tactic
+    val reset: ('a, 'b) istream -> ('a, 'b) istream
+    val reset_trace: string -> unit
+    val reset_traces: unit -> unit
+    val respect_width_ref:
+       int ref -> (ppstream -> 'a -> unit) -> ppstream -> 'a -> unit
+    val restore_prover: unit -> unit
+    val rev_assoc: ''a -> ('b * ''a) list -> 'b
+    val rev_full_simp_tac: simpset -> thm list -> bossLib.tactic
+    val rev_itlist: ('a -> 'b -> 'b) -> 'a list -> 'b -> 'b
+    val rev_itlist2: ('a -> 'b -> 'c -> 'c) -> 'a list -> 'b list -> 'c -> 'c
+    val reveal: string -> unit
+    val reverse: Tactical.tactic -> Tactical.tactic
+    val rewrite_tac: thm list -> Rewrite.tactic
+    val rewrites: thm list -> ssfrag
+    type rewrites
+    val rfs: thm list -> bossLib.tactic
+    val rhs: term -> term
+    val rpair: 'a -> 'b -> 'b * 'a
+    val rpt: Tactical.tactic -> Tactical.tactic
+    type rule = thm -> thm
+    val rule_assum_tac: (thm -> thm) -> Tactic.tactic
+    val rw: thm list -> bossLib.tactic
+    val rw_tac: simpset -> thm list -> bossLib.tactic
+    val same_const: term -> term -> bool
+    val sat_TT: thm
+    val sat_allworld: thm
+    val sat_andf_eq_and_sat: thm
+    val sat_def: thm
+    val save_dep: string -> thm -> thm
+    val save_thm: string * thm -> thm
+    val save_thm_attrs: string -> string * string list * thm -> thm
+    val say: string -> unit
+    val saying: bool ref
+    val says_and_lemma: thm
+    val scrub: unit -> unit
+    val sdest_binder: string * string -> exn -> term -> term * term
+    val sdest_binop: string * string -> exn -> term -> term * term
+    val sdest_monop: string * string -> exn -> term -> term
+    val select: term
+    val send_to_back_overload: string -> {Name: string, Thy: string} -> unit
+    val separate: 'a -> 'a list -> 'a list
+    type 'a set
+    val set_MLname: string -> string -> unit
+    val set_diff: ''a list -> ''a list -> ''a list
+    val set_eq: ''a list -> ''a list -> bool
+    val set_fixity: string -> fixity -> unit
+    val set_grammar_ancestry: string list -> unit
+    val set_implicit_rewrites: rewrites -> unit
+    val set_known_constants: string list -> unit
+    val set_mapped_fixity:
+       {fixity: fixity, term_name: string, tok: string} -> unit
+    val set_prover: (term * Tactical.tactic -> thm) -> unit
+    val set_term_printer:
+       (ppstream -> term -> unit) -> ppstream -> term -> unit
+    val set_trace: string -> int -> unit
+    val sg: term quotation -> bossLib.tactic
+    val show_assums: bool ref
+    val show_axioms: bool ref
+    val show_numeral_types: bool ref
+    val show_scrub: bool ref
+    val show_tags: bool ref
+    val show_types: bool ref
+    val show_types_verbosely: bool ref
+    val simp: thm list -> bossLib.tactic
+    val simp_tac: simpset -> thm list -> bossLib.tactic
+    type simpset
+    val singleton_of_list: 'a list -> 'a
+    val sl_doms: thm
+    val snd: 'a * 'b -> 'b
+    val sort: ('a -> 'a -> bool) -> 'a list -> 'a list
+    val sort_vars: string list -> term list -> term list
+    val speaks_for_SUBSET: thm
+    val spine_binop: ('a -> ('a * 'a) option) -> 'a -> 'a list
+    val split: ('a * 'b) list -> 'a list * 'b list
+    val split_after: int -> 'a list -> 'a list * 'a list
+    val split_pair_case_tac: bossLib.tactic
+    val spose_not_then: (thm -> bossLib.tactic) -> bossLib.tactic
+    val srw_ss: unit -> simpset
+    val srw_tac: ssfrag list -> thm list -> bossLib.tactic
+    type ssfrag
+    val staff2num_11: thm
+    val staff2num_ONTO: thm
+    val staff2num_num2staff: thm
+    val staff2num_thm: thm
+    val staff_Axiom: thm
+    val staff_BIJ: thm
+    val staff_CASE: thm
+    val staff_EQ_staff: thm
+    val staff_TY_DEF: thm
+    val staff_case_cong: thm
+    val staff_case_def: thm
+    val staff_distinct: thm
+    val staff_induction: thm
+    val staff_nchotomy: thm
+    val staff_size_def: thm
+    val stamp: string -> Time.time
+    val start_real_time: unit -> Timer.real_timer
+    val start_time: unit -> Timer.cpu_timer
+    val state: ('a, 'b) istream -> 'b
+    val std_binder_precedence: int
+    val std_ss: simpset
+    val stdprinters: ((term -> string) * (hol_type -> string)) option
+    val store_attribute: {attribute: string, thm_name: string} -> unit
+    val store_definition: string * thm -> thm
+    val store_thm: string * term * Tactical.tactic -> thm
+    val str_all: (char -> bool) -> string -> bool
+    val strcat: string -> string -> string
+    val string_to_int: string -> int
+    val strip_abs: term -> term list * term
+    val strip_assume_tac: Tactic.thm_tactic
+    val strip_binder: term option -> term -> term list * term
+    val strip_binop: ('a -> ('a * 'a) option) -> 'a -> 'a list
+    val strip_comb: term -> term * term list
+    val strip_conj: term -> term list
+    val strip_disj: term -> term list
+    val strip_exists: term -> term list * term
+    val strip_forall: term -> term list * term
+    val strip_fun: hol_type -> hol_type list * hol_type
+    val strip_gen_left: ('a -> 'b * 'a) -> 'a -> 'b list * 'a
+    val strip_gen_left_opt: ('a -> ('b * 'a) option) -> 'a -> 'b list * 'a
+    val strip_gen_right: ('a -> 'a * 'b) -> 'a -> 'a * 'b list
+    val strip_gen_right_opt: ('a -> ('a * 'b) option) -> 'a -> 'a * 'b list
+    val strip_imp: term -> term list * term
+    val strip_imp_only: term -> term list * term
+    val strip_neg: term -> term * int
+    val strip_res_exists: term -> (term * term) list * term
+    val strip_res_forall: term -> (term * term) list * term
+    val strip_tac: Tactic.tactic
+    val subgoal: term quotation -> bossLib.tactic
+    val subst: (term, term) Term.subst -> term -> term
+    type ('a, 'b) subst = ('a, 'b) Lib.subst
+    val subst_assoc: ('a -> bool) -> ('a, 'b) Lib.subst -> 'b option
+    val subst_occs:
+       int list list -> {redex: term, residue: term} list -> term -> term
+    val subtract: ''a list -> ''a list -> ''a list
+    val suff_tac: term -> Tactic.tactic
+    val suffices_by: term quotation * bossLib.tactic -> bossLib.tactic
+    val swap: 'a * 'b -> 'b * 'a
+    val syntax_fns:
+       {dest: term -> exn -> term -> 'a, make: term -> 'b -> term, n: int} ->
+         string ->
+           string -> term * ('b -> term) * (term -> 'a) * (term -> bool)
+    val syntax_fns1:
+       string ->
+         string -> term * (term -> term) * (term -> term) * (term -> bool)
+    val syntax_fns2:
+       string ->
+         string ->
+           term * (term * term -> term) * (term -> term * term) *
+           (term -> bool)
+    val syntax_fns3:
+       string ->
+         string ->
+           term * (term * term * term -> term) *
+           (term -> term * term * term) * (term -> bool)
+    val syntax_fns4:
+       string ->
+         string ->
+           term * (term * term * term * term -> term) *
+           (term -> term * term * term * term) * (term -> bool)
+    val tDefine: string -> term quotation -> bossLib.tactic -> thm
+    type tactic = Abbrev.tactic
+    val tag: thm -> tag
+    type tag
+    val temp_TeX_notation: {TeX: string * int, hol: string} -> unit
+    val temp_add_absyn_postprocessor:
+       string * term_grammar.absyn_postprocessor -> unit
+    val temp_add_bare_numeral_form: char * string option -> unit
+    val temp_add_infix: string * int * associativity -> unit
+    val temp_add_infix_type:
+       {Assoc: associativity,
+         Name: string, ParseName: string option, Prec: int} -> unit
+    val temp_add_listform:
+       {block_info: block_info,
+         cons: string,
+         leftdelim: pp_element list,
+         nilstr: string,
+         rightdelim: pp_element list, separator: pp_element list} -> unit
+    val temp_add_numeral_form: char * string option -> unit
+    val temp_add_preterm_processor:
+       string * int -> term_grammar.preterm_processor -> unit
+    val temp_add_qtype: {Name: string, Thy: string} -> unit
+    val temp_add_record_field: string * term -> unit
+    val temp_add_record_fupdate: string * term -> unit
+    val temp_add_rule:
+       {block_style: PhraseBlockStyle * block_info,
+         fixity: fixity,
+         paren_style: ParenStyle,
+         pp_elements: pp_element list, term_name: string} -> unit
+    val temp_add_type: string -> unit
+    val temp_add_user_printer:
+       string * term * term_grammar.userprinter -> unit
+    val temp_associate_restriction: string * string -> unit
+    val temp_binding: string -> string
+    val temp_bring_to_front_overload:
+       string -> {Name: string, Thy: string} -> unit
+    val temp_clear_overloads_on: string -> unit
+    val temp_disable_tyabbrev_printing: string -> unit
+    val temp_gen_remove_ovl_mapping: string -> term -> unit
+    val temp_give_num_priority: char -> unit
+    val temp_inferior_overload_on: string * term -> unit
+    val temp_loose_equality: unit -> unit
+    val temp_overload_on: string * term -> unit
+    val temp_overload_on_by_nametype:
+       string -> {Name: string, Thy: string} -> unit
+    val temp_prefer_form_with_tok: {term_name: string, tok: string} -> unit
+    val temp_remove_absyn_postprocessor:
+       string -> term_grammar.absyn_postprocessor option
+    val temp_remove_numeral_form: char -> unit
+    val temp_remove_ovl_mapping:
+       string -> {Name: string, Thy: string} -> unit
+    val temp_remove_preterm_processor:
+       string * int -> term_grammar.preterm_processor option
+    val temp_remove_rules_for_term: string -> unit
+    val temp_remove_termtok: {term_name: string, tok: string} -> unit
+    val temp_remove_type_abbrev: string -> unit
+    val temp_remove_user_printer:
+       string -> (term * term_grammar.userprinter) option
+    val temp_send_to_back_overload:
+       string -> {Name: string, Thy: string} -> unit
+    val temp_set_associativity: int * associativity -> unit
+    val temp_set_fixity: string -> fixity -> unit
+    val temp_set_grammars:
+       type_grammar.grammar * term_grammar.grammar -> unit
+    val temp_set_mapped_fixity:
+       {fixity: fixity, term_name: string, tok: string} -> unit
+    val temp_thytype_abbrev: KernelSig.kernelname * hol_type -> unit
+    val temp_tight_equality: unit -> unit
+    val temp_type_abbrev: string * hol_type -> unit
+    eqtype term
+    val term_diff: term -> term -> (pel list * term * term) list
+    val term_eq: term -> term -> bool
+    val term_grammar: unit -> term_grammar.grammar
+    val term_pp_prefix: string ref
+    val term_pp_suffix: string ref
+    val term_pp_with_delimiters:
+       (ppstream -> term -> unit) -> ppstream -> term -> unit
+    val term_size: term -> int
+    val term_to_string: term -> string
+    val the_map: unit -> (string, string * int) Binarymap.dict
+    val the_value: term
+    val theorem: string -> thm
+    val theorems: string -> (string * thm) list
+    type theory
+    val theory_data: {settype: string, thy: string} -> (string * thm) list
+    type thm
+    val thm_frees: thm -> term list
+    type thm_tactic = Abbrev.thm_tactic
+    type thm_tactical = bossLib.thm_tactic -> bossLib.thm_tactic
+    val thm_to_string: thm -> string
+    val thms: string -> (string * thm) list
+    val thy: string -> DB.data list
+    type thy_addon =
+       {sig_ps: (ppstream -> unit) option,
+         struct_ps: (ppstream -> unit) option}
+    val thy_consts: string -> term list
+    val thy_types: string -> (string * int) list
+    val thytype_abbrev: KernelSig.kernelname * hol_type -> unit
+    val tight_equality: unit -> unit
+    val time: ('a -> 'b) -> 'a -> 'b
+    val time_to_string: Time.time -> string
+    val topsort: ('a -> 'a -> bool) -> 'a list -> 'a list
+    val total: ('a -> 'b) -> 'a -> 'b option
+    val trace: string * int -> ('a -> 'b) -> 'a -> 'b
+    val traces:
+       unit ->
+         {aliases: string list,
+           default: int, max: int, name: string, trace_level: int} list
+    val triple: 'a -> 'b -> 'c -> 'a * 'b * 'c
+    val triple_of_list: 'a list -> 'a * 'a * 'a
+    val try: ('a -> 'b) -> 'a -> 'b
+    val try_grammar_extension: ('a -> 'b) -> 'a -> 'b
+    val try_theory_extension: ('a -> 'b) -> 'a -> 'b
+    val trye: ('a -> 'b) -> 'a -> 'b
+    val tryfind: ('a -> 'b) -> 'a list -> 'b
+    val trypluck: ('a -> 'b) -> 'a list -> 'b * 'a list
+    val trypluck': ('a -> 'b option) -> 'a list -> 'b option * 'a list
+    val ty_antiq: hol_type -> term
+    val ty_sub: (hol_type, hol_type) Lib.subst -> hol_type -> hol_type delta
+    val type_abbrev: string * hol_type -> unit
+    val type_constructors: thm -> string -> term list
+    val type_constructors_with_args: thm -> string -> term list
+    val type_grammar: unit -> type_grammar.grammar
+    val type_of: term -> hol_type
+    val type_pp_prefix: string ref
+    val type_pp_suffix: string ref
+    val type_pp_with_delimiters:
+       (ppstream -> hol_type -> unit) -> ppstream -> hol_type -> unit
+    val type_rws: hol_type -> thm list
+    val type_size: hol_type -> int
+    val type_subst: (hol_type, hol_type) Lib.subst -> hol_type -> hol_type
+    val type_to_string: hol_type -> string
+    val type_var_in: hol_type -> hol_type -> bool
+    val type_vars: hol_type -> hol_type list
+    val type_vars_in_term: term -> hol_type list
+    val type_varsl: hol_type list -> hol_type list
+    val typedTerm: term frag list -> hol_type -> term
+    val typed_parse_in_context:
+       hol_type -> term list -> term frag list -> term
+    val types: string -> (string * int) list
+    val unabbrev_all_tac: bossLib.tactic
+    val uncurry: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+    val union: ''a list -> ''a list -> ''a list
+    val universal: term
+    val unprefix: string -> string -> string
+    val unprime: string -> string
+    val unzip: ('a * 'b) list -> 'a list * 'b list
+    val update_overload_maps:
+       string ->
+         {Name: string, Thy: string} list * {Name: string, Thy: string} list
+           -> unit
+    val upto: int -> int -> int list
+    val uptodate_term: term -> bool
+    val uptodate_thm: thm -> bool
+    val uptodate_type: hol_type -> bool
+    type validation = thm list -> thm
+    val var_compare: term * term -> order
+    val var_occurs: term -> term -> bool
+    val variant: term list -> term -> term
+    val variant_of_term:
+       term list -> term -> term * {redex: term, residue: term} list
+    val vector_topsort: int list vector -> int list
+    val verdict: ('a -> 'b) -> ('a -> 'c) -> 'a -> ('b, 'c * exn) verdict
+    datatype ('a, 'b) verdict = FAIL of 'b | PASS of 'a
+    val version: int
+    val via: term * Tactic.tactic -> Tactic.tactic
+    val with_exn: ('a -> 'b) -> 'a -> exn -> 'b
+    val with_flag: 'a ref * 'a -> ('b -> 'c) -> 'b -> 'c
+    val words2: string -> string -> string list
+    val world_F: thm
+    val world_T: thm
+    val world_and: thm
+    val world_eq: thm
+    val world_eqn: thm
+    val world_imp: thm
+    val world_lt: thm
+    val world_lte: thm
+    val world_not: thm
+    val world_or: thm
+    val world_says: thm
+    val wrap_exn: string -> string -> exn -> exn
+    val wrap_exn_loc: string -> string -> locn.locn -> exn -> exn
+    val write_raw: (term -> int) -> term -> string
+    val xDefine: string -> term quotation -> thm
+    val xHol_coreln: string -> term quotation -> thm * thm * thm
+    val xHol_reln: string -> term quotation -> thm * thm * thm
+    val zDefine: term quotation -> thm
+    val zip: 'a list -> 'b list -> ('a * 'b) list
+    val |->: 'a * 'b -> {redex: 'a, residue: 'b}
+    val |>: 'a * ('a -> 'b) -> 'b
+  end
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+> 
+Process HOL finished

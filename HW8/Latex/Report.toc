@@ -1,0 +1,37 @@
+\contentsline {chapter}{\numberline {1}Executive Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Excercise 13.10.1}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Problem statement}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Relevant Code}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Forward Proof}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Goal Oriented Proof}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Goal Oriented Proof using Tactics}{4}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Session Transcript}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Forward Proof}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Goal Oriented Proof}{5}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Goal Oriented Proof Using Tactics}{5}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Excercise 13.10.2}{6}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem statement}{6}{section.3.1}
+\contentsline {section}{\numberline {3.2}Relevant Code}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Forward Proof}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Goal Oriented Proof}{6}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Goal Oriented Proof using Tactics}{7}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Session Transcript}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Forward Proof}{7}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Goal Oriented Proof}{7}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Goal Oriented Proof Using Tactics}{8}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Excercise 14.4.1}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Problem statement}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Relevant Code}{10}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Data types}{10}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Forward proof of OpRuleLaunch_thm}{10}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Proof of OpRuleAbort_thm}{11}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Proof for ApRuleActivate_thm}{12}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Proof for ApRuleStandDown_thm}{13}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Session Transcripts}{14}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Data types}{14}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}OpRuleLaunch}{14}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}OpRuleAbort_thm}{15}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}ApRuleAbort_thm}{15}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}ApRuleStandDown_thm}{16}{subsection.4.3.5}
+\contentsline {chapter}{\numberline {A}Source code: Ex 13.10.1 and Ex 13.10.2}{17}{appendix.A}
+\contentsline {chapter}{\numberline {B}Source code: Ex 14.4.1}{20}{appendix.B}

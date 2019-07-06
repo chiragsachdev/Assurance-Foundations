@@ -1,0 +1,757 @@
+\documentclass{report}
+\title{Homework 8}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 8}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\input{../HOL/HOLReports/HOLsolutionsOne}
+\input{../HOL/HOLReports/HOLconopsZeroSolution}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW8 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically,
+\begin{description}
+\item[Report Contents] \ \\
+  Our report has the following content:
+  \begin{enumerate}[{}]
+  \item Chapter~\ref{cha:executive-summary}: Executive Summary
+  \item Chapter~\ref{cha:13.10.1}: Exercise 13.10.1
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-13-1}: Problem Statement
+    \item Section~\ref{rel-code-13-1}: Relevant Code 
+    \item Section~\ref{13-1-trans}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:13.10.2}: Exercise 13.10.2
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-13-2}: Problem Statement
+    \item Section~\ref{rel-code-13-2}: Relevant Code
+    \item Section~\ref{13-2-trans} Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:14.4.1}: Exercise 14.4.1
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-14}: Problem Statement
+    \item Section~\ref{rel-code-14}: Relevant Code
+    \item Section~\ref{trans-14}: Session Transcripts
+    \end{enumerate}
+ \item Appendix~\ref{cha:source-code-13}: Source Code Ex 13.10.1 and 13.10.2
+ \item Appendix~\ref{cha:source-code-14}: Source Code Ex 14.4.1
+  \end{enumerate}
+\item[Reproducibility in ML and \LaTeX{}] \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+\end{description}
+
+
+
+%Ex 13.10.1
+\chapter{Excercise 13.10.1}
+\label{cha:13.10.1}
+
+\section{Problem statement}
+\label{problem-statement-13-1}
+Do a forward proof and a goal-oriented proof using only PROVE_TAC and goal-oriented proof using tactics in ACL.
+\begin{quote}
+\HOLsolutionsOneTheoremsaclExerciseOne
+\end{quote}
+
+\section{Relevant Code}
+\label{rel-code-13-1}
+
+\subsection{Forward Proof}
+\label{forward-proof-13-1}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise1 =
+let
+ val th1 = ACL_ASSUM``((Name Alice) says (prop go)):(commands,staff,'d,'e)Form``
+ val th2 = ACL_ASSUM``((Name Bob) says (prop go)):(commands,staff,'d,'e)Form``
+ val th3 = ACL_CONJ th1 th2
+ val th4 = AND_SAYS_RL th3
+ val th5 = DISCH(hd(hyp th2)) th4
+in
+ DISCH(hd(hyp th1)) th5
+end;
+val _ = save_thm("aclExercise1",aclExercise1)
+\end{lstlisting}
+
+\subsection{Goal Oriented Proof}
+\label{goal-oriented-proof-13-1}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise1A =
+TAC_PROOF(([],
+``((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po), (Os :'e po)) sat
+   Name Alice says (prop go) ==>
+  (M,Oi,Os) sat Name Bob says (prop go) ==>
+  (M,Oi,Os) sat (Name Alice) meet (Name Bob) says (prop go)``),
+PROVE_TAC[Conjunction, And_Says_Eq])
+val _ = save_thm("aclExercise1A",aclExercise1A)
+\end{lstlisting}
+
+\subsection{Goal Oriented Proof using Tactics}
+\label{goal-oriented-proof-tacs-13-1}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise1B = 
+TAC_PROOF(([],
+``((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po), (Os :'e po)) sat
+   Name Alice says (prop go) ==>
+  (M,Oi,Os) sat Name Bob says (prop go) ==>
+  (M,Oi,Os) sat (Name Alice) meet (Name Bob) says (prop go)``),
+REPEAT STRIP_TAC THEN
+ACL_AND_SAYS_RL_TAC THEN
+ACL_CONJ_TAC THEN
+PROVE_TAC[])
+val _ = save_thm("aclExercise1B",aclExercise1B)
+\end{lstlisting}
+
+
+\section{Session Transcript}
+\label{13-1-trans}
+
+\subsection{Forward Proof}
+\label{op-forward-proof-13-1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ aclExercise1
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{Goal Oriented Proof}
+\label{op-goal-proof-13-1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ aclExercise1A
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{Goal Oriented Proof Using Tactics}
+\label{op-goal-proof-tacs-13-1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+    aclExercise1B
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice meet Name Bob says
+         (prop go :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%Ex 13.10.2
+\chapter{Excercise 13.10.2}
+\label{cha:13.10.2}
+
+\section{Problem statement}
+\label{problem-statement-13-2}
+Do a forward proof and a goal-oriented proof using only PROVE_TAC and goal-oriented proof using tactics in ACL.
+\begin{quote}
+\HOLsolutionsOneTheoremsaclExerciseTwo
+\end{quote}
+
+\section{Relevant Code}
+\label{rel-code-13-2}
+
+\subsection{Forward Proof}
+\label{forward-proof-13-2}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise2 =
+let
+ val th1 = ACL_ASSUM``((Name Alice) says (prop go)):(commands,staff,'d,'e)Form``
+ val th2 = ACL_ASSUM``((Name Alice) controls (prop go)):(commands,staff,'d,'e)Form``
+ val th3 = ACL_ASSUM``((prop go) impf (prop launch)):(commands,staff,'d,'e)Form``
+ val th4 = CONTROLS th2 th1
+ val th5 = ACL_MP th4 th3
+ val th6 = SAYS ``(Name Bob):staff Princ`` th5
+ val th7 = DISCH(hd(hyp th3)) th6
+ val th8 = DISCH(hd(hyp th2)) th7
+in
+ DISCH(hd(hyp th1)) th8
+end;
+val _ = save_thm("aclExercise2",aclExercise2)
+\end{lstlisting}
+
+\subsection{Goal Oriented Proof}
+\label{goal-oriented-proof-13-2}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise2A =
+TAC_PROOF(([],
+``((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po), (Os :'e po)) sat
+   Name Alice says (prop go) ==>
+  (M,Oi,Os) sat Name Alice controls (prop go) ==>
+  (M,Oi,Os) sat (prop go) impf (prop launch) ==>
+  (M,Oi,Os) sat Name Bob says (prop launch)``),
+PROVE_TAC[Controls, Modus_Ponens, Says]);
+val _ = save_thm("aclExercise2A",aclExercise2A)
+\end{lstlisting}
+
+\subsection{Goal Oriented Proof using Tactics}
+\label{goal-oriented-proof-tacs-13-2}
+\begin{lstlisting}[frame=TBlr]
+val aclExercise2B =
+TAC_PROOF(([],
+``((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po), (Os :'e po)) sat
+   Name Alice says (prop go) ==>
+  (M,Oi,Os) sat Name Alice controls (prop go) ==>
+  (M,Oi,Os) sat (prop go) impf (prop launch) ==>
+  (M,Oi,Os) sat Name Bob says (prop launch)``),
+REPEAT STRIP_TAC THEN
+ACL_SAYS_TAC THEN
+PAT_ASSUM
+``(M,Oi,Os) sat Name Alice says (prop go)``
+(fn th1 =>
+(PAT_ASSUM
+``(M,Oi,Os) sat Name Alice controls (prop go)``
+(fn th2 => ASSUME_TAC(CONTROLS th2 th1)))) THEN
+PAT_ASSUM
+``(M,Oi,Os) sat (prop go)``
+(fn th1 =>
+(PAT_ASSUM
+``(M,Oi,Os) sat (prop go) impf (prop launch)``
+(fn th2 => PROVE_TAC[(ACL_MP th1 th2)]))))
+val _ = save_thm("aclExercise2B",aclExercise2B)
+\end{lstlisting}
+
+
+\section{Session Transcript}
+\label{13-2-trans}
+
+\subsection{Forward Proof}
+\label{op-forward-proof-13-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ aclExercise2
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{Goal Oriented Proof}
+\label{op-goal-proof-13-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+   aclExercise2A
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{Goal Oriented Proof Using Tactics}
+\label{op-goal-proof-tacs-13-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ aclExercise2B
+      |- ((M :(commands, 'b, staff, 'd, 'e) Kripke),(Oi :'d po),
+          (Os :'e po)) sat
+         Name Alice says (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Alice controls
+         (prop go :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         (prop go :(commands, staff, 'd, 'e) Form) impf
+         (prop launch :(commands, staff, 'd, 'e) Form) ==>
+         (M,Oi,Os) sat
+         Name Bob says (prop launch :(commands, staff, 'd, 'e) Form)
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 14.4.1
+\chapter{Excercise 14.4.1}
+\label{cha:14.4.1}
+
+
+\section{Problem statement}
+\label{problem-statement-14}
+Prove the launch and abort CONOPS by proving the
+following theorems:
+\begin{quote}
+\HOLThmTag{conops0Solution}{ApRuleActivate_thm}\HOLconopsZeroSolutionTheoremsApRuleActivateXXthm
+\HOLThmTag{conops0Solution}{ApRuleStandDown_thm}\HOLconopsZeroSolutionTheoremsApRuleStandDownXXthm
+\HOLThmTag{conops0Solution}{OpRuleAbort_thm}\HOLconopsZeroSolutionTheoremsOpRuleAbortXXthm
+\HOLThmTag{conops0Solution}{OpRuleLaunch_thm}\HOLconopsZeroSolutionTheoremsOpRuleLaunchXXthm
+\end{quote}
+
+
+
+\section{Relevant Code}
+\label{rel-code-14}
+
+\subsection{Data types}
+\label{datatypes-14}
+\begin{lstlisting}[frame=TBlr]
+val _ = Datatype `commands = go | nogo | launch | abort | activate | stand_down`
+
+val _ = Datatype `people = Alice | Bob`
+
+val _ = Datatype `roles = Commander | Operator | CA`
+
+val _ = Datatype `keyPrinc = Staff people | Role roles | Ap num`
+
+val _ = Datatype `principals = PR keyPrinc | Key keyPrinc`
+\end{lstlisting}
+
+\subsection{Forward proof of OpRuleLaunch_thm}
+\label{proof-14-1}
+\begin{lstlisting}[frame=TBlr]
+val OpRuleLaunch_thm =
+let
+ val th1 = 
+  ACL_ASSUM ``((Name (PR (Role Commander))) controls (prop go))
+    : (commands,principals,'d,'e)Form``
+ val th2 = 
+  ACL_ASSUM ``(reps(Name (PR (Staff Alice))) (Name (PR (Role Commander))) (prop go))
+    : (commands,principals,'d,'e)Form``
+ val th3 = 
+  ACL_ASSUM ``((Name (Key (Staff Alice))) quoting (Name (PR (Role Commander))) says (prop go))
+    : (commands,principals,'d,'e)Form``
+ val th4 = 
+  ACL_ASSUM ``((prop go) impf (prop launch)) : (commands,principals,'d,'e)Form``
+ val th5 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) speaks_for (Name (PR (Role CA)))) : (commands,principals,'d,'e)Form``
+ val th6 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) says ((Name (Key (Staff Alice))) speaks_for (Name (PR (Staff Alice)))))
+    : (commands,principals,'d,'e)Form``
+ val th7 = 
+  ACL_ASSUM ``((Name (PR (Role CA))) controls ((Name (Key (Staff Alice))) speaks_for (Name (PR (Staff Alice)))))
+    : (commands,principals,'d,'e)Form``
+ val th8 = SPEAKS_FOR th5 th6
+ val th9 = CONTROLS th7 th8
+ val th10 = IDEMP_SPEAKS_FOR ``Name (PR (Role Commander)): principals Princ``
+ val th11 = INST_TYPE [``:'a`` |-> ``:commands``] th10
+ val th12 = MONO_SPEAKS_FOR th9 th11
+ val th13 = SPEAKS_FOR th12 th3
+ val th14 = REPS th2 th13 th1
+ val th15 = ACL_MP th14 th4
+ val th16 = SAYS ``(Name (Key (Staff Bob))) quoting (Name (PR (Role Operator))) :principals Princ`` th15
+ val th17 = DISCH(hd(hyp th7)) th16
+ val th18 = DISCH(hd(hyp th6)) th17
+ val th19 = DISCH(hd(hyp th5)) th18
+ val th20 = DISCH(hd(hyp th4)) th19
+ val th21 = DISCH(hd(hyp th3)) th20
+ val th22 = DISCH(hd(hyp th2)) th21
+in
+ DISCH(hd(hyp th1)) th22
+end;
+\end{lstlisting}
+
+\subsection{Proof of OpRuleAbort_thm}
+\label{proof-14-2}
+\begin{lstlisting}[frame=TBlr]
+val OpRuleAbort_thm =
+let
+ val th1 = 
+  ACL_ASSUM ``((Name (PR (Role Commander))) controls (prop nogo))
+    : (commands,principals,'d,'e)Form``
+ val th2 = 
+  ACL_ASSUM ``(reps(Name (PR (Staff Alice))) (Name (PR (Role Commander))) (prop nogo))
+    : (commands,principals,'d,'e)Form``
+ val th3 = 
+  ACL_ASSUM ``((Name (Key (Staff Alice))) quoting (Name (PR (Role Commander))) says (prop nogo))
+    : (commands,principals,'d,'e)Form``
+ val th4 = 
+  ACL_ASSUM ``((prop nogo) impf (prop abort)) : (commands,principals,'d,'e)Form``
+ val th5 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) speaks_for (Name (PR (Role CA)))) : (commands,principals,'d,'e)Form``
+ val th6 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) says ((Name (Key (Staff Alice))) speaks_for (Name (PR (Staff Alice)))))
+    : (commands,principals,'d,'e)Form``
+ val th7 = 
+  ACL_ASSUM ``((Name (PR (Role CA))) controls ((Name (Key (Staff Alice))) speaks_for (Name (PR (Staff Alice)))))
+    : (commands,principals,'d,'e)Form``
+ val th8 = SPEAKS_FOR th5 th6
+ val th9 = CONTROLS th7 th8
+ val th10 = IDEMP_SPEAKS_FOR ``Name (PR (Role Commander)): principals Princ``
+ val th11 = INST_TYPE [``:'a`` |-> ``:commands``] th10
+ val th12 = MONO_SPEAKS_FOR th9 th11
+ val th13 = SPEAKS_FOR th12 th3
+ val th14 = REPS th2 th13 th1
+ val th15 = ACL_MP th14 th4
+ val th16 = SAYS ``(Name (Key (Staff Bob))) quoting (Name (PR (Role Operator))) :principals Princ`` th15
+ val th17 = DISCH(hd(hyp th7)) th16
+ val th18 = DISCH(hd(hyp th6)) th17
+ val th19 = DISCH(hd(hyp th5)) th18
+ val th20 = DISCH(hd(hyp th4)) th19
+ val th21 = DISCH(hd(hyp th3)) th20
+ val th22 = DISCH(hd(hyp th2)) th21
+in
+ DISCH(hd(hyp th1)) th22
+end;
+\end{lstlisting}
+
+\subsection{Proof for ApRuleActivate_thm}
+\label{proof-14-3}
+\begin{lstlisting}[frame=TBlr]
+val ApRuleActivate_thm =
+let
+ val th1 = 
+  ACL_ASSUM ``((Name (PR (Role Operator))) controls (prop launch))
+    : (commands,principals,'d,'e)Form``
+ val th2 = 
+  ACL_ASSUM ``(reps(Name (PR (Staff Bob))) (Name (PR (Role Operator))) (prop launch))
+    : (commands,principals,'d,'e)Form``
+ val th3 = 
+  ACL_ASSUM ``((Name (Key (Staff Bob))) quoting (Name (PR (Role Operator))) says (prop launch))
+    : (commands,principals,'d,'e)Form``
+ val th4 =
+  ACL_ASSUM ``((prop launch) impf (prop activate)) : (commands,principals,'d,'e)Form``
+ val th5 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) speaks_for (Name (PR (Role CA)))) : (commands,principals,'d,'e)Form``
+ val th6 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) says ((Name (Key (Staff Bob))) speaks_for (Name (PR (Staff Bob)))))
+    : (commands,principals,'d,'e)Form``
+ val th7 = 
+  ACL_ASSUM ``((Name (PR (Role CA))) controls ((Name (Key (Staff Bob))) speaks_for (Name (PR (Staff Bob)))))
+    : (commands,principals,'d,'e)Form``
+ val th8 = SPEAKS_FOR th5 th6
+ val th9 = CONTROLS th7 th8
+ val th10 = IDEMP_SPEAKS_FOR ``Name (PR (Role Operator)): principals Princ``
+ val th11 = INST_TYPE [``:'a`` |-> ``:commands``] th10
+ val th12 = MONO_SPEAKS_FOR th9 th11
+ val th13 = SPEAKS_FOR th12 th3
+ val th14 = REPS th2 th13 th1
+ val th15 = ACL_MP th14 th4
+ val th16 = DISCH(hd(hyp th7)) th15
+ val th17 = DISCH(hd(hyp th6)) th16
+ val th18 = DISCH(hd(hyp th5)) th17
+ val th19 = DISCH(hd(hyp th4)) th18
+ val th20 = DISCH(hd(hyp th3)) th19
+ val th21 = DISCH(hd(hyp th2)) th20
+in
+ DISCH(hd(hyp th1)) th21
+end;
+
+\end{lstlisting}
+
+\subsection{Proof for ApRuleStandDown_thm}
+\label{proof-14-4}
+\begin{lstlisting}[frame=TBlr]
+val ApRuleStandDown_thm =
+let
+ val th1 = 
+  ACL_ASSUM ``((Name (PR (Role Operator))) controls (prop abort))
+    : (commands,principals,'d,'e)Form``
+ val th2 = 
+  ACL_ASSUM ``(reps(Name (PR (Staff Bob))) (Name (PR (Role Operator))) (prop abort))
+    : (commands,principals,'d,'e)Form``
+ val th3 = 
+  ACL_ASSUM ``((Name (Key (Staff Bob))) quoting (Name (PR (Role Operator))) says (prop abort))
+    : (commands,principals,'d,'e)Form``
+ val th4 = 
+  ACL_ASSUM ``((prop abort) impf (prop stand_down)) : (commands,principals,'d,'e)Form``
+ val th5 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) speaks_for (Name (PR (Role CA)))) : (commands,principals,'d,'e)Form``
+ val th6 = 
+  ACL_ASSUM ``((Name (Key (Role CA))) says ((Name (Key (Staff Bob))) speaks_for (Name (PR (Staff Bob)))))
+    : (commands,principals,'d,'e)Form``
+ val th7 = 
+  ACL_ASSUM ``((Name (PR (Role CA))) controls ((Name (Key (Staff Bob))) speaks_for (Name (PR (Staff Bob)))))
+    : (commands,principals,'d,'e)Form``
+ val th8 = SPEAKS_FOR th5 th6
+ val th9 = CONTROLS th7 th8
+ val th10 = IDEMP_SPEAKS_FOR ``Name (PR (Role Operator)): principals Princ``
+ val th11 = INST_TYPE [``:'a`` |-> ``:commands``] th10
+ val th12 = MONO_SPEAKS_FOR th9 th11
+ val th13 = SPEAKS_FOR th12 th3
+ val th14 = REPS th2 th13 th1
+ val th15 = ACL_MP th14 th4
+ val th16 = DISCH(hd(hyp th7)) th15
+ val th17 = DISCH(hd(hyp th6)) th16
+ val th18 = DISCH(hd(hyp th5)) th17
+ val th19 = DISCH(hd(hyp th4)) th18
+ val th20 = DISCH(hd(hyp th3)) th19
+ val th21 = DISCH(hd(hyp th2)) th20
+in
+ DISCH(hd(hyp th1)) th21
+end;
+\end{lstlisting}
+
+
+\section{Session Transcripts}
+\label{trans-14}
+
+\subsection{Data types}
+\label{op-14-1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ <<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("commands2num"), overload_on("num2commands"), overload_on("go"), overload_on("nogo"), overload_on("launch"), overload_on("abort"), overload_on("activate"), overload_on("stand_down"), overload_on("commands_size"), overload_on("commands_CASE"), overload_on("case")
+  invalidated by NewTypeOp(scratch$commands)>>
+<<HOL message: Defined type: "commands">>
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("people2num"), overload_on("num2people"), overload_on("Alice"), overload_on("Bob"), overload_on("people_size"), overload_on("people_CASE"), overload_on("case"), overload_on("Staff"), overload_on("keyPrinc_CASE"), overload_on("case")
+  invalidated by NewTypeOp(scratch$people)>>
+<<HOL message: Defined type: "people">>
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("roles2num"), overload_on("num2roles"), overload_on("Commander"), overload_on("Operator"), overload_on("CA"), overload_on("roles_size"), overload_on("roles_CASE"), overload_on("case"), overload_on("Role")
+  invalidated by NewTypeOp(scratch$roles)>>
+<<HOL message: Defined type: "roles">>
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("Ap"), overload_on("keyPrinc_size"), overload_on("PR"), overload_on("Key"), overload_on("principals_CASE"), overload_on("case")
+  invalidated by NewTypeOp(scratch$keyPrinc)>>
+<<HOL message: Defined type: "keyPrinc">>
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("principals_size")
+  invalidated by NewTypeOp(scratch$principals)>>
+<<HOL message: Defined type: "principals">>
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{OpRuleLaunch}
+\label{op-14-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val OpRuleLaunch_thm =
+   |- ((M :(commands, 'b, principals, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) sat
+   Name (PR (Role Commander)) controls
+   (prop go :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   reps (Name (PR (Staff Alice))) (Name (PR (Role Commander)))
+     (prop go :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Alice)) quoting Name (PR (Role Commander)) says
+   (prop go :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop go :(commands, principals, 'd, 'e) Form) impf
+   (prop launch :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   ((Name (Key (Role CA)) speaks_for Name (PR (Role CA)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Role CA)) says
+   ((Name (Key (Staff Alice)) speaks_for Name (PR (Staff Alice)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (PR (Role CA)) controls
+   ((Name (Key (Staff Alice)) speaks_for Name (PR (Staff Alice)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Bob)) quoting Name (PR (Role Operator)) says
+   (prop launch :(commands, principals, 'd, 'e) Form):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\subsection{OpRuleAbort_thm}
+\label{op-14-3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val OpRuleAbort_thm =
+   |- ((M :(commands, 'b, principals, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) sat
+   Name (PR (Role Commander)) controls
+   (prop nogo :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   reps (Name (PR (Staff Alice))) (Name (PR (Role Commander)))
+     (prop nogo :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Alice)) quoting Name (PR (Role Commander)) says
+   (prop nogo :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop nogo :(commands, principals, 'd, 'e) Form) impf
+   (prop abort :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   ((Name (Key (Role CA)) speaks_for Name (PR (Role CA)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Role CA)) says
+   ((Name (Key (Staff Alice)) speaks_for Name (PR (Staff Alice)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (PR (Role CA)) controls
+   ((Name (Key (Staff Alice)) speaks_for Name (PR (Staff Alice)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Bob)) quoting Name (PR (Role Operator)) says
+   (prop abort :(commands, principals, 'd, 'e) Form):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{ApRuleAbort_thm}
+\label{op-14-4}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val ApRuleActivate_thm =
+   |- ((M :(commands, 'b, principals, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) sat
+   Name (PR (Role Operator)) controls
+   (prop launch :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   reps (Name (PR (Staff Bob))) (Name (PR (Role Operator)))
+     (prop launch :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Bob)) quoting Name (PR (Role Operator)) says
+   (prop launch :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop launch :(commands, principals, 'd, 'e) Form) impf
+   (prop activate :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   ((Name (Key (Role CA)) speaks_for Name (PR (Role CA)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Role CA)) says
+   ((Name (Key (Staff Bob)) speaks_for Name (PR (Staff Bob)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (PR (Role CA)) controls
+   ((Name (Key (Staff Bob)) speaks_for Name (PR (Staff Bob)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat (prop activate :(commands, principals, 'd, 'e) Form):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+\subsection{ApRuleStandDown_thm}
+\label{op-14-5}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val ApRuleStandDown_thm =
+   |- ((M :(commands, 'b, principals, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) sat
+   Name (PR (Role Operator)) controls
+   (prop abort :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   reps (Name (PR (Staff Bob))) (Name (PR (Role Operator)))
+     (prop abort :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Staff Bob)) quoting Name (PR (Role Operator)) says
+   (prop abort :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop abort :(commands, principals, 'd, 'e) Form) impf
+   (prop stand_down :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   ((Name (Key (Role CA)) speaks_for Name (PR (Role CA)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (Key (Role CA)) says
+   ((Name (Key (Staff Bob)) speaks_for Name (PR (Staff Bob)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   Name (PR (Role CA)) controls
+   ((Name (Key (Staff Bob)) speaks_for Name (PR (Staff Bob)))
+      :(commands, principals, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat (prop stand_down :(commands, principals, 'd, 'e) Form):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+\appendix{}
+
+\chapter{Source code: Ex 13.10.1 and Ex 13.10.2}
+\label{cha:source-code-13}
+
+\lstinputlisting{../HOL/solutions1Theory.sml}
+
+\chapter{Source code: Ex 14.4.1}
+\label{cha:source-code-14}
+\lstinputlisting{../HOL/conops0SolutionScript.sml}
+\end{document}

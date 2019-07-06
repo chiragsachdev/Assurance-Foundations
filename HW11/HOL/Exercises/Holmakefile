@@ -1,0 +1,7 @@
+
+#########################################################################
+# Note: INCLUDES gives paths, separated by spaces, for HOL to include
+# when searching for built theories. In this case it's the path
+# to the access-control logic
+#########################################################################
+INCLUDES=${HOME}/Documents/RESEARCH/HOL/ACL/ ../

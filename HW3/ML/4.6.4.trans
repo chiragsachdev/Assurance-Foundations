@@ -1,0 +1,12 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # val listSquares = fn: int list -> int list
+> # # val testList = [1, 2, 3, 4, 5]: int list
+val testResults = [1, 4, 9, 16, 25]: int list
+> 
+Process HOL finished

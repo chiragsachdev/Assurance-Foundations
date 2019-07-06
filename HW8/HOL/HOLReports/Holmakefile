@@ -1,0 +1,7 @@
+
+#########################################################################
+# Note: INCLUDES gives paths, separated by spaces, for HOL to include
+# when searching for built theories. In this case it's the parent
+# subdirectory.
+#########################################################################
+INCLUDES= ../

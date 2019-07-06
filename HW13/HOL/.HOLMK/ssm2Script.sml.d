@@ -1,0 +1,1 @@
+ssm2Script.uo: /usr/local/share/HOL/sigobj/HolKernel.ui /usr/local/share/HOL/sigobj/Parse.ui /usr/local/share/HOL/sigobj/TypeBase.ui /home/csbd/Documents/RESEARCH/HOL/ACL/acl_infRules.ui /usr/local/share/HOL/sigobj/boolLib.ui /usr/local/share/HOL/sigobj/bossLib.ui /usr/local/share/HOL/sigobj/listTheory.ui satListTheory.ui ssm1Theory.ui ssminfRules.ui 

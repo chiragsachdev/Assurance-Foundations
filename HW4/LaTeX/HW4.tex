@@ -1,0 +1,414 @@
+\documentclass{report}
+\title{Homework 4}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 4}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW4 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+I used the following table to indert symbols to the \LaTeX\ document: \url{https://en.wikipedia.org/wiki/List_of_mathematical_symbols}
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements have been met} 
+The reason I have submitted this assignment late is because I have not been keeping well. This document illustrates the abilities of work with terms in \emph{HOL}.
+
+
+%Ex 6.2.1
+\chapter{Excercise 6.2.1}
+\label{cha:6.2.1}
+
+\section{Problem statement}
+\label{problem-statement-6.2.1}
+In the following problems, enable HOL’s Show types capability and disable Unicode so only ACSII characters are displayed.
+\begin{enumerate}
+\item Enter the HOL equivalent of \emph{$P(x) \supset Q(y)$}. Show what HOL returns. What are the types of \emph{x, y, P,} and \emph{Q}?
+\item Consider again \emph{$P(x) \supset Q(y)$}. Suppose we wish to constrain \emph{x} to HOL type \emph{:num} and \emph{y} to HOL type \emph{:bool}. Re-enter your expression corresponding to \emph{$P(x) \supset Q(y)$} and show that the types of \emph{x, y, P,} and \emph{Q} are appropriately typed.
+\item Enter the HOL equivalent of \emph{$\forall x y.P(x) \supset Q(y)$}, without explicitly specifying types. What do you get and why?
+\item Enter the HOL equivalent of \emph{$\exists ( x : num).R(x : \alpha)$}. What happens and why?
+\item Enter the HOL equivalent of \emph{$\neg \forall x.P(x) \lor Q(x) = \exists x.\neg P(x) \land \neg Q(x)$}
+\item Enter the HOL equivalent of the English sentence, All people are mortal, where \emph{$P(x)$} represents \emph{x} is a person and \emph{$M(x)$} represents \emph{x} is mortal.
+\item Enter the HOL equivalent of the English sentence, Some people are funny, where \emph{$Funny(x)$} denotes \emph{x} is funny.
+\end{enumerate}
+\section{Relevant Code}
+\label{rel-code-6.2.1}
+\begin{lstlisting}[frame=TBlr]
+(*1*)
+``P x ==> Q y``;
+(*2*)
+``P (x:num) ==> Q (y:bool)``;
+(*3*)
+``!x. !y. P x ==> Q y``;
+(*4*)
+``?x. R (x:num)``;
+(*5*)
+``~!x.(P x \/ Q x) = ?x.(~P x /\ ~Q x)``
+(*6*)
+(* All people are mortal*)
+``!x. P x ==> M x``
+(*7*)
+(*Some people are funny*)
+``!x. P x ==> ?x.Funny x``
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-6.2.1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> <<HOL message: inventing new type variable names: 'a>>
+val it = ``(x :'a)``: term
+> <<HOL message: inventing new type variable names: 'a>>
+val it = ``(y :'a)``: term
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``(P :'a -> 'b) (x :'a)``:
+   term
+> <<HOL message: inventing new type variable names: 'a>>
+val it = ``(y :'a)``: term
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``(Q :'a -> 'b) (y :'a)``:
+   term
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``(P :'a -> bool) (x :'a) ==> (Q :'b -> bool) (y :'b)``:
+   term> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > ># # # # # # # # # ** Unicode trace now off
+> # # # # # # # # # ** types trace now on
+> val it =
+   ``(P :num -> bool) (x :num) ==> (Q :bool -> bool) (y :bool)``:
+   term
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``!(x :'a) (y :'b). (P :'a -> bool) x ==> (Q :'b -> bool) y``:
+   term
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> val it = ``(x :num)``: term
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``(R :'a -> 'b) (x :'a)``:
+   term
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``?(x :'a). (R :'a -> bool) x``:
+   term
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``(R :num -> 'a) (x :num)``:
+   term
+> val it =
+   ``?(x :num). (R :num -> bool) x``:
+   term
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``~!(x :'a).
+     (P :'a -> bool) x \/ (Q :'a -> bool) x <=> ?(x :'a). ~P x /\ ~Q x``:
+   term
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``!(x :'a). (P :'a -> bool) x ==> (M :'a -> bool) x``:
+   term
+> 
+Process HOL finished
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+><<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``!(x :'a). (P :'a -> bool) x ==> ?(x :'b). (Funny :'b -> bool) x``:
+   term
+> 
+Process HOL finished
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 7.3.1
+\chapter{Excercise 7.3.1}
+\label{cha:7.3.1}
+
+\section{Problem statement}
+\label{problem-statement-7-3-1}
+In the following problems, enable HOL’s Show types capability and disable Unicode so only ACSII charac-
+ters are displayed.
+\textbf{Exercise 7.3.1} Create a function \emph{andImp2Imp} term that operates on terms of the form \emph{p $\land$ q $\supset$ r} and returns \emph{p $\supset$ q $\supset$ r}.
+
+\section{Relevant Code}
+\label{rel-code-7-3-1}
+\begin{lstlisting}[frame=TBlr]
+val andImpTerm = ``p/\q==>r``
+fun andImp2Imp term = ``p==>q==>r``
+andImp2Imp andImpTerm
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-7-3-1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> val andImpTerm =
+   ``(p :bool) /\ (q :bool) ==> (r :bool)``:
+   term
+> val andImp2Imp = fn: 'a -> term
+> val it =
+   ``(p :bool) ==> (q :bool) ==> (r :bool)``:
+   term
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 7.3.2
+\chapter{Excercise 7.3.2}
+\label{cha:7.3.2}
+
+
+\section{Problem statement}
+\label{problem-statement-7-3-2}
+\textbf{Exercise 7.3.2} Create a function \emph{impImpAnd} term that operates on terms of the form \emph{p $\supset$ q $\supset$ r} and returns \emph{p $\lor$ q $\supset$ r}. Show that \emph{impImpAnd} reverses the effects of \emph{andImp2Imp}, and vice verse.
+
+\section{Relevant Code}
+\label{rel-code-7-3-2}
+\begin{lstlisting}[frame=TBlr]
+fun andImp2Imp term = ``p==>q==>r``;
+
+fun impImpAnd term = ``p/\q==>r``;
+
+val v1 = andImp2Imp ``p/\q==>r``;
+val v2 = impImpAnd v1;
+val v3 = andImp2Imp v2;
+
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-7-3-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> val andImp2Imp = fn: 'a -> term
+> > val impImpAnd = fn: 'a -> term
+> > val v1 =
+   ``(p :bool) ==> (q :bool) ==> (r :bool)``:
+   term
+> > val v2 =
+   ``(p :bool) /\ (q :bool) ==> (r :bool)``:
+   term
+> val v3 =
+   ``(p :bool) ==> (q :bool) ==> (r :bool)``:
+   term
+> 
+Process HOL finished
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%7.3.3
+\chapter{Excercise 7.3.3}
+\label{ex-7-3-3}
+
+\section{Problem statement}
+\label{problem-statement-7-3-3}
+\textbf{Exercise 7.3.3} Create a function \emph{notExists} term that operates on terms of the form \emph{$\neg$ $\exists$ x.$P(x)$} and returns \emph{$\forall$ x.$\neg$ $P(x)$}.
+
+\section{Relevant Code}
+\label{rel-code-7-3-3}
+\begin{lstlisting}[frame=TBlr]
+fun notExists term = ``!x. ~P x``;
+notExists ``~?z.Q z``;
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-7-3-3}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> val notExists = fn: 'a -> term
+> <<HOL message: inventing new type variable names: 'a>>
+<<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``!(x :'a). ~(P :'a -> bool) x``:
+   term
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\appendix{}
+
+\chapter{Source code for Ex 6.2.1}
+\label{cha:source-code-6-2-1}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW4/ML/6.2.1.sml}
+
+
+\chapter{Source code for Ex 7.3.1}
+\label{cha:source-code-7-3-1}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW4/ML/7.3.1.sml}
+
+
+\chapter{Source code for Ex 7.3.2}
+\label{cha:source-code-7-3-2}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW4/ML/7.3.2.sml}
+
+\chapter{Source code for Ex 7.3.3}
+\label{cha:source-code-7-3-3}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW4/ML/7.3.3.sml}
+
+\end{document}

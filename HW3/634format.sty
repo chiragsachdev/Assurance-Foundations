@@ -1,0 +1,110 @@
+% =====================================================================
+%
+% LaTeX style file for unclassified // fouo documents
+%
+% =====================================================================
+
+
+% ---------------------------------------------------------------------
+% PAPER SIZE  (latex overrides these anyway)
+%
+% TeX expects 1 inch margins all around.
+%    * a4 (european paper) is exactly 297mm high by 210mm wide
+%    * 8.5x11 (american paper) is exactly 279.4mm high by 215.9mm wide
+%
+% 1 inch = 25.4 mm
+% ---------------------------------------------------------------------
+
+\usepackage[letterpaper,width=6.5in,height=225truemm,top=32mm,
+              headheight=16pt,headsep=20pt,footskip=13mm]{geometry}
+% \usepackage[letterpaper,width=160truemm,height=225truemm,top=32mm,
+%               headheight=16pt,headsep=20pt,footskip=13mm]{geometry}
+
+%----------------------------------------------
+% Headings: Unclassified/FOUO and page numbers
+%----------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[C]{\textsc{Spring 2019}}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\textsc{Assurance Foundations}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%------------------------------------------------
+% Redefining plain page style for chapters
+%------------------------------------------------
+\fancypagestyle{plain}{
+\fancyhead{}
+\fancyhead[C]{\textsc{Spring 2019}}
+\fancyfoot[R]{\thepage}
+\fancyfoot[C]{\textsc{Assurance Foundations}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+% ---------------------------------------------------------------------
+% Make "@" a "letter" for definitions that follow
+% ---------------------------------------------------------------------
+\makeatletter
+
+% ---------------------------------------------------------------------
+% CHAPTER HEADINGS (deriving from Larry Paulson)
+% ---------------------------------------------------------------------
+
+\def\@rulehead#1{\hrule height1pt \vskip 14pt \huge \bf
+   #1 \vskip 14pt\hrule height1pt}
+
+\def\@makechapterhead#1{ { \parindent 0pt
+\ifnum \c@secnumdepth >\m@ne \raggedright\large\bf \@chapapp{} \thechapter\par
+ \vskip 8pt \fi \raggedright \@rulehead{#1} \par
+ \nobreak \vskip 50pt } }
+
+\def\@makeschapterhead#1{ { \parindent 0pt {\large\bf\phantom{Chapter}} \par
+   \vskip 8pt \raggedright
+ \@rulehead{#1} \par \nobreak \vskip 50pt } }
+
+% ---------------------------------------------------------------------
+% Make "@" an "other" again
+% ---------------------------------------------------------------------
+\makeatother
+
+% ---------------------------------------------------------------------
+% Defining acknowledgments environment
+% ---------------------------------------------------------------------
+\newenvironment
+{acknowledgments}[1]
+{\begin{quote}\noindent{}\textbf{Acknowledgments: }#1}
+{\end{quote}}
+
+% ---------------------------------------------------------------------
+% Defining colors for text
+% ---------------------------------------------------------------------
+\usepackage{color}
+\newcommand{\redtext}[1]{\textcolor{red}{#1}}
+\newcommand{\bluetext}[1]{\textcolor{blue}{#1}}
+\newcommand{\magtext}[1]{\textcolor{magenta}{#1}}
+\newcommand{\greentext}[1]{\textcolor{green}{#1}}
+\newcommand{\standout}[1]{\textcolor{orange}{#1}}
+
+%% ------------------------------------------------
+%% Consult latexcolor.com
+%% ------------------------------------------------
+\definecolor{ao}{rgb}{0.0, 0.0, 1.0} %% like HOL blue for definitions
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0} %% like HOL green for theorems
+
+%%----------------------------------------------
+%% used to print theorem names
+%%----------------------------------------------
+% \newcommand{\code}[1]{\texttt{{\textcolor{blue}{ #1}}}}
+\newcommand{\holthm}[1]{\texttt{{\textcolor{ao(english)}{ #1}}}}
+\newcommand{\holdef}[1]{\texttt{{\textcolor{ao}{ #1}}}}
+
+% ---------------------------------------------------------------------
+% Defining code or theorem text
+% ---------------------------------------------------------------------
+\newcommand{\code}[1]{\texttt{{\textcolor{blue}{ #1}}}}
+

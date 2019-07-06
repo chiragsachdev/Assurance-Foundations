@@ -1,0 +1,113 @@
+
+(******************************************************************************)
+(* Chirag Sachdev                                                             *)
+(* 9.5.1, 9.5.2, 9.5.3                                                        *)
+(******************************************************************************)
+
+structure exercise9Script = struct
+
+open HolKernel Parse boolLib bossLib;
+
+val _ = new_theory "exercise9";
+
+hval absorptionRule =
+TAC_PROOF
+(
+ ([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+ (REPEAT STRIP_TAC THENL
+ [(ACCEPT_TAC (ASSUME ``p: bool``)),
+ RES_TAC])
+);
+
+val _ = save_thm("absorptionRule",absorptionRule);
+ 
+val constructiveDilemmaRule =
+TAC_PROOF(
+ ([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+ (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+ (REPEAT STRIP_TAC THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[] THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[])
+);
+
+val _ = save_thm("constructiveDilemmaRule",constructiveDilemmaRule);
+
+val absorptionRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+(PROVE_TAC[])
+);
+
+val _ = save_thm("absorptionRule2",absorptionRule2);
+
+val constructiveDilemmaRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+(p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+(PROVE_TAC[])
+);
+
+val _ = save_thm("constructiveDilemmaRule2",constructiveDilemmaRule2);
+
+val _ = export_theory();
+
+end (* structure *)
+
+
+structure exercise9Script = struct
+
+open HolKernel Parse boolLib bossLib;
+
+val _ = new_theory "exercise9";
+
+val absorptionRule =
+TAC_PROOF
+(
+ ([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+ (REPEAT STRIP_TAC THENL
+ [(ACCEPT_TAC (ASSUME ``p: bool``)),
+ RES_TAC])
+);
+
+val _ = save_thm("absorptionRule",absorptionRule);
+
+val constructiveDilemmaRule =
+TAC_PROOF(
+ ([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+ (p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+ (REPEAT STRIP_TAC THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[] THEN
+ RES_TAC THEN
+ ASM_REWRITE_TAC[])
+);
+
+val _ = save_thm("constructiveDilemmaRule",constructiveDilemmaRule);
+
+val absorptionRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool).(p ==> q) ==> p ==> p /\ q``),
+(PROVE_TAC[])
+);
+
+val _ = save_thm("absorptionRule2",absorptionRule2);
+
+val constructiveDilemmaRule2 =
+TAC_PROOF
+(
+([],``!(p:bool)(q:bool)(r:bool)(s:bool).
+(p ==> q) /\ (r ==> s) ==> p \/ r ==> q \/ s``),
+(PROVE_TAC[])
+);
+
+val _ = save_thm("constructiveDilemmaRule2",constructiveDilemmaRule2);
+
+val _ = export_theory();
+
+end (* structure *)
+

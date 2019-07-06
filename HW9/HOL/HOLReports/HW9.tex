@@ -1,0 +1,63 @@
+\documentclass[11pt, twoside]{article}
+\usepackage{holtex}
+
+\makeindex
+
+\begin{document}
+
+\input{HOLcipher}
+\input{HOLcryptoExercises}
+
+\tableofcontents
+\cleardoublepage
+\HOLpagestyle
+
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+\section{cipher Theory}
+\index{cipher Theory@\textbf  {cipher Theory}}
+\begin{flushleft}
+\textbf{Built:} \HOLcipherDate \\[2pt]
+\textbf{Parent Theories:} indexedLists, patternMatches
+\end{flushleft}
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\subsection{Datatypes}
+\index{cipher Theory@\textbf  {cipher Theory}!Datatypes}
+% .....................................
+
+\HOLcipherDatatypes
+
+\subsection{Definitions}
+\index{cipher Theory@\textbf  {cipher Theory}!Definitions}
+% .....................................
+
+\HOLcipherDefinitions
+
+\subsection{Theorems}
+\index{cipher Theory@\textbf  {cipher Theory}!Theorems}
+% .....................................
+
+\HOLcipherTheorems
+
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+\section{cryptoExercises Theory}
+\index{cryptoExercises Theory@\textbf  {cryptoExercises Theory}}
+\begin{flushleft}
+\textbf{Built:} \HOLcryptoExercisesDate \\[2pt]
+\textbf{Parent Theories:} cipher, string
+\end{flushleft}
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+% No datatypes
+
+% No definitions
+
+\subsection{Theorems}
+\index{cryptoExercises Theory@\textbf  {cryptoExercises Theory}!Theorems}
+% .....................................
+
+\HOLcryptoExercisesTheorems
+
+\HOLindex
+
+\end{document}

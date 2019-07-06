@@ -1,0 +1,306 @@
+\documentclass{report}
+\title{Homework 9}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 9}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\input{../HOL/HOLReports/HOLcipher.tex}
+\input{../HOL/HOLReports/HOLcryptoExercises.tex}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW8 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically we prove the following theorems:
+\begin{quote}
+\HOLThmTag{cryptoExercises}{exercise15_6_1a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_1b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_2a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_2b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_3_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm
+\end{quote}
+
+\textbf{[Reproducibility in ML and \LaTeX{}]} \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+
+
+%Ex 15.6.1
+\chapter{Excercise 15.6.1}
+\label{cha:15.6.1}
+
+\section{Problem statement}
+\label{problem-statement-1}
+Using properties of symmetric key encryption and decryption in \emph{cipherTheory} to prove the following theorems:
+\begin{quote}
+\HOLThmTag{cryptoExercises}{exercise15_6_1a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_1b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm
+\end{quote}
+
+\section{Proof of exercise15_6_1a_thm}
+\label{proof-1}
+
+\subsection{Relevant Code}
+\label{rel-code-1}
+\begin{lstlisting}[frame=TBlr]
+val exercise15_6_1a_thm = 
+TAC_PROOF(([],``!key enMsg message.(deciphS key enMsg = SOME message) <=>
+(enMsg = Es key (SOME message))``),
+PROVE_TAC[deciphS_one_one]
+);
+val _ = save_thm("exercise15_6_1a_thm", exercise15_6_1a_thm);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+ val exercise15_6_1a_thm = 
+TAC_PROOF(([],``!key enMsg message.(deciphS key enMsg = SOME message) <=>
+(enMsg = Es key (SOME message))``),
+PROVE_TAC[deciphS_one_one]
+);
+val _ = save_thm("exercise15_6_1a_thm", exercise15_6_1a_thm);
+
+# # # # <<HOL message: inventing new type variable names: 'a>>
+Meson search level: ..........
+val exercise15_6_1a_thm =
+   |- !(key :symKey) (enMsg :'a symMsg) (message :'a).
+     (deciphS key enMsg = SOME message) <=>
+     (enMsg = Es key (SOME message)):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+\pagebreak
+
+%%
+\section{Proof of exercise15_6_1b_thm}
+\label{proof-2}
+
+\subsection{Relevant Code}
+\label{rel-code-2}
+\begin{lstlisting}[frame=TBlr]
+val exercise15_6_1b_thm =
+TAC_PROOF(([],``!keyAlice k text.(deciphS keyAlice (Es k (SOME text)) = SOME "This is from Alice")<=> ((k = keyAlice) /\ (text = "This is from Alice"))``),
+PROVE_TAC[deciphS_one_one]
+);
+val _ = save_thm("exercise15_6_1b_thm", exercise15_6_1b_thm);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+> val exercise15_6_1b_thm =
+TAC_PROOF(([],``!keyAlice k text.(deciphS keyAlice (Es k (SOME text)) = SOME "This is from Alice")<=> ((k = keyAlice) /\ (text = "This is from Alice"))``),
+PROVE_TAC[deciphS_one_one]
+);
+val _ = save_thm("exercise15_6_1b_thm", exercise15_6_1b_thm);
+
+# # # Meson search level: ......................
+val exercise15_6_1b_thm =
+   |- !(keyAlice :symKey) (k :symKey) (text :string).
+     (deciphS keyAlice (Es k (SOME text)) =
+      SOME "This is from Alice") <=>
+     (k = keyAlice) /\ (text = "This is from Alice"):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+% Ex 15.6.2
+\chapter{Excercise 15.6.2}
+\label{cha:15.6.2}
+
+\section{Problem statement}
+\label{problem-statement-2}
+Using properties of symmetric key encryption and decryption in \emph{cipherTheory} to prove the following theorems:
+\begin{quote}
+\HOLThmTag{cryptoExercises}{exercise15_6_2a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_2b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm\end{quote}
+
+\section{Proof of exercise15_6_2a_thm}
+\label{proof-3}
+
+\subsection{Relevant Code}
+\label{rel-code-3}
+\begin{lstlisting}[frame=TBlr]
+val exercise15_6_2a_thm =
+TAC_PROOF(([],``!P message.(deciphP (pubK P) enMsg = SOME message) <=>
+(enMsg = Ea (privK P) (SOME message))``),
+PROVE_TAC[deciphP_one_one]
+);
+val _ = save_thm("exercise15_6_2a_thm", exercise15_6_2a_thm);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val exercise15_6_2a_thm =
+TAC_PROOF(([],``!P message.(deciphP (pubK P) enMsg = SOME message) <=>
+(enMsg = Ea (privK P) (SOME message))``),
+PROVE_TAC[deciphP_one_one]
+);
+val _ = save_thm("exercise15_6_2a_thm", exercise15_6_2a_thm);
+
+# # # # <<HOL message: inventing new type variable names: 'a, 'b>>
+Meson search level: ..........
+val exercise15_6_2a_thm =
+   |- !(P :'a) (message :'b).
+     (deciphP (pubK P) (enMsg :('b, 'a) asymMsg) = SOME message) <=>
+     (enMsg = Ea (privK P) (SOME message)):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+\pagebreak
+
+\section{Proof of exercise15_6_2b_thm}
+\label{proof-4}
+
+\subsection{Relevant Code}
+\label{rel-code-4}
+\begin{lstlisting}[frame=TBlr]
+val exercise15_6_2b_thm =
+TAC_PROOF(([],``!key text.(deciphP (pubK Alice) (Ea key (SOME text)) = SOME "This is from Alice")<=> (key = privK Alice) /\ (text = "This is from Alice")``),
+PROVE_TAC[deciphP_one_one]
+);
+val _ = save_thm("exercise15_6_2b_thm", exercise15_6_2b_thm);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans4}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val exercise15_6_2b_thm =
+TAC_PROOF(([],``!key text.(deciphP (pubK Alice) (Ea key (SOME text)) = SOME "This is from Alice")<=> (key = privK Alice) /\ (text = "This is from Alice")``),
+PROVE_TAC[deciphP_one_one]
+);
+val _ = save_thm("exercise15_6_2b_thm", exercise15_6_2b_thm);
+
+> # # # <<HOL message: inventing new type variable names: 'a>>
+Meson search level: ......................
+val exercise15_6_2b_thm =
+   |- !(key :'a pKey) (text :string).
+     (deciphP (pubK (Alice :'a)) (Ea key (SOME text)) =
+      SOME "This is from Alice") <=>
+     (key = privK Alice) /\ (text = "This is from Alice"):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+% Ex 15.6.3
+\chapter{Excercise 15.6.3}
+\label{cha:15.6.3}
+
+\section{Problem statement}
+\label{problem-statement-3}
+Use the properties of signature verification to prove the following theorem:
+\begin{quote}
+\HOLThmTag{cryptoExercises}{exercise15_6_3_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm
+\end{quote}
+
+\section{Proof of exercise15_6_3_thm}
+\label{proof-5}
+
+\subsection{Relevant Code}
+\label{rel-code-5}
+\begin{lstlisting}[frame=TBlr]
+val exercise15_6_3_thm =
+TAC_PROOF(([],``!signature.signVerify (pubK Alice) signature (SOME "This is from Alice")<=> (signature = sign (privK Alice) (hash (SOME "This is from Alice")))``),
+PROVE_TAC[signVerify_one_one]
+);
+val _ = save_thm("exercise15_6_3_thm", exercise15_6_3_thm);
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans5}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+val exercise15_6_3_thm =
+TAC_PROOF(([],``!signature.signVerify (pubK Alice) signature (SOME "This is from Alice")<=> (signature = sign (privK Alice) (hash (SOME "This is from Alice")))``),
+PROVE_TAC[signVerify_one_one]
+);
+val _ = save_thm("exercise15_6_3_thm", exercise15_6_3_thm);
+
+> # # # <<HOL message: inventing new type variable names: 'a>>
+Meson search level: ..........
+val exercise15_6_3_thm =
+   |- !(signature :(string digest, 'a) asymMsg).
+     signVerify (pubK (Alice :'a)) signature
+       (SOME "This is from Alice") <=>
+     (signature = sign (privK Alice) (hash (SOME "This is from Alice"))):
+   thm
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+
+
+\appendix{}
+
+\chapter{Source code: cipherScript}
+\label{cha:source-code-1}
+This is the code from \textit{cipherScript.sml}
+\lstinputlisting{../HOL/cipherScript.sml}
+
+\chapter{Source code: cryptoExercisesScript}
+\label{cha:source-code-2}
+\lstinputlisting{../HOL/cryptoExercisesScript.sml}
+\end{document}

@@ -1,0 +1,27 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # ** types trace now on
+> # # # # # # # # # ** Unicode trace now off
+> val it = ``(x :num)``: term
+> <<HOL message: inventing new type variable names: 'a, 'b>>
+val it =
+   ``(R :'a -> 'b) (x :'a)``:
+   term
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``?(x :'a). (R :'a -> bool) x``:
+   term
+> <<HOL message: inventing new type variable names: 'a>>
+val it =
+   ``(R :num -> 'a) (x :num)``:
+   term
+> val it =
+   ``?(x :num). (R :num -> bool) x``:
+   term
+> 
+Process HOL finished

@@ -1,0 +1,32 @@
+\newcommand{\HOLsatListDate}{09 April 2019}
+\newcommand{\HOLsatListTime}{18:18}
+\begin{SaveVerbatim}{HOLsatListDefinitionssatListXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os} \HOLBoundVar{formList}.
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} \HOLBoundVar{formList} \HOLSymConst{\HOLTokenEquiv{}}
+     \HOLConst{FOLDR} (\HOLTokenLambda{}\HOLBoundVar{x} \HOLBoundVar{y}. \HOLBoundVar{x} \HOLSymConst{\HOLTokenConj{}} \HOLBoundVar{y}) \HOLConst{T} (\HOLConst{MAP} (\HOLTokenLambda{}\HOLBoundVar{f}. (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{sat} \HOLBoundVar{f}) \HOLBoundVar{formList})
+\end{SaveVerbatim}
+\newcommand{\HOLsatListDefinitionssatListXXdef}{\UseVerbatim{HOLsatListDefinitionssatListXXdef}}
+\newcommand{\HOLsatListDefinitions}{
+\HOLDfnTag{satList}{satList_def}\HOLsatListDefinitionssatListXXdef
+}
+\begin{SaveVerbatim}{HOLsatListTheoremssatListXXconj}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{l\sb{\mathrm{1}}} \HOLBoundVar{l\sb{\mathrm{2}}} \HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os}.
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} \HOLBoundVar{l\sb{\mathrm{1}}} \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} \HOLBoundVar{l\sb{\mathrm{2}}} \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} (\HOLBoundVar{l\sb{\mathrm{1}}} \HOLSymConst{++} \HOLBoundVar{l\sb{\mathrm{2}}})
+\end{SaveVerbatim}
+\newcommand{\HOLsatListTheoremssatListXXconj}{\UseVerbatim{HOLsatListTheoremssatListXXconj}}
+\begin{SaveVerbatim}{HOLsatListTheoremssatListXXCONS}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{h} \HOLBoundVar{t} \HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os}.
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} (\HOLBoundVar{h}\HOLSymConst{::}\HOLBoundVar{t}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{sat} \HOLBoundVar{h} \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{satList} \HOLBoundVar{t}
+\end{SaveVerbatim}
+\newcommand{\HOLsatListTheoremssatListXXCONS}{\UseVerbatim{HOLsatListTheoremssatListXXCONS}}
+\begin{SaveVerbatim}{HOLsatListTheoremssatListXXnil}
+\HOLTokenTurnstile{} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{satList} []
+\end{SaveVerbatim}
+\newcommand{\HOLsatListTheoremssatListXXnil}{\UseVerbatim{HOLsatListTheoremssatListXXnil}}
+\newcommand{\HOLsatListTheorems}{
+\HOLThmTag{satList}{satList_conj}\HOLsatListTheoremssatListXXconj
+\HOLThmTag{satList}{satList_CONS}\HOLsatListTheoremssatListXXCONS
+\HOLThmTag{satList}{satList_nil}\HOLsatListTheoremssatListXXnil
+}

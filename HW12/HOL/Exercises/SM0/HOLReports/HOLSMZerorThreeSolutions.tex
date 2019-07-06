@@ -1,0 +1,122 @@
+\newcommand{\HOLSMZerorThreeSolutionsDate}{16 April 2019}
+\newcommand{\HOLSMZerorThreeSolutionsTime}{23:36}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsDefinitionscertificatesrThreeaXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd}.
+     \HOLConst{certificatesr3a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd} \HOLSymConst{=}
+     \HOLConst{MAP} \HOLConst{mkRCert}
+       (\HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd} \HOLSymConst{++}
+        \HOLConst{certsr2root} \HOLBoundVar{npriv} \HOLBoundVar{privcmd}) \HOLSymConst{++}
+     \HOLConst{MAP} (\HOLConst{mkSCert} (\HOLConst{ca} \HOLNumLit{0})) (\HOLConst{certsr2signed} \HOLBoundVar{npriv} \HOLBoundVar{privcmd})
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsDefinitionscertificatesrThreeaXXdef}{\UseVerbatim{HOLSMZerorThreeSolutionsDefinitionscertificatesrThreeaXXdef}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsDefinitionscertsrOneaXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd}.
+     \HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd} \HOLSymConst{=}
+     \HOLConst{certs} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLSymConst{++}
+     [\HOLConst{reps} (\HOLConst{Name} (\HOLConst{Staff} \HOLConst{Alice})) (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}))
+        (\HOLConst{prop} (\HOLConst{SOME} \HOLBoundVar{cmd}));
+      \HOLConst{reps} (\HOLConst{Name} (\HOLConst{Staff} \HOLConst{Bob})) (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Operator}))
+        (\HOLConst{prop} (\HOLConst{SOME} \HOLBoundVar{cmd}))]
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsDefinitionscertsrOneaXXdef}{\UseVerbatim{HOLSMZerorThreeSolutionsDefinitionscertsrOneaXXdef}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsDefinitionscertsrTwoaXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd}.
+     \HOLConst{certsr2a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd} \HOLSymConst{=}
+     \HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLBoundVar{cmd} \HOLSymConst{++} \HOLConst{certsr2root} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} \HOLSymConst{++}
+     \HOLConst{certsr2signed} \HOLBoundVar{npriv} \HOLBoundVar{privcmd}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsDefinitionscertsrTwoaXXdef}{\UseVerbatim{HOLSMZerorThreeSolutionsDefinitionscertsrTwoaXXdef}}
+\newcommand{\HOLSMZerorThreeSolutionsDefinitions}{
+\HOLDfnTag{SM0r3Solutions}{certificatesr3a_def}\HOLSMZerorThreeSolutionsDefinitionscertificatesrThreeaXXdef
+\HOLDfnTag{SM0r3Solutions}{certsr1a_def}\HOLSMZerorThreeSolutionsDefinitionscertsrOneaXXdef
+\HOLDfnTag{SM0r3Solutions}{certsr2a_def}\HOLSMZerorThreeSolutionsDefinitionscertsrTwoaXXdef
+}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma}
+\HOLTokenTurnstile{} \HOLConst{CFGInterpret} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os})
+     (\HOLConst{CFG} \HOLConst{inputOK} \HOLConst{SM0StateInterp} (\HOLConst{certs} \HOLFreeVar{npriv} \HOLFreeVar{privcmd})
+        (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says} \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}
+             \HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma}{\UseVerbatim{HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{NS} \HOLBoundVar{Out} \HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os}.
+     \HOLConst{TR} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd}))
+       (\HOLConst{CFG} \HOLConst{inputOK} \HOLConst{SM0StateInterp} (\HOLConst{certs} \HOLFreeVar{npriv} \HOLFreeVar{privcmd})
+          (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says} \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}
+               \HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs})
+       (\HOLConst{CFG} \HOLConst{inputOK} \HOLConst{SM0StateInterp} (\HOLConst{certs} \HOLFreeVar{npriv} \HOLFreeVar{privcmd}) \HOLFreeVar{ins}
+          (\HOLBoundVar{NS} \HOLFreeVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd})))
+          (\HOLBoundVar{Out} \HOLFreeVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}\HOLFreeVar{outs})) \HOLSymConst{\HOLTokenEquiv{}}
+     \HOLConst{inputOK}
+       (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says} \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))) \HOLSymConst{\HOLTokenConj{}}
+     \HOLConst{CFGInterpret} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os})
+       (\HOLConst{CFG} \HOLConst{inputOK} \HOLConst{SM0StateInterp} (\HOLConst{certs} \HOLFreeVar{npriv} \HOLFreeVar{privcmd})
+          (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says} \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}
+               \HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm}{\UseVerbatim{HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{NS} \HOLBoundVar{Out} \HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os}.
+     \HOLConst{TR} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd}))
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLFreeVar{npriv} \HOLFreeVar{privcmd} (\HOLConst{PR} \HOLFreeVar{privcmd}))
+          (\HOLConst{Name} (\HOLConst{Staff} \HOLConst{Alice}) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+           \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}\HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs})
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLFreeVar{npriv} \HOLFreeVar{privcmd} (\HOLConst{PR} \HOLFreeVar{privcmd})) \HOLFreeVar{ins}
+          (\HOLBoundVar{NS} \HOLFreeVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd})))
+          (\HOLBoundVar{Out} \HOLFreeVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}\HOLFreeVar{outs})) \HOLSymConst{\HOLTokenEquiv{}}
+     \HOLConst{inputOKr1}
+       (\HOLConst{Name} (\HOLConst{Staff} \HOLConst{Alice}) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+        \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))) \HOLSymConst{\HOLTokenConj{}}
+     \HOLConst{CFGInterpret} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os})
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLFreeVar{npriv} \HOLFreeVar{privcmd} (\HOLConst{PR} \HOLFreeVar{privcmd}))
+          (\HOLConst{Name} (\HOLConst{Staff} \HOLConst{Alice}) \HOLConst{quoting} \HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+           \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd}))\HOLSymConst{::}\HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs}) \HOLSymConst{\HOLTokenConj{}}
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm}{\UseVerbatim{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{s} \HOLBoundVar{privcmd} \HOLBoundVar{outs} \HOLBoundVar{npriv} \HOLBoundVar{ins} \HOLBoundVar{NS} \HOLBoundVar{Out} \HOLBoundVar{M} \HOLBoundVar{Oi} \HOLBoundVar{Os}.
+     \HOLConst{TR} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) (\HOLConst{trap} (\HOLConst{PR} \HOLBoundVar{privcmd}))
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} (\HOLConst{PR} \HOLBoundVar{privcmd}))
+          (\HOLConst{mapSM0inputOperatorBob}
+             (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+              \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLBoundVar{privcmd})))\HOLSymConst{::}\HOLBoundVar{ins}) \HOLBoundVar{s} \HOLBoundVar{outs})
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} (\HOLConst{PR} \HOLBoundVar{privcmd})) \HOLBoundVar{ins}
+          (\HOLBoundVar{NS} \HOLBoundVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLBoundVar{privcmd})))
+          (\HOLBoundVar{Out} \HOLBoundVar{s} (\HOLConst{trap} (\HOLConst{PR} \HOLBoundVar{privcmd}))\HOLSymConst{::}\HOLBoundVar{outs})) \HOLSymConst{\HOLTokenEquiv{}}
+     \HOLConst{inputOKr1}
+       (\HOLConst{mapSM0inputOperatorBob}
+          (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+           \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLBoundVar{privcmd})))) \HOLSymConst{\HOLTokenConj{}}
+     \HOLConst{CFGInterpret} (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os})
+       (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+          (\HOLConst{certsr1a} \HOLBoundVar{npriv} \HOLBoundVar{privcmd} (\HOLConst{PR} \HOLBoundVar{privcmd}))
+          (\HOLConst{mapSM0inputOperatorBob}
+             (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+              \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLBoundVar{privcmd})))\HOLSymConst{::}\HOLBoundVar{ins}) \HOLBoundVar{s} \HOLBoundVar{outs}) \HOLSymConst{\HOLTokenConj{}}
+     (\HOLBoundVar{M}\HOLSymConst{,}\HOLBoundVar{Oi}\HOLSymConst{,}\HOLBoundVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm}{\UseVerbatim{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm}}
+\begin{SaveVerbatim}{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma}
+\HOLTokenTurnstile{} \HOLConst{CFGInterpret} (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os})
+     (\HOLConst{CFG} \HOLConst{inputOKr1} \HOLConst{SM0StateInterp}
+        (\HOLConst{certsr1a} \HOLFreeVar{npriv} \HOLFreeVar{privcmd} (\HOLConst{PR} \HOLFreeVar{privcmd}))
+        (\HOLConst{mapSM0inputOperatorBob}
+           (\HOLConst{Name} (\HOLConst{Role} \HOLConst{Commander}) \HOLConst{says}
+            \HOLConst{prop} (\HOLConst{SOME} (\HOLConst{PR} \HOLFreeVar{privcmd})))\HOLSymConst{::}\HOLFreeVar{ins}) \HOLFreeVar{s} \HOLFreeVar{outs}) \HOLSymConst{\HOLTokenImp{}}
+   (\HOLFreeVar{M}\HOLSymConst{,}\HOLFreeVar{Oi}\HOLSymConst{,}\HOLFreeVar{Os}) \HOLConst{sat} \HOLConst{prop} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma}{\UseVerbatim{HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma}}
+\newcommand{\HOLSMZerorThreeSolutionsTheorems}{
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_privcmd_trapped_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_Alice_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_mapSM0inputOperatorBob_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+}

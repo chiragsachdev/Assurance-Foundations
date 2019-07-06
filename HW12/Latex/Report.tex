@@ -1,0 +1,438 @@
+\documentclass{report}
+\title{Homework 12}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 12}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\input{../HOL/Exercises/SM0/HOLReports/HOLSMZerorThreeSolutions}
+\begin{document}
+\lstset{language=ML, breaklines=true, basicstyle=\small}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW12 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically we prove the following theorems:
+\begin{quote}
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_privcmd_trapped_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_Alice_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_mapSM0inputOperatorBob_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm
+\end{quote}
+
+\textbf{[Reproducibility in ML and \LaTeX{}]} \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+
+
+
+
+\chapter{Problem statement}
+\label{problem-statement-1}
+Prove the following theorems:
+\begin{quote}
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_privcmd_trapped_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXprivcmdXXtrappedXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0_Commander_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZeroXXCommanderXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXmapSMZeroXXAliceXXCommanderXXtrapXXprivcmdXXlemma
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_Alice_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXAliceXXtrapXXprivcmdXXjustifiedXXthm
+\HOLThmTag{SM0r3Solutions}{SM0r1_Commander_mapSM0inputOperatorBob_trap_privcmd_justified_thm}\HOLSMZerorThreeSolutionsTheoremsSMZerorOneXXCommanderXXmapSMZeroinputOperatorBobXXtrapXXprivcmdXXjustifiedXXthm
+\end{quote}
+
+\chapter{SM0 Solutions with the following sections}
+\label{sm0-solutions}
+
+\section{Proof of SMO_Commander_privcmd_trapped_lemma}
+\label{proof-1}
+
+\subsection{Relevant Code}
+\label{rel-code-1}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0_Commander_privcmd_trapped_lemma =
+TAC_PROOF(([],
+``CFGInterpret ((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+  (CFG inputOK SM0StateInterp (certs npriv privcmd)
+   (((Name (Role Commander)) says (prop (SOME (PR (privcmd:privcmd)))))::ins)
+   s (outs:output list)) ==>
+  ((M,Oi,Os) sat (prop NONE))``),
+REWRITE_TAC[CFGInterpret_def,certs_def,SM0StateInterp_def,satList_CONS,
+	    satList_nil,sat_TT] THEN
+PROVE_TAC[Controls, Modus_Ponens])
+
+val _ = save_thm("SM0_Commander_privcmd_trapped_lemma",
+SM0_Commander_privcmd_trapped_lemma)
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+Meson search level: ....
+val SM0_Commander_privcmd_trapped_lemma =
+   |- CFGInterpret
+     ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+      (Os :'e po))
+     (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+        (SM0StateInterp :state ->
+                         (command inst, principal, 'd, 'e) Form)
+        (certs (npriv :npriv) (privcmd :privcmd) :
+           (command inst, principal, 'd, 'e) Form list)
+        (Name (Role Commander) says
+         (prop (SOME (PR privcmd) :command inst) :
+            (command inst, principal, 'd, 'e) Form)::
+             (ins :(command inst, principal, 'd, 'e) Form list))
+        (s :state) (outs :output list)) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+\pagebreak
+
+%%
+\section{Proof of SM0_Commander_trap_privcmd_justified_thm}
+\label{proof-2}
+
+\subsection{Relevant Code}
+\label{rel-code-2}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0_Commander_trap_privcmd_justified_thm =
+let
+ val th1 =
+ ISPECL
+ [``inputOK:(command inst, principal,'d,'e)Form -> bool``,
+  ``SM0StateInterp:state->(command inst, principal,'d,'e)Form``,
+  ``(certs npriv privcmd):(command inst, principal,'d,'e)Form list``,
+  ``Name (Role Commander)``,``PR privcmd``,
+  ``ins:(command inst,principal,'d,'e)Form list``,
+  ``s:state``,``outs:output list``]
+ TR_trap_cmd_rule
+in 
+ TAC_PROOF(([],
+``!(NS :state -> command trType -> state)
+     (Out :state -> command trType -> output)
+     (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+     (Os :'e po).
+    TR (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+      (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+         (SM0StateInterp :state ->
+                          (command inst, principal, 'd, 'e) Form)
+         (certs (npriv :npriv) privcmd :
+            (command inst, principal, 'd, 'e) Form list)
+         (Name (Role Commander) says
+          (prop (SOME (PR privcmd) :command inst) :
+             (command inst, principal, 'd, 'e) Form)::
+              (ins :(command inst, principal, 'd, 'e) Form list))
+         (s :state) (outs :output list))
+      (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+         (SM0StateInterp :state ->
+                          (command inst, principal, 'd, 'e) Form)
+         (certs npriv privcmd :
+            (command inst, principal, 'd, 'e) Form list) ins
+         (NS s (trap (PR privcmd)))
+         (Out s (trap (PR privcmd))::outs)) <=>
+    inputOK
+      (Name (Role Commander) says
+       (prop (SOME (PR privcmd) :command inst) :
+          (command inst, principal, 'd, 'e) Form)) /\
+    CFGInterpret (M,Oi,Os)
+      (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+         (SM0StateInterp :state ->
+                          (command inst, principal, 'd, 'e) Form)
+         (certs npriv privcmd :
+            (command inst, principal, 'd, 'e) Form list)
+         (Name (Role Commander) says
+          (prop (SOME (PR privcmd) :command inst) :
+             (command inst, principal, 'd, 'e) Form)::ins) s outs) /\
+    (M,Oi,Os) sat
+    (prop (NONE :command inst) :
+       (command inst, principal, 'd, 'e) Form)``),
+ PROVE_TAC[th1,SM0_Commander_privcmd_trapped_lemma])
+end
+
+val _ = save_thm ("SM0_Commander_trap_privcmd_justified_thm",
+SM0_Commander_trap_privcmd_justified_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+> Meson search level: ........................................
+val SM0_Commander_trap_privcmd_justified_thm =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certs (npriv :npriv) privcmd :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list))
+          (s :state) (outs :output list))
+       (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certs npriv privcmd :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOK
+       (Name (Role Commander) says
+        (prop (SOME (PR privcmd) :command inst) :
+           (command inst, principal, 'd, 'e) Form)) /\
+     CFGInterpret (M,Oi,Os)
+       (CFG (inputOK :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certs npriv privcmd :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::ins) s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\chapter{SM0r1 Solutions with the following sections}
+\label{sm0r1-solutions}
+
+\section{Proof of SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma}
+\label{proof-3}
+
+\subsection{Relevant Code}
+\label{rel-code-3}
+\begin{lstlisting}[frame=TBlr]
+
+val th1=
+TAC_PROOF(([],
+``(((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os) satList
+   (certsr1a npriv privcmd (PR privcmd))) ==>
+  ((M,Oi,Os) sat ((Name (Staff Alice)) quoting (Name (Role Commander)) says
+  (prop (SOME (PR (privcmd:privcmd))))))
+  ==> ((M,Oi,Os) sat (prop NONE))``),
+REWRITE_TAC
+ [certsr1a_def,certs_def,satList_CONS,satList_nil,(GSYM satList_conj)] THEN
+PROVE_TAC[Rep_Says, Modus_Ponens])
+
+val SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma =
+TAC_PROOF(([],
+``CFGInterpret ((M:(command inst,'b,principal,'d,'e)Kripke),Oi,Os)
+  (CFG inputOKr1 SM0StateInterp (certsr1a npriv privcmd (PR privcmd))
+   (mapSM0inputOperatorBob((Name (Role Commander)) says (prop (SOME (PR (privcmd:privcmd)))))::ins)
+   s (outs:output list)) ==>
+  ((M,Oi,Os) sat (prop NONE))``),
+REWRITE_TAC[CFGInterpret_def,mapSM0inputOperatorBob_def] THEN
+PROVE_TAC[th1])
+
+val _ = save_thm("SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma",
+SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> Meson search level: ......
+Meson search level: ....
+val SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma =
+   |- CFGInterpret
+     ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+      (Os :'e po))
+     (CFG (inputOKr1 :(command inst, principal, 'd, 'e) Form -> bool)
+        (SM0StateInterp :state ->
+                         (command inst, principal, 'd, 'e) Form)
+        (certsr1a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+           (command inst, principal, 'd, 'e) Form list)
+        (mapSM0inputOperatorBob
+           (Name (Role Commander) says
+            (prop (SOME (PR privcmd) :command inst) :
+               (command inst, principal, 'd, 'e) Form))::
+             (ins :(command inst, principal, 'd, 'e) Form list))
+        (s :state) (outs :output list)) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val th1 =
+   |- ((M :(command inst, 'b, principal, 'd, 'e) Kripke),(Oi :'d po),
+    (Os :'e po)) satList
+   (certsr1a (npriv :npriv) (privcmd :privcmd) (PR privcmd) :
+      (command inst, principal, 'd, 'e) Form list) ==>
+   (M,Oi,Os) sat
+   Name (Staff Alice) quoting Name (Role Commander) says
+   (prop (SOME (PR privcmd) :command inst) :
+      (command inst, principal, 'd, 'e) Form) ==>
+   (M,Oi,Os) sat
+   (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof of SM0r1_Commander_Alice_trap_privcmd_justified_thm}
+\label{proof-4}
+
+\subsection{Relevant Code}
+\label{rel-code-4}
+\begin{lstlisting}[frame=TBlr]
+
+val SM0r1_Commander_Alice_trap_privcmd_justified_thm =
+let
+ val th1 =
+ ISPECL
+ [``inputOKr1:(command inst, principal,'d,'e)Form -> bool``,
+  ``SM0StateInterp:state->(command inst, principal,'d,'e)Form``,
+  ``(certsr1a npriv privcmd (PR privcmd)):(command inst, principal,'d,'e)Form list``,
+  ``(Name (Staff Alice) quoting Name (Role Commander))``,``PR privcmd``,
+  ``ins:(command inst,principal,'d,'e)Form list``,
+  ``s:state``,``outs:output list``]
+ TR_trap_cmd_rule
+ val th2 =
+ REWRITE_RULE[mapSM0inputOperatorBob_def]SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma
+in 
+ REWRITE_RULE[th2]th1
+end
+
+val _ =  save_thm  ("SM0r1_Commander_Alice_trap_privcmd_justified_thm",
+ SM0r1_Commander_Alice_trap_privcmd_justified_thm)
+
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+> val SM0r1_Commander_Alice_trap_privcmd_justified_thm =
+   |- !(NS :state -> command trType -> state)
+      (Out :state -> command trType -> output)
+      (M :(command inst, 'b, principal, 'd, 'e) Kripke) (Oi :'d po)
+      (Os :'e po).
+     TR (M,Oi,Os) (trap (PR (privcmd :privcmd)))
+       (CFG (inputOKr1 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr1a (npriv :npriv) privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (Staff Alice) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::
+               (ins :(command inst, principal, 'd, 'e) Form list))
+          (s :state) (outs :output list))
+       (CFG (inputOKr1 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr1a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list) ins
+          (NS s (trap (PR privcmd)))
+          (Out s (trap (PR privcmd))::outs)) <=>
+     inputOKr1
+       (Name (Staff Alice) quoting Name (Role Commander) says
+        (prop (SOME (PR privcmd) :command inst) :
+           (command inst, principal, 'd, 'e) Form)) /\
+     CFGInterpret (M,Oi,Os)
+       (CFG (inputOKr1 :(command inst, principal, 'd, 'e) Form -> bool)
+          (SM0StateInterp :state ->
+                           (command inst, principal, 'd, 'e) Form)
+          (certsr1a npriv privcmd (PR privcmd) :
+             (command inst, principal, 'd, 'e) Form list)
+          (Name (Staff Alice) quoting Name (Role Commander) says
+           (prop (SOME (PR privcmd) :command inst) :
+              (command inst, principal, 'd, 'e) Form)::ins) s outs) /\
+     (M,Oi,Os) sat
+     (prop (NONE :command inst) :(command inst, principal, 'd, 'e) Form):
+   thm
+val it = (): unit
+> 
+*** Emacs/HOL command completed ***
+
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+\appendix{}
+\chapter{Source Code for SM0r3Solutions.sml}
+\label{cha:source-code}
+\lstinputlisting{../HOL/Exercises/SM0/SM0r3SolutionsScript.sml}
+\end{document}

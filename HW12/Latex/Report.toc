@@ -1,0 +1,17 @@
+\contentsline {chapter}{\numberline {1}Executive Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Problem statement}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}SM0 Solutions with the following sections}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Proof of SMO_Commander_privcmd_trapped_lemma}{7}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Relevant Code}{7}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Session Transcript}{7}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Proof of SM0_Commander_trap_privcmd_justified_thm}{8}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Relevant Code}{8}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Session Transcript}{9}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}SM0r1 Solutions with the following sections}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Proof of SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma}{10}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Relevant Code}{10}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Session Transcript}{11}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Proof of SM0r1_Commander_Alice_trap_privcmd_justified_thm}{11}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Relevant Code}{11}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Session Transcript}{12}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {A}Source Code for SM0r3Solutions.sml}{13}{appendix.A}

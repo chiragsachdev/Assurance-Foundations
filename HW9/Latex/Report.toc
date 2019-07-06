@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}Executive Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Excercise 15.6.1}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Problem statement}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Proof of exercise15_6_1a_thm}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Relevant Code}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Session Transcript}{4}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Proof of exercise15_6_1b_thm}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Relevant Code}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Session Transcript}{5}{subsection.2.3.2}
+\contentsline {chapter}{\numberline {3}Excercise 15.6.2}{6}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem statement}{6}{section.3.1}
+\contentsline {section}{\numberline {3.2}Proof of exercise15_6_2a_thm}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Relevant Code}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Session Transcript}{6}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Proof of exercise15_6_2b_thm}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Relevant Code}{7}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Session Transcript}{7}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Excercise 15.6.3}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Problem statement}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Proof of exercise15_6_3_thm}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Relevant Code}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Session Transcript}{8}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {A}Source code: cipherScript}{9}{appendix.A}
+\contentsline {chapter}{\numberline {B}Source code: cryptoExercisesScript}{20}{appendix.B}

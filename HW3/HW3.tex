@@ -1,0 +1,410 @@
+\documentclass{report}
+\title{Homework 3}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 3}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW3 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{Some requirements haven't been met} Specifically,
+\begin{description}
+		\item Chapter ~\ref{cha:5.3.4} Excercise 5.3.4
+		
+\end{description}
+
+
+%Ex 4.6.3
+\chapter{Excercise 4.6.3}
+\label{cha:4.6.3}
+
+\section{Problem statement}
+\label{problem-statement-4.6.3}
+In ML, define functions:
+\begin{enumerate}
+	\item A function that takes a 3-tuple of integers \emph{(x, y, z)} as input and returns the value corresponding to the \emph{sum x + y + z}.
+\item A function that takes two integer inputs x and y (where x is supplied first followed by y) and returns the
+boolean value corresponding to \emph{x < y}.
+	\item A function that takes two strings s1 and s2 (where s 1 is supplied first followed by s 2 ) and concatentates them, where "\emph{ˆ}" denotes string concatenation. For example, "\emph{Hi}" ˆ " \emph{there}" results in the string "\emph{Hi there}".
+	\item A function that takes two lists list 1 and list 2 (where list 1 comes first) and appends them, where “@”
+denotes list append. For example \emph{[true,false]} @ \emph{[false, false, false]} results in the list \emph{[true,false,false,false,false]}.
+	\item A function that takes a pair of integers (x, y) and returns the larger of the two values. You note that the
+conditional statement \emph{if condition then a else b} returns \emph{a} if condition is true, otherwise it returns \emph{b}.
+\end{enumerate} 
+For each of the functions , you will define two ML functions, (1) the first using \emph{fn} and \emph{val} to define and name the function, and (2) the other using \emph{fun} to define and name the function. Make sure you use pattern matching.
+	 For example, suppose the function is λx.(λy.2x + y). We would define in ML
+\begin{enumerate}
+\item \emph{val funEx1 = (fn x => (fn y => 2*x + y))}, and
+\item \emph{fun funEx2 x y = 2*x + y}
+\end{enumerate}
+
+\section{Relevant Code}
+\label{rel-code-4.6.3}
+\begin{lstlisting}[frame=TB]
+val funA1 = (fn (x,y,z) => x+y+z);
+fun funA2 (x,y,z) = x+y+z;
+
+val funB1 = (fn x => (fn y => (if x<y then true else false)));
+fun funB2 x y = if x<y then true else false;
+
+val funC1 = (fn s1 => (fn s2 =>(s1^s2)));
+fun funC2 s1 s2 = s1^s2;
+
+val funD1 = (fn l1 => (fn l2 => l1@l2));
+fun funD2 l1 l2 = l1@l2;
+
+val funE1 = (fn (x,y) => (if x>y then x else y));
+fun funE2 (x,y) = (if x>y then x else y);
+
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-4.6.3}
+\begin{lstlisting}[frame=TB]
+(******************************************************************************)
+(* Test Cases																  *)
+(******************************************************************************)
+val testListA = [(1,2,3),(4,5,6),(7,8,9)]
+
+val outputsA = map funA2 testListA
+
+val testResultA = test463A funA1 funA2 testListA
+
+val testListB = [(0,0),(1,2),(4,3)]
+
+val outputsB = map (f2P funB1) testListB
+
+val testResultB = test463B funB1 funB2 testListB
+
+val testListC = [("Hi"," there!"),("Oh ","no!"),("What"," the ...")]
+
+val outputsC = map (f2P funC1) testListC
+
+val testResultC = test463B funC1 funC2 testListC
+
+val testListD1 = [([0,1],[2,3,4]),([],[0,1])]
+val testListD2 = [([true,true],[])]
+
+val outputsD1 = map (f2P funD1) testListD1
+val outputsD2 = map (f2P funD2) testListD2
+
+val testResultD1 = test463B funD1 funD2 testListD1
+val testResultD2 = test463B funD1 funD2 testListD2
+
+val testListE = [(2,1),(5,5),(5,10)]
+
+val sampleResultE = map funE1 testListE
+
+val testResultE = test463A funE1 funE2 testListE
+
+\end{lstlisting}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > # # # # # # # # # # val test463A = fn: ('a -> ''b) -> ('a -> ''b) -> 'a list -> bool
+> > # # # # # # # # # # # val f2P = fn: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+val test463B = fn:
+   ('a -> 'b -> ''c) -> ('a -> 'b -> ''c) -> ('a * 'b) list -> bool
+> > 
+*** Emacs/HOL command completed ***
+
+> val funA1 = fn: int * int * int -> int
+> val funA2 = fn: int * int * int -> int
+> > # # # # # val outputsA = [6, 15, 24]: int list
+val testListA = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]: (int * int * int) list
+val testResultA = true: bool
+> 
+Process HOL finished
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > >> > # # # # # # # # # val test463A = fn: ('a -> ''b) -> ('a -> ''b) -> 'a list -> bool
+> > # # # # # # # # # # # val f2P = fn: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+val test463B = fn:
+   ('a -> 'b -> ''c) -> ('a -> 'b -> ''c) -> ('a * 'b) list -> bool
+> > 
+*** Emacs/HOL command completed ***
+
+> val funB1 = fn: int -> int -> bool
+> val funB2 = fn: int -> int -> bool
+> > 
+> # # # # # val outputsB = [false, true, false]: bool list
+val testListB = [(0, 0), (1, 2), (4, 3)]: (int * int) list
+val testResultB = true: bool
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > # # # # # # # # # # val test463A = fn: ('a -> ''b) -> ('a -> ''b) -> 'a list -> bool
+> > # # # # # # # # # # # val f2P = fn: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+val test463B = fn:
+   ('a -> 'b -> ''c) -> ('a -> 'b -> ''c) -> ('a * 'b) list -> bool
+> > > 
+*** Emacs/HOL command completed ***
+
+> val funC1 = fn: string -> string -> string
+> val funC2 = fn: string -> string -> string
+> 
+> # # # # val outputsC = ["Hi there!", "Oh no!", "What the ..."]: string list
+val testListC = [("Hi", " there!"), ("Oh ", "no!"), ("What", " the ...")]:
+   (string * string) list
+val testResultC = true: bool
+> 
+Process HOL finished
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > # # # # # # # # # # val test463A = fn: ('a -> ''b) -> ('a -> ''b) -> 'a list -> bool
+> > # # # # # # # # # # # val f2P = fn: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+val test463B = fn:
+   ('a -> 'b -> ''c) -> ('a -> 'b -> ''c) -> ('a * 'b) list -> bool
+> > 
+*** Emacs/HOL command completed ***
+
+> # val funD1 = fn: 'a list -> 'a list -> 'a list
+> val funD2 = fn: 'a list -> 'a list -> 'a list
+> > > # # # # # # # # # val outputsD1 = [[0, 1, 2, 3, 4], [0, 1]]: int list list
+val outputsD2 = [[true, true]]: bool list list
+val testListD1 = [([0, 1], [2, 3, 4]), ([], [0, 1])]:
+   (int list * int list) list
+val testListD2 = [([true, true], [])]: (bool list * 'a list) list
+val testResultD1 = true: bool
+val testResultD2 = true: bool
+> 
+*** Emacs/HOL command completed ***
+
+> 
+Process HOL finished
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > # # # # # # # # # val test463A = fn: ('a -> ''b) -> ('a -> ''b) -> 'a list -> bool
+> > # # # # # # # # # # # val f2P = fn: ('a -> 'b -> 'c) -> 'a * 'b -> 'c
+val test463B = fn:
+   ('a -> 'b -> ''c) -> ('a -> 'b -> ''c) -> ('a * 'b) list -> bool
+> > 
+*** Emacs/HOL command completed ***
+
+> poly: : error: ) expected but => was found
+poly: : error: ; expected but => was found
+Static Errors
+> poly: : error: ) expected but => was found
+poly: : error: ; expected but => was found
+Static Errors
+> val funE1 = fn: int * int -> int
+> val funE2 = fn: int * int -> int
+> # # # # val sampleResultE = [2, 5, 10]: int list
+val testListE = [(2, 1), (5, 5), (5, 10)]: (int * int) list
+val testResultE = true: bool
+> 
+Process HOL finished
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 4.6.4
+\chapter{Excercise 4.6.4}
+\label{cha:4.6.4}
+
+\section{Problem statement}
+\label{problem-statement-4-6-4}
+In ML, define a function \emph{listSquares} that when applied to the empty list of integers returns the empty list, and when applied to a non-empty list of integers returns a list where each element is squared. For example, \emph{listSquares [2,3,4]} returns \emph{[4,9,16]}. Define the function using a let expression in ML.
+
+\section{Relevant Code}
+\label{rel-code-4-6-4}
+\begin{lstlisting}[frame=TB]
+fun listSquares xlist=
+let
+fun square x =x*x
+(*fun outList [] = []  | outList (y::ys) = (square y)::(outList ys) *)
+in
+(map square xlist)
+end;
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-4-6-4}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # val listSquares = fn: int list -> int list
+> # # val testList = [1, 2, 3, 4, 5]: int list
+val testResults = [1, 4, 9, 16, 25]: int list
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 5.3.4
+\chapter{Excercise 5.3.4}
+\label{cha:5.3.4}
+
+
+\section{Problem statement}
+\label{problem-statement-5-3-4}
+Define a function \emph{Filter} in ML, whose behavior is identical to \emph{filter}. Note: you cannot use filter in the definition of \emph{Filter}. However, you can adapt the definition of \emph{filter} and use it in your definition. Show test cases of your function returning the expected results by comparing the outputs of both \emph{Filter} and \emph{filter}.
+
+\section{Relevant Code}
+\label{rel-code-3-4-2}
+\begin{lstlisting}[frame=TB]
+fun less_than5 xlist=
+let
+val templist = []:int list
+val helper = 1
+fun lessthan x = (if(x<5)then (templist@[x]) else (templist@([]:in)))
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-3-4-2}
+The section did not meet the requirements.
+
+\chapter{Excercise 5.3.5}
+\label{ex-5-3-5}
+
+\section{Problem statement}
+\label{problem-statement-5-3-5}
+Define an ML function \emph{addPairsGreaterThan n list}, whose behavior is defined as follows: (1) given an integer n, and (2) given a list of pairs of integers \emph{list, addPairsGreaterThan n list} will return a list of integers where each element is the sum of integer pairs in \emph{list} where both 	elements of the pairs are greater than n.
+
+\section{Relevant Code}
+\label{rel-code-4-6-4}
+\begin{lstlisting}[frame=TB]
+fun addpair (x,y)=x+y
+fun Filter n xlist = filter(fn (x,y) => y>n andalso x>n ) xlist
+fun addlist xlist = map addpair xlist
+fun addPairsGreaterThan y xlist = (addlist (Filter y xlist)) 
+
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-4-6-4}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # val addpair = fn: int * int -> int
+> # val Filter = fn: int -> (int * int) list -> (int * int) list
+> # val addlist = fn: (int * int) list -> int list
+> # val addPairsGreaterThan = fn: int -> (int * int) list -> int list
+> val it = [5, 9]: int list
+> > 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\appendix{}
+
+\chapter{Source code for Ex 4.6.3}
+\label{cha:source-code-4-6-3}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW3/ML/4.6.3.sml}
+
+
+\chapter{Source code for Ex 4.6.4}
+\label{cha:source-code-4-6-4}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW3/ML/4.6.4.sml}
+
+
+\chapter{Source code for Ex 5.3.4}
+\label{cha:source-code-5-3-4}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW3/ML/5.3.4.sml}
+
+\chapter{Source code for Ex 5.3.5}
+\label{cha:source-code-5-3-5}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW3/ML/5.3.5.sml}
+
+\end{document}

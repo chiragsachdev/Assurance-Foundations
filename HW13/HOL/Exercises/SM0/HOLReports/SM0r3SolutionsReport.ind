@@ -1,0 +1,22 @@
+\begin{theindex}
+
+  \item \textbf  {SM0r3Solutions Theory}, 3
+    \subitem Definitions, 3
+      \subsubitem certificatesr3a_def, 3
+      \subsubitem certsr1a_def, 3
+      \subsubitem certsr2a_def, 3
+    \subitem Theorems, 3
+      \subsubitem certificatesr3a_certsr2a_map_thm, 3
+      \subsubitem SM0r2_Commander_Alice_trap_privcmd_justified_thm, 3
+      \subsubitem SM0r2_Commander_mapSM0r1input_trap_privcmd_justifed_thm, 
+		4
+      \subsubitem SM0r2_mapSM0r1_Alice_Commander_trap_privcmd_lemma, 4
+      \subsubitem SM0r3_Alice_TR2_iff_TR_trap_privcmd, 5
+      \subsubitem SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_thm, 
+		5
+      \subsubitem SM0r3_Commander_Alice_privcmd_trap_privcmd_justified_with_refinements_thm, 
+		6
+      \subsubitem SM0r3_mkinMsg_SM0r2_Alice_Commander_trap_privcmd_lemma, 
+		6
+
+\end{theindex}

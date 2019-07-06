@@ -1,0 +1,16 @@
+\begin{theindex}
+
+  \item \textbf  {SM0r3Solutions Theory}, 3
+    \subitem Definitions, 3
+      \subsubitem certificatesr3a_def, 3
+      \subsubitem certsr1a_def, 3
+      \subsubitem certsr2a_def, 3
+    \subitem Theorems, 3
+      \subsubitem SM0_Commander_privcmd_trapped_lemma, 3
+      \subsubitem SM0_Commander_trap_privcmd_justified_thm, 3
+      \subsubitem SM0r1_Commander_Alice_trap_privcmd_justified_thm, 4
+      \subsubitem SM0r1_Commander_mapSM0inputOperatorBob_trap_privcmd_justified_thm, 
+		4
+      \subsubitem SM0r1_mapSM0_Alice_Commander_trap_privcmd_lemma, 5
+
+\end{theindex}

@@ -1,0 +1,67 @@
+\documentclass[11pt, twoside]{article}
+\usepackage{holtex}
+
+\makeindex
+
+\begin{document}
+
+\input{HOLssmOne}
+\input{HOLsatList}
+
+\tableofcontents
+\cleardoublepage
+\HOLpagestyle
+
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+\section{ssm1 Theory}
+\index{ssm1 Theory@\textbf  {ssm1 Theory}}
+\begin{flushleft}
+\textbf{Built:} \HOLssmOneDate \\[2pt]
+\textbf{Parent Theories:} satList
+\end{flushleft}
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\subsection{Datatypes}
+\index{ssm1 Theory@\textbf  {ssm1 Theory}!Datatypes}
+% .....................................
+
+\HOLssmOneDatatypes
+
+\subsection{Definitions}
+\index{ssm1 Theory@\textbf  {ssm1 Theory}!Definitions}
+% .....................................
+
+\HOLssmOneDefinitions
+
+\subsection{Theorems}
+\index{ssm1 Theory@\textbf  {ssm1 Theory}!Theorems}
+% .....................................
+
+\HOLssmOneTheorems
+
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+\section{satList Theory}
+\index{satList Theory@\textbf  {satList Theory}}
+\begin{flushleft}
+\textbf{Built:} \HOLsatListDate \\[2pt]
+\textbf{Parent Theories:} aclDrules
+\end{flushleft}
+% ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+% No datatypes
+
+\subsection{Definitions}
+\index{satList Theory@\textbf  {satList Theory}!Definitions}
+% .....................................
+
+\HOLsatListDefinitions
+
+\subsection{Theorems}
+\index{satList Theory@\textbf  {satList Theory}!Theorems}
+% .....................................
+
+\HOLsatListTheorems
+
+\HOLindex
+
+\end{document}

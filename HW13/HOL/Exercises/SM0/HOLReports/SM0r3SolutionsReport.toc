@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}SM0r3Solutions Theory}{3}
+\contentsline {subsection}{\numberline {1.1}Definitions}{3}
+\contentsline {subsection}{\numberline {1.2}Theorems}{3}

@@ -1,0 +1,43 @@
+\newcommand{\HOLcryptoExercisesDate}{26 March 2019}
+\newcommand{\HOLcryptoExercisesTime}{23:00}
+\begin{SaveVerbatim}{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{key} \HOLBoundVar{enMsg} \HOLBoundVar{message}.
+     (\HOLConst{deciphS} \HOLBoundVar{key} \HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{message}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{Es} \HOLBoundVar{key} (\HOLConst{SOME} \HOLBoundVar{message}))
+\end{SaveVerbatim}
+\newcommand{\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm}{\UseVerbatim{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm}}
+\begin{SaveVerbatim}{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{keyAlice} \HOLBoundVar{k} \HOLBoundVar{text}.
+     (\HOLConst{deciphS} \HOLBoundVar{keyAlice} (\HOLConst{Es} \HOLBoundVar{k} (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=}
+      \HOLConst{SOME} \HOLStringLit{This is from Alice}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{k} \HOLSymConst{=} \HOLBoundVar{keyAlice}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text} \HOLSymConst{=} \HOLStringLit{This is from Alice})
+\end{SaveVerbatim}
+\newcommand{\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm}{\UseVerbatim{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm}}
+\begin{SaveVerbatim}{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P} \HOLBoundVar{message}.
+     (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P}) \HOLFreeVar{enMsg} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{message}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLFreeVar{enMsg} \HOLSymConst{=} \HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{message}))
+\end{SaveVerbatim}
+\newcommand{\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm}{\UseVerbatim{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm}}
+\begin{SaveVerbatim}{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{key} \HOLBoundVar{text}.
+     (\HOLConst{deciphP} (\HOLConst{pubK} \HOLFreeVar{Alice}) (\HOLConst{Ea} \HOLBoundVar{key} (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=}
+      \HOLConst{SOME} \HOLStringLit{This is from Alice}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{key} \HOLSymConst{=} \HOLConst{privK} \HOLFreeVar{Alice}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text} \HOLSymConst{=} \HOLStringLit{This is from Alice})
+\end{SaveVerbatim}
+\newcommand{\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm}{\UseVerbatim{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm}}
+\begin{SaveVerbatim}{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{signature}.
+     \HOLConst{signVerify} (\HOLConst{pubK} \HOLFreeVar{Alice}) \HOLBoundVar{signature}
+       (\HOLConst{SOME} \HOLStringLit{This is from Alice}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{signature} \HOLSymConst{=}
+      \HOLConst{sign} (\HOLConst{privK} \HOLFreeVar{Alice}) (\HOLConst{hash} (\HOLConst{SOME} \HOLStringLit{This is from Alice})))
+\end{SaveVerbatim}
+\newcommand{\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm}{\UseVerbatim{HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm}}
+\newcommand{\HOLcryptoExercisesTheorems}{
+\HOLThmTag{cryptoExercises}{exercise15_6_1a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOneaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_1b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXOnebXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_2a_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwoaXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_2b_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXTwobXXthm
+\HOLThmTag{cryptoExercises}{exercise15_6_3_thm}\HOLcryptoExercisesTheoremsexerciseOneFiveXXSixXXThreeXXthm
+}

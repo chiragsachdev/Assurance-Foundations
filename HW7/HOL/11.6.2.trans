@@ -1,0 +1,12 @@
+# # # # Definition has been stored under "Map_def"
+val Map_def =
+   |- (!(f :'a -> 'b). Map f ([] :'a list) = ([] :'b list)) /\
+   !(f :'a -> 'b) (h :'a) (l1 :'a list). Map f (h::l1) = f h::Map f l1:
+   thm
+> > # # # # # <<HOL message: inventing new type variable names: 'a, 'b>>
+val Map_APP =
+   |- Map (f :'b -> 'a) (APP (l1 :'b list) (l2 :'b list)) =
+   APP (Map f l1) (Map f l2):
+   thm
+> > > 
+Process HOL finished

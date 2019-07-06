@@ -1,0 +1,319 @@
+\documentclass{report}
+\title{Report 1}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 2}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW2 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this report have been met} Specifically,
+\begin{description}
+	\item[Report Contents]
+	The report has the following content:
+	\begin{enumerate}[{}]
+		\item Chapter ~\ref{cha:executive-summary} Executive Summary
+		\item Chapter ~\ref{cha:2.5.1} Excercise 2.5.1
+		\begin{enumerate}
+			\item Section ~\ref{problem-statement-2}: Problem Statement
+			\item Section ~\ref{rel-code-2} Relevant code
+			\item Section ~\ref{test-results-2} Test Results
+		\end{enumerate}
+		\item Chapter ~\ref{cha:3.4.1} Excercise 3.4.1
+		\begin{enumerate}[{}]
+			\item Section ~\ref{problem-statement-3-4-1}: Problem Statement
+			\item Section ~\ref{rel-code-3-4-1}: Relevant code
+			\item Section ~\ref{test-results-3-4-1}: Test Results
+		\end{enumerate}
+		\item Chapter ~\ref{cha:3.4.1} Excercise 3.4.1
+		\begin{enumerate}[{}]
+			\item Section ~\ref{problem-statement-3-4-2}: Problem Statement
+			\item Section ~\ref{rel-code-3-4-2}: Relevant code
+			\item Section ~\ref{test-results-3-4-2}: Test Results
+		\end{enumerate}
+		\item Appendix ~\ref{cha:source-code-2-5-1}: Source Code:2.5.1
+		\item Appendix ~\ref{cha:source-code-3-4-1}: Source Code:3.4.1
+		\item Appendix ~\ref{cha:source-code-3-4-2}: Source Code:3.4.2
+	\end{enumerate}
+\end{description}
+
+
+%Ex 2.5.1
+\chapter{Excercise 2.5.1}
+\label{cha:2.5.1}
+
+\section{Problem statement}
+\label{problem-statement-2}
+\begin{enumerate}
+	\item Start up Emacs with a fresh file \emph{ex-2-5-1.sml}.
+	\item In Emacs, insert the following text into \emph{ex-2-5-1.sml,} where (* and *) are used to surround comments in ML.
+	\begin{lstlisting}[frame=tblr]
+		(*  Name: fill in your name  *)
+		(*  Email: fill in your email address  *)
+		
+		fun timesPlus x y = (x*y,x+y);
+	\end{lstlisting}
+	\item Start HOL inside of Emacs,highlight the definition of \emph{timesPlus}, and send the region to HOL.
+	\item Evaluate the expression \emph{timesPlus 100 27} within HOL. If you've done things correctly, you should get a pair of integers as a result. Note: when you start HOL within Emacs, in a second window opens below or the right of your sourcecode. This the *\emph{HOL}* buffer. Move your cursor to this buffer by using the mouse or by typing \textbf{\underline{C-x}} \emph{o}, which moves the cursor among the various Emacs buffer/windows.
+	\item Kill the HOL process while preserving the *\emph{HOL}* window by moving the cursor to the *\emph{HOL}* wondow and typing \underline{\textbf{C-d}}. Save the contents of the *\emph{HOL}* window under the name \emph{ex-2-5-1.tans}.
+\end{enumerate}
+
+\section{Relevant Code}
+\label{rel-code-2}
+\begin{lstlisting}[frame=TB]
+fun timesPlus x y = (x*y,x+y);
+timesPlus 100 27
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-2}
+\begin{lstlisting}[frame=TB]
+(******************************************************************************)
+(* Test Cases																  *)
+(******************************************************************************)
+timesPlus 100 27;
+timesPlus 10 26;
+timesPlus 1 25;
+timesPlus 2 24;
+timesPlus 30 23;
+timesPlus 50 200;
+\end{lstlisting}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > val timesPlus = fn: int -> int -> int * int
+> val it = (2700, 127): int * int
+> val it = (260, 36): int * int
+> val it = (25, 26): int * int
+> val it = (48, 26): int * int
+> val it = (690, 53): int * int
+> val it = (10000, 250): int * int
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 3.4.1
+\chapter{Excercise 3.4.1}
+\label{cha:3.4.1}
+
+\section{Problem statement}
+\label{problem-statement-3-4-1}
+Create a file \emph{ex-3-4-1.sml} as your sourcefile. Define the following values in ML. Please include comments similar to those in the examples we have shown in this Chapter. Execute your final source
+code in the HOL interpreter and create a transcript file \emph{ex-3-4-1.trans} by saving the *HOL* window in Emacs to \emph{ex-3-4-1.trans}.
+At the top of your ex-3-4-1.sml file, include the following comment block:
+\begin{lstlisting}[frame=shadowbox]
+(************************************************************************)
+(* Exercise 4.4.1														*)
+(* Author: <your name>													*)
+(* Date: <date you wrote the file>										*)
+(************************************************************************)
+
+\end{lstlisting}
+Devise ML expressions for the following values and assign them to the constant names as specified.
+\begin{enumerate}[a]
+	\item Devise the list of pairs \emph{[(0,"Alice")}, \emph{(1,"Bob")}, \emph{(3,"Carol")},\emph{(4,"Dan")]} and as-sign it the name \emph{listA}.
+	\item Using \emph{listA} and pattern matching, create the following value assignments: \emph{elB} has the value \emph{(0,"Alice")}
+and \emph{listB} has the value \emph{[(1,"Bob")},\emph{(3,"Carol")},\emph{(4,"Dan")]}
+	\item Using \emph{elB}, \emph{listB}, and pattern matching, create the following value assignments: \emph{elC1} has the value \emph{0}, \emph{elC2} has the value \emph{”Alice”}, \emph{elC3} has the value \emph{(1, "Bob")}, \emph{elC4} has the value \emph{(3,"Carol")}, and \emph{elC5} has the value \emph{(4, "Dan")}.
+\end{enumerate}
+
+\section{Relevant Code}
+\label{rel-code-3-4-1}
+\begin{lstlisting}[frame=TB]
+val listA = [(0,"Alice"),(1,"Bob"),(3,"Carol"),(4,"Dan")];
+val elB::listB = listA;
+val (elC1,elC2) = elB;
+val elC3::listB = listB;
+val elC4::listB = listB;
+val elC5::listB = listB;
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-3-4-1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > val listA = [(0, "Alice"), (1, "Bob"), (3, "Carol"), (4, "Dan")]:
+   (int * string) list
+> val elB = (0, "Alice"): int * string
+val listB = [(1, "Bob"), (3, "Carol"), (4, "Dan")]: (int * string) list
+> val elC1 = 0: int
+val elC2 = "Alice": string
+> val elC3 = (1, "Bob"): int * string
+val listB = [(3, "Carol"), (4, "Dan")]: (int * string) list
+> val elC4 = (3, "Carol"): int * string
+val listB = [(4, "Dan")]: (int * string) list
+> val elC5 = (4, "Dan"): int * string
+val listB = []: (int * string) list
+> > 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 3.4.2
+\chapter{Excercise 3.4.2}
+\label{cha:3.4.2}
+
+
+\section{Problem statement}
+\label{problem-statement-3-4-2}
+Create a file \emph{ex-3-4-2.sml} as your sourcefile. Define the following values in ML. Please include comments similar to those in the examples we have shown in this Chapter. Execute your final source code in the HOL interpreter and create a transcript file \emph{ex-3-4-2.trans} by saving the *\emph{HOL}* window in Emacs to \emph{ex-3-4-2.trans}.
+At the top of your ex-3-4-2.sml file, include the following comment block:
+\begin{lstlisting}[frame=shadowbox]
+(************************************************************************)
+(* Exercise 4.4.2														*)
+(* Author: <your name>													*)
+(* Date: <date you wrote the file>										*)
+(************************************************************************)
+\end{lstlisting}
+
+\begin{enumerate}
+	\item Insert the following code into your ex-3-4-2.sml file:
+	\begin{lstlisting}[frame=shadowbox]
+val (x1,x2,x3) = (1,true,"Alice");
+val pair1 = (x1,x3);
+val list1 = [0,x1,2];
+val list2 = [x2,x1];
+val list3 = (1 :: [x3]);
+	\end{lstlisting}
+	\item Evaluate each of the assignments in the order in which they appear in HOL. Store the results in your \emph{ex-3-4-2.trans} file.
+	\item Explain in your own words what the errors are that HOL detects. Include your answers as comments in your source code.
+\end{enumerate}
+
+\section{Relevant Code}
+\label{rel-code-3-4-2}
+\begin{lstlisting}[frame=TB]
+val (x1,x2,x3) = (1,true,"Alice");
+val pair1 = (x1,x3);
+val list1 = [0,x1,2];
+val list2 = [x2,x1];
+val list3 = (1 :: [x3]);
+\end{lstlisting}
+
+\section{Test Case}
+\label{test-results-3-4-2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > val x1 = 1: int
+val x2 = true: bool
+val x3 = "Alice": string
+> val pair1 = (1, "Alice"): int * string
+> val list1 = [0, 1, 2]: int list
+> poly: : error: Elements in a list have different types.
+   Item 1: x2 : bool
+   Item 2: x1 : int
+   Reason:
+      Can't unify bool (*In Basis*) with int (*In Basis*)
+         (Different type constructors)
+Found near [x2, x1]
+Static Errors
+> poly: : error: Type error in function application.
+   Function: :: : int * int list -> int list
+   Argument: (1, [x3]) : int * string list
+   Reason:
+      Can't unify int (*In Basis*) with string (*In Basis*)
+         (Different type constructors)
+Found near (1 :: [x3])
+Static Errors
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\appendix{}
+
+\chapter{Source code for Ex 2.5.1}
+\label{cha:source-code-2-5-1}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW2/ex-2-5-1.sml}
+
+
+\chapter{Source code for Ex 3.4.1}
+\label{cha:source-code-3-4-1}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW2/ex-3-4-1.sml}
+
+
+\chapter{Source code for Ex 3.4.2}
+\label{cha:source-code-3-4-2}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW2/ex-3-4-2.sml}
+
+\end{document}

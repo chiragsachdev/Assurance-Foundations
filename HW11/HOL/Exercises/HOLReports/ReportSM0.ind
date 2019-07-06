@@ -1,0 +1,46 @@
+\begin{theindex}
+
+  \item \textbf  {SM0 Theory}, 8
+    \subitem Datatypes, 8
+    \subitem Definitions, 8
+      \subsubitem certs_def, 8
+      \subsubitem SM0StateInterp_def, 8
+    \subitem Theorems, 9
+      \subsubitem Alice_exec_privcmd_justified_thm, 9
+      \subsubitem Alice_justified_privcmd_exec_thm, 9
+      \subsubitem Alice_privcmd_lemma, 9
+      \subsubitem Alice_privcmd_verified_thm, 9
+      \subsubitem Carol_discard_lemma, 10
+      \subsubitem Carol_rejected_lemma, 10
+      \subsubitem command_distinct_clauses, 10
+      \subsubitem command_one_one, 10
+      \subsubitem inputOK_def, 10
+      \subsubitem inputOK_ind, 11
+      \subsubitem output_distinct_clauses, 12
+      \subsubitem privcmd_distinct_clauses, 12
+      \subsubitem SM0ns_def, 12
+      \subsubitem SM0ns_ind, 12
+      \subsubitem SM0out_def, 13
+      \subsubitem SM0out_ind, 13
+      \subsubitem staff_distinct_clauses, 13
+      \subsubitem state_distinct_clauses, 13
+  \item \textbf  {SM0Solutions Theory}, 3
+    \subitem Definitions, 3
+      \subsubitem certs2_def, 3
+    \subitem Theorems, 3
+      \subsubitem Alice_exec_npriv_justified_thm, 3
+      \subsubitem Alice_justified_npriv_exec_thm, 3
+      \subsubitem Alice_npriv_lemma, 4
+      \subsubitem Alice_npriv_verified_thm, 4
+      \subsubitem Carol_exec_npriv_justified_thm, 4
+      \subsubitem Carol_justified_npriv_exec_thm, 4
+      \subsubitem Carol_justified_privcmd_trap_thm, 5
+      \subsubitem Carol_npriv_lemma, 5
+      \subsubitem Carol_npriv_verified_thm, 5
+      \subsubitem Carol_privcmd_trap_lemma, 5
+      \subsubitem Carol_privcmd_trapped_thm, 5
+      \subsubitem Carol_trap_privcmd_justified_thm, 6
+      \subsubitem inputOK2_def, 6
+      \subsubitem inputOK2_ind, 7
+
+\end{theindex}

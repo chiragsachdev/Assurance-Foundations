@@ -1,0 +1,205 @@
+\newcommand{\HOLcipherDate}{26 March 2019}
+\newcommand{\HOLcipherTime}{23:00}
+\begin{SaveVerbatim}{HOLcipherDatatypesasymMsg}
+\HOLFreeVar{asymMsg} = \HOLConst{Ea} ('princ \HOLTyOp{pKey}) ('message \HOLTyOp{option})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDatatypesasymMsg}{\UseVerbatim{HOLcipherDatatypesasymMsg}}
+\begin{SaveVerbatim}{HOLcipherDatatypesdigest}
+\HOLFreeVar{digest} = \HOLConst{hash} ('message \HOLTyOp{option})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDatatypesdigest}{\UseVerbatim{HOLcipherDatatypesdigest}}
+\begin{SaveVerbatim}{HOLcipherDatatypespKey}
+\HOLFreeVar{pKey} = \HOLConst{pubK} 'princ \HOLTokenBar{} \HOLConst{privK} 'princ
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDatatypespKey}{\UseVerbatim{HOLcipherDatatypespKey}}
+\begin{SaveVerbatim}{HOLcipherDatatypessymKey}
+\HOLFreeVar{symKey} = \HOLConst{sym} \HOLTyOp{num}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDatatypessymKey}{\UseVerbatim{HOLcipherDatatypessymKey}}
+\begin{SaveVerbatim}{HOLcipherDatatypessymMsg}
+\HOLFreeVar{symMsg} = \HOLConst{Es} \HOLTyOp{symKey} ('message \HOLTyOp{option})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDatatypessymMsg}{\UseVerbatim{HOLcipherDatatypessymMsg}}
+\newcommand{\HOLcipherDatatypes}{
+\HOLcipherDatatypesasymMsg\HOLcipherDatatypesdigest\HOLcipherDatatypespKey\HOLcipherDatatypessymKey\HOLcipherDatatypessymMsg}
+\begin{SaveVerbatim}{HOLcipherDefinitionssignXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{pubKey} \HOLBoundVar{dgst}. \HOLConst{sign} \HOLBoundVar{pubKey} \HOLBoundVar{dgst} \HOLSymConst{=} \HOLConst{Ea} \HOLBoundVar{pubKey} (\HOLConst{SOME} \HOLBoundVar{dgst})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDefinitionssignXXdef}{\UseVerbatim{HOLcipherDefinitionssignXXdef}}
+\begin{SaveVerbatim}{HOLcipherDefinitionssignVerifyXXdef}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{pubKey} \HOLBoundVar{signature} \HOLBoundVar{msgContents}.
+     \HOLConst{signVerify} \HOLBoundVar{pubKey} \HOLBoundVar{signature} \HOLBoundVar{msgContents} \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLConst{SOME} (\HOLConst{hash} \HOLBoundVar{msgContents}) \HOLSymConst{=} \HOLConst{deciphP} \HOLBoundVar{pubKey} \HOLBoundVar{signature})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherDefinitionssignVerifyXXdef}{\UseVerbatim{HOLcipherDefinitionssignVerifyXXdef}}
+\newcommand{\HOLcipherDefinitions}{
+\HOLDfnTag{cipher}{sign_def}\HOLcipherDefinitionssignXXdef
+\HOLDfnTag{cipher}{signVerify_def}\HOLcipherDefinitionssignVerifyXXdef
+}
+\begin{SaveVerbatim}{HOLcipherTheoremsasymMsgXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a\sb{\mathrm{0}}} \HOLBoundVar{a\sb{\mathrm{1}}} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}}.
+     (\HOLConst{Ea} \HOLBoundVar{a\sb{\mathrm{0}}} \HOLBoundVar{a\sb{\mathrm{1}}} \HOLSymConst{=} \HOLConst{Ea} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a\sb{\mathrm{0}}} \HOLSymConst{=} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{a\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsasymMsgXXoneXXone}{\UseVerbatim{HOLcipherTheoremsasymMsgXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphPXXclauses}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P} \HOLBoundVar{text}.
+      (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=}
+       \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenConj{}}
+      (\HOLConst{deciphP} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=}
+       \HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k} \HOLBoundVar{P} \HOLBoundVar{text}.
+      (\HOLConst{deciphP} \HOLBoundVar{k} (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{k} \HOLSymConst{=} \HOLConst{pubK} \HOLBoundVar{P})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k} \HOLBoundVar{P} \HOLBoundVar{text}.
+      (\HOLConst{deciphP} \HOLBoundVar{k} (\HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{k} \HOLSymConst{=} \HOLConst{privK} \HOLBoundVar{P})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{x} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{P\sb{\mathrm{2}}} \HOLBoundVar{P\sb{\mathrm{1}}}.
+      (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P\sb{\mathrm{1}}}) (\HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P\sb{\mathrm{2}}}) (\HOLConst{SOME} \HOLBoundVar{x})) \HOLSymConst{=} \HOLConst{NONE}) \HOLSymConst{\HOLTokenConj{}}
+      (\HOLConst{deciphP} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Ea} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLConst{NONE}) \HOLSymConst{=} \HOLConst{NONE})) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{x} \HOLBoundVar{P\sb{\mathrm{2}}} \HOLBoundVar{P\sb{\mathrm{1}}}. \HOLConst{deciphP} (\HOLConst{privK} \HOLBoundVar{P\sb{\mathrm{1}}}) (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P\sb{\mathrm{2}}}) (\HOLConst{SOME} \HOLBoundVar{x})) \HOLSymConst{=} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphPXXclauses}{\UseVerbatim{HOLcipherTheoremsdeciphPXXclauses}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphPXXdef}
+\HOLTokenTurnstile{} (\HOLConst{deciphP} \HOLFreeVar{key} (\HOLConst{Ea} (\HOLConst{privK} \HOLFreeVar{P}) (\HOLConst{SOME} \HOLFreeVar{x})) \HOLSymConst{=}
+    \HOLKeyword{if} \HOLFreeVar{key} \HOLSymConst{=} \HOLConst{pubK} \HOLFreeVar{P} \HOLKeyword{then} \HOLConst{SOME} \HOLFreeVar{x} \HOLKeyword{else} \HOLConst{NONE}) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLConst{deciphP} \HOLFreeVar{key} (\HOLConst{Ea} (\HOLConst{pubK} \HOLFreeVar{P}) (\HOLConst{SOME} \HOLFreeVar{x})) \HOLSymConst{=}
+    \HOLKeyword{if} \HOLFreeVar{key} \HOLSymConst{=} \HOLConst{privK} \HOLFreeVar{P} \HOLKeyword{then} \HOLConst{SOME} \HOLFreeVar{x} \HOLKeyword{else} \HOLConst{NONE}) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLConst{deciphP} \HOLFreeVar{k\sb{\mathrm{1}}} (\HOLConst{Ea} \HOLFreeVar{k\sb{\mathrm{2}}} \HOLConst{NONE}) \HOLSymConst{=} \HOLConst{NONE})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphPXXdef}{\UseVerbatim{HOLcipherTheoremsdeciphPXXdef}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphPXXind}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P\sp{\prime}}.
+     (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{key} \HOLBoundVar{P} \HOLBoundVar{x}. \HOLBoundVar{P\sp{\prime}} \HOLBoundVar{key} (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{x}))) \HOLSymConst{\HOLTokenConj{}}
+     (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{key} \HOLBoundVar{P} \HOLBoundVar{x}. \HOLBoundVar{P\sp{\prime}} \HOLBoundVar{key} (\HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{x}))) \HOLSymConst{\HOLTokenConj{}}
+     (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}}. \HOLBoundVar{P\sp{\prime}} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Ea} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLConst{NONE})) \HOLSymConst{\HOLTokenImp{}}
+     \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{v} \HOLBoundVar{v\sb{\mathrm{1}}}. \HOLBoundVar{P\sp{\prime}} \HOLBoundVar{v} \HOLBoundVar{v\sb{\mathrm{1}}}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphPXXind}{\UseVerbatim{HOLcipherTheoremsdeciphPXXind}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphPXXoneXXone}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P\sb{\mathrm{1}}} \HOLBoundVar{P\sb{\mathrm{2}}} \HOLBoundVar{text\sb{\mathrm{1}}} \HOLBoundVar{text\sb{\mathrm{2}}}.
+      (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P\sb{\mathrm{1}}}) (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P\sb{\mathrm{2}}}) (\HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{=}
+       \HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{1}}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{P\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{P\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P\sb{\mathrm{1}}} \HOLBoundVar{P\sb{\mathrm{2}}} \HOLBoundVar{text\sb{\mathrm{1}}} \HOLBoundVar{text\sb{\mathrm{2}}}.
+      (\HOLConst{deciphP} (\HOLConst{privK} \HOLBoundVar{P\sb{\mathrm{1}}}) (\HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P\sb{\mathrm{2}}}) (\HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{=}
+       \HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{1}}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{P\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{P\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{p} \HOLBoundVar{c} \HOLBoundVar{P} \HOLBoundVar{msg}.
+      (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{Ea} \HOLBoundVar{p} \HOLBoundVar{c}) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{p} \HOLSymConst{=} \HOLConst{privK} \HOLBoundVar{P}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{c} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{enMsg} \HOLBoundVar{P} \HOLBoundVar{msg}.
+      (\HOLConst{deciphP} (\HOLConst{pubK} \HOLBoundVar{P}) \HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{msg}))) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{p} \HOLBoundVar{c} \HOLBoundVar{P} \HOLBoundVar{msg}.
+      (\HOLConst{deciphP} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{Ea} \HOLBoundVar{p} \HOLBoundVar{c}) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{p} \HOLSymConst{=} \HOLConst{pubK} \HOLBoundVar{P}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{c} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg})) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{enMsg} \HOLBoundVar{P} \HOLBoundVar{msg}.
+     (\HOLConst{deciphP} (\HOLConst{privK} \HOLBoundVar{P}) \HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{msg}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{Ea} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{SOME} \HOLBoundVar{msg}))
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphPXXoneXXone}{\UseVerbatim{HOLcipherTheoremsdeciphPXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphSXXclauses}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k} \HOLBoundVar{text}. \HOLConst{deciphS} \HOLBoundVar{k} (\HOLConst{Es} \HOLBoundVar{k} (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLBoundVar{text}.
+      (\HOLConst{deciphS} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{k\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{k\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLBoundVar{text}.
+      (\HOLConst{deciphS} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} (\HOLConst{SOME} \HOLBoundVar{text})) \HOLSymConst{=} \HOLConst{NONE}) \HOLSymConst{\HOLTokenEquiv{}} \HOLBoundVar{k\sb{\mathrm{1}}} \HOLSymConst{\HOLTokenNotEqual{}} \HOLBoundVar{k\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}}. \HOLConst{deciphS} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLConst{NONE}) \HOLSymConst{=} \HOLConst{NONE}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphSXXclauses}{\UseVerbatim{HOLcipherTheoremsdeciphSXXclauses}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphSXXdef}
+\HOLTokenTurnstile{} (\HOLConst{deciphS} \HOLFreeVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLFreeVar{k\sb{\mathrm{2}}} (\HOLConst{SOME} \HOLFreeVar{x})) \HOLSymConst{=}
+    \HOLKeyword{if} \HOLFreeVar{k\sb{\mathrm{1}}} \HOLSymConst{=} \HOLFreeVar{k\sb{\mathrm{2}}} \HOLKeyword{then} \HOLConst{SOME} \HOLFreeVar{x} \HOLKeyword{else} \HOLConst{NONE}) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLConst{deciphS} \HOLFreeVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLFreeVar{k\sb{\mathrm{2}}} \HOLConst{NONE}) \HOLSymConst{=} \HOLConst{NONE})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphSXXdef}{\UseVerbatim{HOLcipherTheoremsdeciphSXXdef}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphSXXind}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P}.
+     (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLBoundVar{x}. \HOLBoundVar{P} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} (\HOLConst{SOME} \HOLBoundVar{x}))) \HOLSymConst{\HOLTokenConj{}}
+     (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}}. \HOLBoundVar{P} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLConst{NONE})) \HOLSymConst{\HOLTokenImp{}}
+     \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{v} \HOLBoundVar{v\sb{\mathrm{1}}}. \HOLBoundVar{P} \HOLBoundVar{v} \HOLBoundVar{v\sb{\mathrm{1}}}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphSXXind}{\UseVerbatim{HOLcipherTheoremsdeciphSXXind}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdeciphSXXoneXXone}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{k\sb{\mathrm{1}}} \HOLBoundVar{k\sb{\mathrm{2}}} \HOLBoundVar{text\sb{\mathrm{1}}} \HOLBoundVar{text\sb{\mathrm{2}}}.
+      (\HOLConst{deciphS} \HOLBoundVar{k\sb{\mathrm{1}}} (\HOLConst{Es} \HOLBoundVar{k\sb{\mathrm{2}}} (\HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{1}}}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{k\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{k\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{text\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{enMsg} \HOLBoundVar{text} \HOLBoundVar{key}.
+     (\HOLConst{deciphS} \HOLBoundVar{key} \HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{enMsg} \HOLSymConst{=} \HOLConst{Es} \HOLBoundVar{key} (\HOLConst{SOME} \HOLBoundVar{text}))
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdeciphSXXoneXXone}{\UseVerbatim{HOLcipherTheoremsdeciphSXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremsdigestXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a} \HOLBoundVar{a\sp{\prime}}. (\HOLConst{hash} \HOLBoundVar{a} \HOLSymConst{=} \HOLConst{hash} \HOLBoundVar{a\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a} \HOLSymConst{=} \HOLBoundVar{a\sp{\prime}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsdigestXXoneXXone}{\UseVerbatim{HOLcipherTheoremsdigestXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremsoptionXXdistinct}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{x}. \HOLConst{NONE} \HOLSymConst{\HOLTokenNotEqual{}} \HOLConst{SOME} \HOLBoundVar{x}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsoptionXXdistinct}{\UseVerbatim{HOLcipherTheoremsoptionXXdistinct}}
+\begin{SaveVerbatim}{HOLcipherTheoremsoptionXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{x} \HOLBoundVar{y}. (\HOLConst{SOME} \HOLBoundVar{x} \HOLSymConst{=} \HOLConst{SOME} \HOLBoundVar{y}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{x} \HOLSymConst{=} \HOLBoundVar{y})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremsoptionXXoneXXone}{\UseVerbatim{HOLcipherTheoremsoptionXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremspKeyXXdistinctXXclauses}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a\sp{\prime}} \HOLBoundVar{a}. \HOLConst{pubK} \HOLBoundVar{a} \HOLSymConst{\HOLTokenNotEqual{}} \HOLConst{privK} \HOLBoundVar{a\sp{\prime}}) \HOLSymConst{\HOLTokenConj{}} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a\sp{\prime}} \HOLBoundVar{a}. \HOLConst{privK} \HOLBoundVar{a\sp{\prime}} \HOLSymConst{\HOLTokenNotEqual{}} \HOLConst{pubK} \HOLBoundVar{a}
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremspKeyXXdistinctXXclauses}{\UseVerbatim{HOLcipherTheoremspKeyXXdistinctXXclauses}}
+\begin{SaveVerbatim}{HOLcipherTheoremspKeyXXoneXXone}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a} \HOLBoundVar{a\sp{\prime}}. (\HOLConst{pubK} \HOLBoundVar{a} \HOLSymConst{=} \HOLConst{pubK} \HOLBoundVar{a\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a} \HOLSymConst{=} \HOLBoundVar{a\sp{\prime}})) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a} \HOLBoundVar{a\sp{\prime}}. (\HOLConst{privK} \HOLBoundVar{a} \HOLSymConst{=} \HOLConst{privK} \HOLBoundVar{a\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a} \HOLSymConst{=} \HOLBoundVar{a\sp{\prime}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremspKeyXXoneXXone}{\UseVerbatim{HOLcipherTheoremspKeyXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremssignXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{pubKey\sb{\mathrm{1}}} \HOLBoundVar{pubKey\sb{\mathrm{2}}} \HOLBoundVar{m\sb{\mathrm{1}}} \HOLBoundVar{m\sb{\mathrm{2}}}.
+     (\HOLConst{sign} \HOLBoundVar{pubKey\sb{\mathrm{1}}} (\HOLConst{hash} \HOLBoundVar{m\sb{\mathrm{1}}}) \HOLSymConst{=} \HOLConst{sign} \HOLBoundVar{pubKey\sb{\mathrm{2}}} (\HOLConst{hash} \HOLBoundVar{m\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenEquiv{}}
+     (\HOLBoundVar{pubKey\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{pubKey\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{m\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{m\sb{\mathrm{2}}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremssignXXoneXXone}{\UseVerbatim{HOLcipherTheoremssignXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremssignVerifyXXoneXXone}
+\HOLTokenTurnstile{} (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P} \HOLBoundVar{m\sb{\mathrm{1}}} \HOLBoundVar{m\sb{\mathrm{2}}}.
+      \HOLConst{signVerify} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{Ea} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{SOME} (\HOLConst{hash} (\HOLConst{SOME} \HOLBoundVar{m\sb{\mathrm{1}}}))))
+        (\HOLConst{SOME} \HOLBoundVar{m\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{m\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{m\sb{\mathrm{2}}})) \HOLSymConst{\HOLTokenConj{}}
+   (\HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{signature} \HOLBoundVar{P} \HOLBoundVar{text}.
+      \HOLConst{signVerify} (\HOLConst{pubK} \HOLBoundVar{P}) \HOLBoundVar{signature} (\HOLConst{SOME} \HOLBoundVar{text}) \HOLSymConst{\HOLTokenEquiv{}}
+      (\HOLBoundVar{signature} \HOLSymConst{=} \HOLConst{sign} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{hash} (\HOLConst{SOME} \HOLBoundVar{text})))) \HOLSymConst{\HOLTokenConj{}}
+   \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{text\sb{\mathrm{2}}} \HOLBoundVar{text\sb{\mathrm{1}}} \HOLBoundVar{P\sb{\mathrm{2}}} \HOLBoundVar{P\sb{\mathrm{1}}}.
+     \HOLConst{signVerify} (\HOLConst{pubK} \HOLBoundVar{P\sb{\mathrm{1}}}) (\HOLConst{sign} (\HOLConst{privK} \HOLBoundVar{P\sb{\mathrm{2}}}) (\HOLConst{hash} (\HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{2}}})))
+       (\HOLConst{SOME} \HOLBoundVar{text\sb{\mathrm{1}}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{P\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{P\sb{\mathrm{2}}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{text\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{text\sb{\mathrm{2}}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremssignVerifyXXoneXXone}{\UseVerbatim{HOLcipherTheoremssignVerifyXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremssignVerifyOK}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{P} \HOLBoundVar{msg}.
+     \HOLConst{signVerify} (\HOLConst{pubK} \HOLBoundVar{P}) (\HOLConst{sign} (\HOLConst{privK} \HOLBoundVar{P}) (\HOLConst{hash} (\HOLConst{SOME} \HOLBoundVar{msg})))
+       (\HOLConst{SOME} \HOLBoundVar{msg})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremssignVerifyOK}{\UseVerbatim{HOLcipherTheoremssignVerifyOK}}
+\begin{SaveVerbatim}{HOLcipherTheoremssymKeyXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a} \HOLBoundVar{a\sp{\prime}}. (\HOLConst{sym} \HOLBoundVar{a} \HOLSymConst{=} \HOLConst{sym} \HOLBoundVar{a\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a} \HOLSymConst{=} \HOLBoundVar{a\sp{\prime}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremssymKeyXXoneXXone}{\UseVerbatim{HOLcipherTheoremssymKeyXXoneXXone}}
+\begin{SaveVerbatim}{HOLcipherTheoremssymMsgXXoneXXone}
+\HOLTokenTurnstile{} \HOLSymConst{\HOLTokenForall{}}\HOLBoundVar{a\sb{\mathrm{0}}} \HOLBoundVar{a\sb{\mathrm{1}}} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}}.
+     (\HOLConst{Es} \HOLBoundVar{a\sb{\mathrm{0}}} \HOLBoundVar{a\sb{\mathrm{1}}} \HOLSymConst{=} \HOLConst{Es} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}}) \HOLSymConst{\HOLTokenEquiv{}} (\HOLBoundVar{a\sb{\mathrm{0}}} \HOLSymConst{=} \HOLBoundVar{a\sb{\mathrm{0}}\sp{\prime}}) \HOLSymConst{\HOLTokenConj{}} (\HOLBoundVar{a\sb{\mathrm{1}}} \HOLSymConst{=} \HOLBoundVar{a\sb{\mathrm{1}}\sp{\prime}})
+\end{SaveVerbatim}
+\newcommand{\HOLcipherTheoremssymMsgXXoneXXone}{\UseVerbatim{HOLcipherTheoremssymMsgXXoneXXone}}
+\newcommand{\HOLcipherTheorems}{
+\HOLThmTag{cipher}{asymMsg_one_one}\HOLcipherTheoremsasymMsgXXoneXXone
+\HOLThmTag{cipher}{deciphP_clauses}\HOLcipherTheoremsdeciphPXXclauses
+\HOLThmTag{cipher}{deciphP_def}\HOLcipherTheoremsdeciphPXXdef
+\HOLThmTag{cipher}{deciphP_ind}\HOLcipherTheoremsdeciphPXXind
+\HOLThmTag{cipher}{deciphP_one_one}\HOLcipherTheoremsdeciphPXXoneXXone
+\HOLThmTag{cipher}{deciphS_clauses}\HOLcipherTheoremsdeciphSXXclauses
+\HOLThmTag{cipher}{deciphS_def}\HOLcipherTheoremsdeciphSXXdef
+\HOLThmTag{cipher}{deciphS_ind}\HOLcipherTheoremsdeciphSXXind
+\HOLThmTag{cipher}{deciphS_one_one}\HOLcipherTheoremsdeciphSXXoneXXone
+\HOLThmTag{cipher}{digest_one_one}\HOLcipherTheoremsdigestXXoneXXone
+\HOLThmTag{cipher}{option_distinct}\HOLcipherTheoremsoptionXXdistinct
+\HOLThmTag{cipher}{option_one_one}\HOLcipherTheoremsoptionXXoneXXone
+\HOLThmTag{cipher}{pKey_distinct_clauses}\HOLcipherTheoremspKeyXXdistinctXXclauses
+\HOLThmTag{cipher}{pKey_one_one}\HOLcipherTheoremspKeyXXoneXXone
+\HOLThmTag{cipher}{sign_one_one}\HOLcipherTheoremssignXXoneXXone
+\HOLThmTag{cipher}{signVerify_one_one}\HOLcipherTheoremssignVerifyXXoneXXone
+\HOLThmTag{cipher}{signVerifyOK}\HOLcipherTheoremssignVerifyOK
+\HOLThmTag{cipher}{symKey_one_one}\HOLcipherTheoremssymKeyXXoneXXone
+\HOLThmTag{cipher}{symMsg_one_one}\HOLcipherTheoremssymMsgXXoneXXone
+}

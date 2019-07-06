@@ -1,0 +1,269 @@
+\documentclass{report}
+\title{Homework 5}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 5}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\begin{document}
+\lstset{language=ML}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW5 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically,
+\begin{description}
+\item[Report Contents] \ \\
+  Our report has the following content:
+  \begin{enumerate}[{}]
+  \item Chapter~\ref{cha:executive-summary}: Executive Summary
+  \item Chapter~\ref{cha:8.4.1}: Exercise 8.4.1
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-8-4-1}: Problem Statement
+    \item Section~\ref{rel-code-8-4-1}: Relevant Code 
+    \item Section~\ref{trans-8-4-1}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:8.4.2}: Exercise 8.4.2
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-8-4-2}: Problem Statement
+    \item Section~\ref{rel-code-8-4-2}: Relevant Code
+    \item Section~\ref{trans-8-4-2}: Session Transcripts
+    \end{enumerate}
+  \item Chapter~\ref{cha:8.4.3}: Exercise 8.4.3
+    \begin{enumerate}[{}]
+    \item Section~\ref{problem-statement-8-4-3}: Problem Statement
+    \item Section~\ref{rel-code-8-4-3}: Relevant Code
+    \item Section~\ref{trans-8-4-3}: Session Transcripts
+    \end{enumerate}
+ \item Appendix~\ref{cha:source-code}: Source Code
+  \end{enumerate}
+\item[Reproducibility in ML and \LaTeX{}] \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+\end{description}
+
+
+
+%Ex 8.4.1
+\chapter{Excercise 8.4.1}
+\label{cha:8.4.1}
+
+\section{Problem statement}
+\label{problem-statement-8-4-1}
+Prove the following theorem
+\begin{lstlisting}[frame=tblr]
+> val problem1Thm =
+	[] |- p ==> (p ==> q) ==> (q ==> r) ==> r
+	: thm
+\end{lstlisting}
+
+\section{Relevant Code}
+\label{rel-code-8-4-1}
+\begin{lstlisting}[frame=TBlr]
+val problem1Thm =
+let
+ val th1 = ASSUME ``p:bool``
+ val th2 = ASSUME ``p ==> q``
+ val th3 = ASSUME ``q ==> r``
+ val th4 = MP th2 th1 (*Modus Ponens*)
+ val th5 = MP th3 th4 (*Modus Ponens*)
+ val t1  = hd(hyp th1)
+ val t2  = hd(hyp th2)
+ val t3  = hd(hyp th3)
+ val th6 = DISCH t3 th4
+ val th7 = DISCH t2 th6
+in
+ DISCH t3 th7
+end
+
+val _ = save_thm("problem1Thm",problem1Thm);
+
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-8-4-1}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # # # # # # # # val problem1Thm =
+    [.] |- (q ⇒ r) ⇒ (p ⇒ q) ⇒ (q ⇒ r) ⇒ q:
+   thm
+> > 
+*** Emacs/HOL command completed ***
+
+> 
+Process HOL finished
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%Ex 8.4.2
+\chapter{Excercise 8.4.2}
+\label{cha:8.4.2}
+
+\section{Problem statement}
+\label{problem-statement-8-4-2}
+Prove the following theorem:
+\begin{lstlisting}[frame=tblr]
+> val conjSymThm =
+	[] |- p /\ q <=> q /\ p
+	: thm
+\end{lstlisting}
+\section{Relevant Code}
+\label{rel-code-8-4-2}
+\begin{lstlisting}[frame=TBlr]
+val conjSymThm =
+let
+ val th1 = ASSUME ``p/\q``
+ val th2 = ASSUME ``q/\p``
+ val xp  = CONJUNCT1 th1
+ val xq  = CONJUNCT2 th1
+ val yp  = CONJUNCT2 th2
+ val yq  = CONJUNCT1 th2
+ val th3 = CONJ xq xp
+ val th4 = CONJ yp yq
+ val t1  = hd(hyp th1)
+ val t2  = hd(hyp th2)
+ val th5 = DISCH t1 th3
+ val th6 = DISCH t2 th4
+in
+ IMP_ANTISYM_RULE th5 th6
+end
+
+val _ = save_thm("conSymThm",conjSymThm);
+
+\end{lstlisting}
+
+\section{Session Transcript}
+\label{trans-8-4-2}
+
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # # # # # # # # # # val conjSymThm =
+   |- p ∧ q ⇔ q ∧ p:
+   thm
+> > 
+*** Emacs/HOL command completed ***
+
+> 
+Process HOL finished
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+%Ex 8.4.3
+\chapter{Excercise 8.4.3}
+\label{cha:8.4.3}
+
+
+\section{Problem statement}
+\label{problem-statement-8-4-3}
+Extend your proof in Problem 2 by one step and prove:
+\begin{lstlisting}[frame=tblr]
+> val conjSymThmAll =
+	[] |- !p q. p /\ q <=> q /\ p
+	: thm
+\end{lstlisting}
+\section{Relevant Code}
+\label{rel-code-8-4-3}
+\begin{lstlisting}[frame=TBlr]
+val conjSymThmAll = GENL [``p:bool``,``q:bool``] conjSymThm;
+val _ = save_thm("conSymThmAll",conjSymThmAll);
+\end{lstlisting}
+
+\section{Test Case}
+\label{trans-8-4-3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # # # # # # # # # # # # # # # # # # val conjSymThm =
+   |- p ∧ q ⇔ q ∧ p:
+   thm
+> > > 
+*** Emacs/HOL command completed ***
+
+> val conjSymThmAll =
+   |- ∀p q. p ∧ q ⇔ q ∧ p:
+   thm
+> > > 
+Process HOL finished
+
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+\appendix{}
+
+\chapter{Source code}
+\label{cha:source-code}
+
+\lstinputlisting{/home/csbd/Documents/COURSES/csbd/HW5/HOL/hw5Script.sml}
+
+\end{document}

@@ -1,0 +1,81 @@
+% =====================================================================
+%
+% LaTeX style file for unclassified // fouo documents
+%
+% =====================================================================
+
+
+% ---------------------------------------------------------------------
+% PAPER SIZE  (latex overrides these anyway)
+%
+% TeX expects 1 inch margins all around.
+%    * a4 (european paper) is exactly 297mm high by 210mm wide
+%    * 8.5x11 (american paper) is exactly 279.4mm high by 215.9mm wide
+%
+% 1 inch = 25.4 mm
+% ---------------------------------------------------------------------
+
+\usepackage[letterpaper,width=6.5in,height=225truemm,top=32mm,
+              headheight=16pt,headsep=20pt,footskip=13mm]{geometry}
+% \usepackage[letterpaper,width=160truemm,height=225truemm,top=32mm,
+%               headheight=16pt,headsep=20pt,footskip=13mm]{geometry}
+
+%----------------------------------------------
+% Headings: Unclassified/FOUO and page numbers
+%----------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[C]{\textsc{Spring 2017}}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\textsc{Assurance Fundamentals}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%------------------------------------------------
+% Redefining plain page style for chapters
+%------------------------------------------------
+\fancypagestyle{plain}{
+\fancyhead{}
+\fancyhead[C]{\textsc{Spring 2017}}
+\fancyfoot[R]{\thepage}
+\fancyfoot[C]{\textsc{Assurance Fundamentals}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+% ---------------------------------------------------------------------
+% Make "@" a "letter" for definitions that follow
+% ---------------------------------------------------------------------
+\makeatletter
+
+% ---------------------------------------------------------------------
+% CHAPTER HEADINGS (deriving from Larry Paulson)
+% ---------------------------------------------------------------------
+
+\def\@rulehead#1{\hrule height1pt \vskip 14pt \huge \bf
+   #1 \vskip 14pt\hrule height1pt}
+
+\def\@makechapterhead#1{ { \parindent 0pt
+\ifnum \c@secnumdepth >\m@ne \raggedright\large\bf \@chapapp{} \thechapter\par
+ \vskip 8pt \fi \raggedright \@rulehead{#1} \par
+ \nobreak \vskip 50pt } }
+
+\def\@makeschapterhead#1{ { \parindent 0pt {\large\bf\phantom{Chapter}} \par
+   \vskip 8pt \raggedright
+ \@rulehead{#1} \par \nobreak \vskip 50pt } }
+
+% ---------------------------------------------------------------------
+% Make "@" an "other" again
+% ---------------------------------------------------------------------
+\makeatother
+
+% ---------------------------------------------------------------------
+% Defining acknowledgments environment
+% ---------------------------------------------------------------------
+\newenvironment
+{acknowledgments}[1]
+{\begin{quote}\noindent{}\textbf{Acknowledgments: }#1}
+{\end{quote}}

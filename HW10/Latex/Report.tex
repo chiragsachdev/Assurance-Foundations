@@ -1,0 +1,558 @@
+\documentclass{report}
+\title{Homework 10}
+\author{\textbf{Chirag Sachdev}}
+\date{Week 10}
+\usepackage{634format}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{holtex}
+\usepackage{holtexbasic}
+\input{commands}
+\input{../HOL/M1/HOLReports/HOLsm.tex}
+\input{../HOL/M1/HOLReports/HOLmOne}
+\input{../HOL/Counter/HOLReports/HOLcounter.tex}
+\begin{document}
+\lstset{language=ML, breaklines=true, basicstyle=\small}
+\maketitle{}
+
+\begin{abstract}
+This project is a part of HW10 of Assurance Foundations. The homework deals with integration of ML and HOL to \LaTeX.\ The goal of this report is to show reproducibility which is the groundwork for credibility that I have done this on my own without any external help. Every Chapter demonstrates the following sections:
+	\begin{itemize}
+		\item Problem Statement
+		\item Relevant Code
+		\item Test Results
+	\end{itemize}
+	
+This project includes the following packages:
+	\begin{description}
+		\item[\emph{634format.sty}] A format style for this course
+		\item[\emph{listings}] Package for displaying and inputting ML source code
+		\item[\emph{holtex}] HOL style files and commands to display in the report
+	\end{description}
+
+This document also demonstrates my ability to :
+	\begin{itemize}
+		\item Easily generate a table of contents,
+		\item Refer to chapter and section labels
+	\end{itemize}
+
+My skills and my professional details can be found at \url{https://www.linkedin.in/in/chiragsachdev}.
+\end{abstract}
+
+\section*{Acknowledgments}
+I would gratefully acknowledge Dr. Shiu-Kai Chin and my other professors at Syracuse University and my Professors at Drexel University for being the wonderful mentors they are to guide me through my journey of obtaining a Master's Dregree.
+
+\tableofcontents{}
+
+\chapter{Executive Summary}
+\label{cha:executive-summary}
+
+\textbf{All requirements for this project are satisfied.}
+Specifically we prove the following theorems:
+\begin{quote}
+\HOLThmTag{sm}{configuration_one_one}\HOLsmTheoremsconfigurationXXoneXXone
+\HOLThmTag{sm}{TR_cases}\HOLsmTheoremsTRXXcases
+\HOLThmTag{sm}{TR_clauses}\HOLsmTheoremsTRXXclauses
+\HOLThmTag{sm}{TR_complete}\HOLsmTheoremsTRXXcomplete
+\HOLThmTag{sm}{TR_deterministic}\HOLsmTheoremsTRXXdeterministic
+\HOLThmTag{sm}{TR_ind}\HOLsmTheoremsTRXXind
+\HOLThmTag{sm}{TR_rules}\HOLsmTheoremsTRXXrules
+\HOLThmTag{sm}{TR_strongind}\HOLsmTheoremsTRXXstrongind
+\HOLThmTag{sm}{TR_Trans_lemma}\HOLsmTheoremsTRXXTransXXlemma
+\HOLThmTag{sm}{Trans_cases}\HOLsmTheoremsTransXXcases
+\HOLThmTag{sm}{Trans_Equiv_TR}\HOLsmTheoremsTransXXEquivXXTR
+\HOLThmTag{sm}{Trans_ind}\HOLsmTheoremsTransXXind
+\HOLThmTag{sm}{Trans_rules}\HOLsmTheoremsTransXXrules
+\HOLThmTag{sm}{Trans_strongind}\HOLsmTheoremsTransXXstrongind
+\HOLThmTag{sm}{Trans_TR_lemma}\HOLsmTheoremsTransXXTRXXlemma
+\HOLThmTag{m1}{command_distinct_clauses}\HOLmOneTheoremscommandXXdistinctXXclauses
+\HOLThmTag{m1}{m1_rules}\HOLmOneTheoremsmOneXXrules
+\HOLThmTag{m1}{M1ns_def}\HOLmOneTheoremsMOnensXXdef
+\HOLThmTag{m1}{M1ns_ind}\HOLmOneTheoremsMOnensXXind
+\HOLThmTag{m1}{M1out_def}\HOLmOneTheoremsMOneoutXXdef
+\HOLThmTag{m1}{M1out_ind}\HOLmOneTheoremsMOneoutXXind
+\HOLThmTag{m1}{m1TR_clauses}\HOLmOneTheoremsmOneTRXXclauses
+\HOLThmTag{m1}{m1TR_rules}\HOLmOneTheoremsmOneTRXXrules
+\HOLThmTag{m1}{m1Trans_Equiv_TR}\HOLmOneTheoremsmOneTransXXEquivXXTR
+\HOLThmTag{m1}{output_distinct_clauses}\HOLmOneTheoremsoutputXXdistinctXXclauses
+\HOLThmTag{m1}{state_distinct_clauses}\HOLmOneTheoremsstateXXdistinctXXclauses
+\HOLThmTag{counter}{ctr_rules}\HOLcounterTheoremsctrXXrules
+\HOLThmTag{counter}{ctrcmd_distinct_clauses}\HOLcounterTheoremsctrcmdXXdistinctXXclauses
+\HOLThmTag{counter}{ctrNS_def}\HOLcounterTheoremsctrNSXXdef
+\HOLThmTag{counter}{ctrNS_ind}\HOLcounterTheoremsctrNSXXind
+\HOLThmTag{counter}{ctrOut_def}\HOLcounterTheoremsctrOutXXdef
+\HOLThmTag{counter}{ctrOut_ind}\HOLcounterTheoremsctrOutXXind
+\HOLThmTag{counter}{ctrOut_one_one}\HOLcounterTheoremsctrOutXXoneXXone
+\HOLThmTag{counter}{ctrState_one_one}\HOLcounterTheoremsctrStateXXoneXXone
+\HOLThmTag{counter}{ctrTR_clauses}\HOLcounterTheoremsctrTRXXclauses
+\HOLThmTag{counter}{ctrTR_rules}\HOLcounterTheoremsctrTRXXrules
+\HOLThmTag{counter}{ctrTrans_Equiv_TR}\HOLcounterTheoremsctrTransXXEquivXXTR
+\end{quote}
+
+\textbf{[Reproducibility in ML and \LaTeX{}]} \ \\
+  The ML and \LaTeX{} source files compile with no errors.
+
+
+%Ex 16.3.1
+\chapter{Excercise 16.3.1}
+\label{cha:16.3.1}
+
+\section{Problem statement}
+\label{problem-statement-1}
+Define a theory \emph{m1Theory} for machine M1 by defining datatypes
+for inputs, states, outputs, define the next state and next output
+functions for M1 and prove the following theorems about M1
+
+\begin{quote}
+\HOLThmTag{m1}{command_distinct_clauses}\HOLmOneTheoremscommandXXdistinctXXclauses
+\HOLThmTag{m1}{state_distinct_clauses}\HOLmOneTheoremsstateXXdistinctXXclauses
+\HOLThmTag{m1}{output_distinct_clauses}\HOLmOneTheoremsoutputXXdistinctXXclauses
+\HOLThmTag{m1}{m1TR_rules}\HOLmOneTheoremsmOneTRXXrules
+\HOLThmTag{m1}{m1TR_clauses}\HOLmOneTheoremsmOneTRXXclauses
+\HOLThmTag{m1}{m1Trans_Equiv_TR}\HOLmOneTheoremsmOneTransXXEquivXXTR
+\HOLThmTag{m1}{m1_rules}\HOLmOneTheoremsmOneXXrules
+\end{quote}
+
+\section{Proof 16.3.1 A}
+\label{proof-1}
+
+\subsection{Relevant Code}
+\label{rel-code-1}
+\begin{lstlisting}[frame=TBlr]
+val _ = Datatype`command = i0 | i1`
+val command_distinct_clauses = distinct_of``:command``
+val _ = save_thm("command_distinct_clauses",command_distinct_clauses)
+
+val _ = Datatype`state = S0 | S1 | S2`
+val state_distinct_clauses = distinct_of``:state``
+val _ = save_thm("state_distinct_clauses",state_distinct_clauses)
+
+val _ = Datatype`output = o0 | o1`
+val output_distinct_clauses = distinct_of``:output``
+val _ = save_thm("output_distinct_clauses",output_distinct_clauses)
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans1}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+
+<<HOL message: Defined type: "command">>
+<<HOL message: Defined type: "state">>
+<<HOL message: Defined type: "output">>
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+\pagebreak
+
+%%
+\section{Proof 16.3.1 B}
+\label{proof-2}
+
+\subsection{Relevant Code}
+\label{rel-code-2}
+\begin{lstlisting}[frame=TBlr]
+
+val M1ns_def =
+    Define`(M1ns S0 i0 = S1) /\ (M1ns S0 i1 = S2) /\
+       (M1ns S1 i0 = S0) /\ (M1ns S1 i1 = S0) /\
+       (M1ns S2 i0 = S2) /\ (M1ns S2 i1 = S2)`;
+
+
+val M1out_def =
+    Define`(M1out S0 i0 = o0) /\ (M1out S0 i1 = o1) /\
+       (M1out S1 i0 = o0) /\ (M1out S1 i1 = o0) /\
+       (M1out S2 i0 = o1) /\ (M1out S2 i1 = o1)`;
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans2}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+val M1ns_def =
+   |- (M1ns S0 i0 = S1) /\ (M1ns S0 i1 = S2) /\ (M1ns S1 i0 = S0) /\
+   (M1ns S1 i1 = S0) /\ (M1ns S2 i0 = S2) /\ (M1ns S2 i1 = S2):
+   thm
+val command_distinct_clauses =
+   |- i0 <> i1:
+   thm
+val output_distinct_clauses =
+   |- o0 <> o1:
+   thm
+val state_distinct_clauses =
+   |- S0 <> S1 /\ S0 <> S2 /\ S1 <> S2:
+   thm
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("M1out_tupled")
+  invalidated by DelConstant(m1$M1out_tupled)>>
+Equations stored under "M1out_def".
+Induction stored under "M1out_ind".
+val M1out_def =
+   |- (M1out S0 i0 = o0) /\ (M1out S0 i1 = o1) /\ (M1out S1 i0 = o0) /\
+   (M1out S1 i1 = o0) /\ (M1out S2 i0 = o1) /\ (M1out S2 i1 = o1):
+   thm
+val m1TR_clauses =
+   |- (!(x :'input) (x1s :'input list) (s1 :'state) (out1s :'output list)
+       (x2s :'input list) (out2s :'output list) (s2 :'state).
+      TR x (CFG x1s s1 out1s) (CFG x2s s2 out2s) <=>
+      ?(NS :'state -> 'input -> 'state)
+         (Out :'state -> 'input -> 'output) (ins :'input list).
+        (x1s = x::ins) /\ (x2s = ins) /\ (s2 = NS s1 x) /\
+        (out2s = Out s1 x::out1s)) /\
+   !(x :command) (x1s :command list) (s1 :state) (out1s :output list)
+      (x2s :command list) (out2s :output list).
+     TR x (CFG x1s s1 out1s)
+       (CFG x2s (M1ns s1 x) (M1out s1 x::out2s)) <=>
+     ?(ins :command list).
+       (x1s = x::ins) /\ (x2s = ins) /\ (out2s = out1s):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof 16.3.1 C}
+\label{proof-3}
+
+\subsection{Relevant Code}
+\label{rel-code-3}
+\begin{lstlisting}[frame=TBlr]
+
+val m1TR_rules = SPEC_TR ``M1ns`` ``M1out``
+val _ = save_thm("m1TR_rules",m1TR_rules)
+
+val m1TR_clauses = SPEC_TR_clauses ``M1ns`` ``M1out``
+val _ = save_thm("m1TR_clauses",m1TR_clauses)
+
+val m1Trans_Equiv_TR = SPEC_Trans_Equiv_TR ``M1ns`` ``M1out``
+val _ = save_thm("m1Trans_Equiv_TR",m1Trans_Equiv_TR)
+
+val th1 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S0``,``i0``] m1TR_rules)
+val th2 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S0``,``i1``] m1TR_rules)
+val th3 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S1``,``i0``] m1TR_rules)
+val th4 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S1``,``i1``] m1TR_rules)
+val th5 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S2``,``i0``] m1TR_rules)
+val th6 = REWRITE_RULE[M1ns_def,M1out_def](SPECL[``S2``,``i1``] m1TR_rules)
+
+val m1_rules = LIST_CONJ [th1,th2,th3,th4,th5,th6]
+val _ = save_thm("m1_rules",m1_rules)
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans3}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+val m1TR_clauses =
+   |- (!(x :'input) (x1s :'input list) (s1 :'state) (out1s :'output list)
+       (x2s :'input list) (out2s :'output list) (s2 :'state).
+      TR x (CFG x1s s1 out1s) (CFG x2s s2 out2s) <=>
+      ?(NS :'state -> 'input -> 'state)
+         (Out :'state -> 'input -> 'output) (ins :'input list).
+        (x1s = x::ins) /\ (x2s = ins) /\ (s2 = NS s1 x) /\
+        (out2s = Out s1 x::out1s)) /\
+   !(x :command) (x1s :command list) (s1 :state) (out1s :output list)
+      (x2s :command list) (out2s :output list).
+     TR x (CFG x1s s1 out1s)
+       (CFG x2s (M1ns s1 x) (M1out s1 x::out2s)) <=>
+     ?(ins :command list).
+       (x1s = x::ins) /\ (x2s = ins) /\ (out2s = out1s):
+   thm
+val m1TR_rules =
+   |- !(s :state) (x :command) (ins :command list) (outs :output list).
+     TR x (CFG (x::ins) s outs) (CFG ins (M1ns s x) (M1out s x::outs)):
+   thm
+val m1Trans_Equiv_TR =
+   |- TR (x :command)
+     (CFG (x::(ins :command list)) (s :state) (outs :output list))
+     (CFG ins (M1ns s x) (M1out s x::outs)) <=> Trans x s (M1ns s x):
+   thm
+val m1_rules =
+   |- (!(ins :command list) (outs :output list).
+      TR i0 (CFG (i0::ins) S0 outs) (CFG ins S1 (o0::outs))) /\
+   (!(ins :command list) (outs :output list).
+      TR i1 (CFG (i1::ins) S0 outs) (CFG ins S2 (o1::outs))) /\
+   (!(ins :command list) (outs :output list).
+      TR i0 (CFG (i0::ins) S1 outs) (CFG ins S0 (o0::outs))) /\
+   (!(ins :command list) (outs :output list).
+      TR i1 (CFG (i1::ins) S1 outs) (CFG ins S0 (o0::outs))) /\
+   (!(ins :command list) (outs :output list).
+      TR i0 (CFG (i0::ins) S2 outs) (CFG ins S2 (o1::outs))) /\
+   !(ins :command list) (outs :output list).
+     TR i1 (CFG (i1::ins) S2 outs) (CFG ins S2 (o1::outs)):
+   thm
+val th1 =
+   |- !(ins :command list) (outs :output list).
+     TR i0 (CFG (i0::ins) S0 outs) (CFG ins S1 (o0::outs)):
+   thm
+val th2 =
+   |- !(ins :command list) (outs :output list).
+     TR i1 (CFG (i1::ins) S0 outs) (CFG ins S2 (o1::outs)):
+   thm
+val th3 =
+   |- !(ins :command list) (outs :output list).
+     TR i0 (CFG (i0::ins) S1 outs) (CFG ins S0 (o0::outs)):
+   thm
+val th4 =
+   |- !(ins :command list) (outs :output list).
+     TR i1 (CFG (i1::ins) S1 outs) (CFG ins S0 (o0::outs)):
+   thm
+val th5 =
+   |- !(ins :command list) (outs :output list).
+     TR i0 (CFG (i0::ins) S2 outs) (CFG ins S2 (o1::outs)):
+   thm
+val th6 =
+   |- !(ins :command list) (outs :output list).
+     TR i1 (CFG (i1::ins) S2 outs) (CFG ins S2 (o1::outs)):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+
+
+
+
+
+% Ex 16.3.2
+\chapter{Excercise 16.3.2}
+\label{cha:16.3.2}
+
+\section{Problem statement}
+\label{problem-statement-2}
+Define a theory counterTheory for the down counter by defining
+datatypes for inputs, states, outputs, define the next state and next
+output functions for down counter and prove the following theorems
+about down counter
+
+\begin{quote}
+\HOLThmTag{counter}{ctrcmd_distinct_clauses}\HOLcounterTheoremsctrcmdXXdistinctXXclauses
+\HOLThmTag{counter}{ctrState_one_one}\HOLcounterTheoremsctrStateXXoneXXone
+\HOLThmTag{counter}{ctrOut_one_one}\HOLcounterTheoremsctrOutXXoneXXone
+\HOLThmTag{counter}{ctrTR_rules}\HOLcounterTheoremsctrTRXXrules
+\HOLThmTag{counter}{ctrTR_clauses}\HOLcounterTheoremsctrTRXXclauses
+\HOLThmTag{counter}{ctrTrans_Equiv_TR}\HOLcounterTheoremsctrTransXXEquivXXTR
+\HOLThmTag{counter}{ctr_rules}\HOLcounterTheoremsctrXXrules
+\end{quote}
+
+
+\section{Proof 16.3.2 A}
+\label{proof-4}
+
+\subsection{Relevant Code}
+\label{rel-code-4}
+\begin{lstlisting}[frame=TBlr]
+
+val _ = Datatype `ctrcmd = load num | count | hold`
+val ctrcmd_distinct_clauses = distinct_of``:ctrcmd``
+val _ = save_thm("ctrcmd_distinct_clauses",ctrcmd_distinct_clauses)
+
+val _ = Datatype `ctrState = COUNT num`
+val ctrState_one_one = one_one_of``:ctrState``
+val _ = save_thm("ctrState_one_one",ctrState_one_one)
+
+val _ = Datatype `ctrOut = DISPLAY num`
+val ctrOut_one_one = one_one_of``:ctrOut``
+val _ = save_thm("ctrOut_one_one",ctrOut_one_one)
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans4}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+<<HOL message: Defined type: "ctrcmd">>
+<<HOL message: Defined type: "ctrState">>
+<<HOL message: Defined type: "ctrOut">>
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+%%
+\section{Proof 16.3.2 B}
+\label{proof-5}
+
+\subsection{Relevant Code}
+\label{rel-code-5}
+\begin{lstlisting}[frame=TBlr]
+
+val ctrNS_def = Define
+    	      `(ctrNS (COUNT n) (load k) = (COUNT k)) /\
+    	      (ctrNS (COUNT n) (count) = (COUNT (n-1))) /\
+    	      (ctrNS (COUNT n) (hold) = (COUNT n))`; 
+
+val ctrOut_def = Define
+    	       `(ctrOut (COUNT n) (load k) = (DISPLAY k)) /\
+ 	       	(ctrOut (COUNT n) (count) = (DISPLAY (n-1))) /\
+ 		(ctrOut (COUNT n) (hold) = (DISPLAY n))`;
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans5}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+Equations stored under "ctrNS_def".
+Induction stored under "ctrNS_ind".
+val ctrNS_def =
+   |- !(n :num) (k :num).
+     (ctrNS (COUNT n) (load k) = COUNT k) /\
+     (ctrNS (COUNT n) count = COUNT (n - (1 :num))) /\
+     (ctrNS (COUNT n) hold = COUNT n):
+   thm
+val ctrOut_one_one =
+   |- !(a :num) (a' :num). (DISPLAY a = DISPLAY a') <=> (a = a'):
+   thm
+val ctrState_one_one =
+   |- !(a :num) (a' :num). (COUNT a = COUNT a') <=> (a = a'):
+   thm
+val ctrcmd_distinct_clauses =
+   |- (!(a :num). load a <> count) /\ (!(a :num). load a <> hold) /\
+   count <> hold:
+   thm
+<<HOL warning: GrammarDeltas.revise_data: 
+  Grammar-deltas:
+    overload_on("ctrOut_tupled")
+  invalidated by DelConstant(counter$ctrOut_tupled)>>
+Equations stored under "ctrOut_def".
+Induction stored under "ctrOut_ind".
+val ctrOut_def =
+   |- !(n :num) (k :num).
+     (ctrOut (COUNT n) (load k) = DISPLAY k) /\
+     (ctrOut (COUNT n) count = DISPLAY (n - (1 :num))) /\
+     (ctrOut (COUNT n) hold = DISPLAY n):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+%%
+\section{Proof 16.3.2 C}
+\label{proof-6}
+
+\subsection{Relevant Code}
+\label{rel-code-6}
+\begin{lstlisting}[frame=TBlr]
+
+val ctrTR_rules = SPEC_TR ``ctrNS`` ``ctrOut``
+val _ = save_thm("ctrTR_rules",ctrTR_rules)
+
+val ctrTR_clauses = SPEC_TR_clauses ``ctrNS`` ``ctrOut``
+val _ = save_thm("ctrTR_clauses",ctrTR_clauses)
+
+val ctrTrans_Equiv_TR = SPEC_Trans_Equiv_TR ``ctrNS`` ``ctrOut``
+val _ = save_thm("ctrTrans_Equiv_TR",ctrTrans_Equiv_TR)
+
+val th1 = REWRITE_RULE [ctrNS_def,ctrOut_def] (SPECL[``COUNT n``,``load new``] ctrTR_rules)
+val th2 = REWRITE_RULE [ctrNS_def,ctrOut_def] (SPECL[``COUNT n``,``count``] ctrTR_rules)
+val th3 = REWRITE_RULE [ctrNS_def,ctrOut_def] (SPECL[``COUNT n``,``hold``] ctrTR_rules) 
+val ctr_rules = LIST_CONJ [th1,th2,th3]
+val _ = save_thm("ctr_rules",ctr_rules)
+
+\end{lstlisting}
+
+\subsection{Session Transcript}
+\label{trans6}
+\begin{session}
+  \begin{scriptsize}
+\begin{verbatim}
+
+val ctrTR_clauses =
+   |- (!(x :'input) (x1s :'input list) (s1 :'state) (out1s :'output list)
+       (x2s :'input list) (out2s :'output list) (s2 :'state).
+      TR x (CFG x1s s1 out1s) (CFG x2s s2 out2s) <=>
+      ?(NS :'state -> 'input -> 'state)
+         (Out :'state -> 'input -> 'output) (ins :'input list).
+        (x1s = x::ins) /\ (x2s = ins) /\ (s2 = NS s1 x) /\
+        (out2s = Out s1 x::out1s)) /\
+   !(x :ctrcmd) (x1s :ctrcmd list) (s1 :ctrState) (out1s :ctrOut list)
+      (x2s :ctrcmd list) (out2s :ctrOut list).
+     TR x (CFG x1s s1 out1s)
+       (CFG x2s (ctrNS s1 x) (ctrOut s1 x::out2s)) <=>
+     ?(ins :ctrcmd list).
+       (x1s = x::ins) /\ (x2s = ins) /\ (out2s = out1s):
+   thm
+val ctrTR_rules =
+   |- !(s :ctrState) (x :ctrcmd) (ins :ctrcmd list) (outs :ctrOut list).
+     TR x (CFG (x::ins) s outs) (CFG ins (ctrNS s x) (ctrOut s x::outs)):
+   thm
+val ctrTrans_Equiv_TR =
+   |- TR (x :ctrcmd)
+     (CFG (x::(ins :ctrcmd list)) (s :ctrState) (outs :ctrOut list))
+     (CFG ins (ctrNS s x) (ctrOut s x::outs)) <=> Trans x s (ctrNS s x):
+   thm
+val ctr_rules =
+   |- (!(ins :ctrcmd list) (outs :ctrOut list).
+      TR (load (new :num)) (CFG (load new::ins) (COUNT (n :num)) outs)
+        (CFG ins (COUNT new) (DISPLAY new::outs))) /\
+   (!(ins :ctrcmd list) (outs :ctrOut list).
+      TR count (CFG (count::ins) (COUNT n) outs)
+        (CFG ins (COUNT (n - (1 :num)))
+           (DISPLAY (n - (1 :num))::outs))) /\
+   !(ins :ctrcmd list) (outs :ctrOut list).
+     TR hold (CFG (hold::ins) (COUNT n) outs)
+       (CFG ins (COUNT n) (DISPLAY n::outs)):
+   thm
+val th1 =
+   |- !(ins :ctrcmd list) (outs :ctrOut list).
+     TR (load (new :num)) (CFG (load new::ins) (COUNT (n :num)) outs)
+       (CFG ins (COUNT new) (DISPLAY new::outs)):
+   thm
+val th2 =
+   |- !(ins :ctrcmd list) (outs :ctrOut list).
+     TR count (CFG (count::ins) (COUNT (n :num)) outs)
+       (CFG ins (COUNT (n - (1 :num))) (DISPLAY (n - (1 :num))::outs)):
+   thm
+val th3 =
+   |- !(ins :ctrcmd list) (outs :ctrOut list).
+     TR hold (CFG (hold::ins) (COUNT (n :num)) outs)
+       (CFG ins (COUNT n) (DISPLAY n::outs)):
+   thm
+
+\end{verbatim}
+  \end{scriptsize}
+\end{session}
+
+
+
+
+
+\appendix{}
+
+\chapter{Source code: smScript}
+\label{cha:source-code-1}
+\lstinputlisting{../HOL/smScript.sml}
+
+\chapter{Source code: m1Script}
+\label{cha:source-code-2}
+\lstinputlisting{../HOL/M1/m1Script.sml}
+
+\chapter{Source code: counterScript}
+\label{cha:source-code-3}
+\lstinputlisting{../HOL/Counter/counterScript.sml}
+\end{document}

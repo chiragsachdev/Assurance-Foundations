@@ -1,0 +1,41 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > > > > # # Static Errors
+> # <<HOL message: Defined type: "nexp">>
+> > # # # # # Definition has been stored under "nexpVal_def"
+val nexpValDef =
+   |- (∀num. nexpVal (Num num) = num) ∧
+   (∀f1 f2. nexpVal (Add f1 f2) = nexpVal f1 + nexpVal f2) ∧
+   (∀f1 f2. nexpVal (Sub f1 f2) = nexpVal f1 − nexpVal f2) ∧
+   ∀f1 f2. nexpVal (Mult f1 f2) = nexpVal f1 * nexpVal f2:
+   thm
+> > # # # # # val Add0 =
+   |- ∀f. nexpVal (Add (Num 0) f) = nexpVal f:
+   thm
+> > > # # # # # Meson search level: ..........
+Meson search level: ..........
+Meson search level: ..........
+Meson search level: ..........
+val Add_SYM =
+   |- ∀f1 f2. nexpVal (Add f1 f2) = nexpVal (Add f2 f1):
+   thm
+> > > # # # # # # Meson search level: ........................
+Meson search level: ........................
+Meson search level: ........................
+Meson search level: ........................
+val Sub_0 =
+   |- ∀f.
+     (nexpVal (Sub (Num 0) f) = 0) ∧
+     (nexpVal (Sub f (Num 0)) = nexpVal f):
+   thm
+> > > # # # # # # val Mult_ASSOC =
+   |- ∀f1 f2 f3.
+     nexpVal (Mult f1 (Mult f2 f3)) = nexpVal (Mult (Mult f1 f2) f3):
+   thm
+> 
+Process HOL finished

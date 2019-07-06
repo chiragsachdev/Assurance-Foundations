@@ -1,0 +1,30 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 11 (stdknl, built Sat Aug 19 09:30:06 2017)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > val x1 = 1: int
+val x2 = true: bool
+val x3 = "Alice": string
+> val pair1 = (1, "Alice"): int * string
+> val list1 = [0, 1, 2]: int list
+> poly: : error: Elements in a list have different types.
+   Item 1: x2 : bool
+   Item 2: x1 : int
+   Reason:
+      Can't unify bool (*In Basis*) with int (*In Basis*)
+         (Different type constructors)
+Found near [x2, x1]
+Static Errors
+> poly: : error: Type error in function application.
+   Function: :: : int * int list -> int list
+   Argument: (1, [x3]) : int * string list
+   Reason:
+      Can't unify int (*In Basis*) with string (*In Basis*)
+         (Different type constructors)
+Found near (1 :: [x3])
+Static Errors
+> 
+Process HOL finished
